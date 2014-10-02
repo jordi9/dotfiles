@@ -1,0 +1,51 @@
+[user]
+	name = Jordi Gerona
+	email = jordi9@trovit.com
+[core]
+	excludesfile = /Users/jordigerona/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	st = status
+	ci = commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
+	co = checkout
+	b = branch
+	r = rebase
+	m = merge
+	springcleaning = for-each-ref --sort=-committerdate --format='%(refname:short) %(committerdate:short)'
+	sb = status -sb
+  # Show the diff between the latest commit and the current state
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager difftool --patch-with-stat"
+  # `git di $number` shows the diff between the state `$number` revisions ago and the current state
+  di = !"d() { git difftool --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+	showtool = "!sh -c 'if [ -z $1 ]; then REVISION=HEAD; else REVISION=$1; fi; git difftool $REVISION~ $REVISION' -"
+[color]
+  # Use colors in Git commands that are capable of colored output when outputting to the terminal
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow 
+  frag = magenta 
+  old = red 
+  new = green 
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[push]
+	default = simple
+[svn]
+	authorsfile = /Users/jordigerona/authors.txt
+[diff]
+	tool = vimdiff2
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
