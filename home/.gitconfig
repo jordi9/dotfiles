@@ -42,8 +42,6 @@
   untracked = cyan
 [push]
 	default = simple
-[svn]
-	authorsfile = /Users/jordigerona/authors.txt
 [diff]
 	tool = vimdiff2
 [filter "media"]

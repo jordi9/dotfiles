@@ -1,7 +1,15 @@
 #!/bin/bash
 
+brew cask install google-chrome-beta
 brew cask install dropbox
+brew cask install evernote
 brew cask install radiant-player
 brew cask install alfred
 brew cask install moom
 brew cask install witch
+brew cask install flux
+brew cast install iterm2
+brew cask install the-unarchiver
+brew cask install mou
+brew cask install sourcetree
+brew cask install swinsian
