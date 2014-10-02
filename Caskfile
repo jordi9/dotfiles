@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 brew cask install dropbox
 brew cask install radiant-player
