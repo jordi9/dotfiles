@@ -1,6 +1,10 @@
 dotfiles
 ========
 
+A combination of Antigen, Homesick and Dropbox dotfiles setup. 
+
+Inspiration: technicalpickles/homesick, mathiasbynens/dotfiles
+
 # Instalation 
 
 ## Homebrew
@@ -9,7 +13,7 @@ dotfiles
 
 ## Homesick
 
-   gem install homesick
+    gem install homesick
 
 Now it's time to clone the dotfiles as a Castle
 
@@ -35,7 +39,7 @@ And Apps
 
 ### Private dotfiles
 
-With Dropbox in place, it's time to setup son links for private stuff
+With Dropbox in place, it's time to setup some links for private stuff
 
     init/private.zsh
 
