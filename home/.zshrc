@@ -26,6 +26,3 @@ antigen theme $HOME/.homesick/repos/dotfiles/themes/in-fino-veritas.zsh-theme --
 # Tell antigen that you're done.
 antigen apply
 
-# Cask options
-export HOMEBREW_CASK_OPTS="--caskroom=/opt/Apps"
-

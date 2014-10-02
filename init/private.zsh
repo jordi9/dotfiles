@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # SSH config
 mkdir .ssh
 ln -s ~/Dropbox/.dotfiles_private/.ssh/id_rsa ~/.ssh
