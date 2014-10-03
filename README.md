@@ -3,7 +3,7 @@ dotfiles
 
 A combination of Antigen, Homesick and Dropbox dotfiles setup. 
 
-Some inspiration: [technicalpickles/homesick](www.github.com/technicalpickles/homesick), [mathiasbynens/dotfiles](www.github.com/mathiasbynens/dotfiles)
+Some inspiration: [technicalpickles/homesick](http://www.github.com/technicalpickles/homesick), [mathiasbynens/dotfiles](http://www.github.com/mathiasbynens/dotfiles)
 
 # Instalation 
 
