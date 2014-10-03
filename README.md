@@ -9,6 +9,8 @@ Some inspiration: [technicalpickles/homesick](http://www.github.com/technicalpic
 
 ## Homebrew
 
+Installing Homebrew first we will get Command Line Tools (required) and an old git version for free that would do the trick to use homesick
+
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 ## Homesick
