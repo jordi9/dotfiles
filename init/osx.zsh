@@ -21,9 +21,6 @@ defaults write NSGlobalDomain KeyRepeat -int 0
 # Finder
 ########
 
-# Finder: show all filename extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
 
