@@ -24,6 +24,10 @@
   # `git di $number` shows the diff between the state `$number` revisions ago and the current state
   di = !"d() { git difftool --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 	showtool = "!sh -c 'if [ -z $1 ]; then REVISION=HEAD; else REVISION=$1; fi; git difftool $REVISION~ $REVISION' -"
+[core]
+  # Use custom `.gitignore` and `.gitattributes`
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
 [color]
   # Use colors in Git commands that are capable of colored output when outputting to the terminal
   ui = auto
