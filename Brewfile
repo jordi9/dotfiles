@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Make sure we’re using the latest Homebrew
-update
+brew update
 
 # Upgrade any already-installed formulae
-upgrade
+brew upgrade
 
 brew install git
 

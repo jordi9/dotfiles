@@ -1,15 +1,25 @@
 #!/bin/bash
 
+brew install caskroom/cask/brew-cask
+
+brew tap caskroom/versions
+
 brew cask install google-chrome-beta
-brew cask install dropbox
+# brew cask install dropbox
 brew cask install evernote
 brew cask install radiant-player
 brew cask install alfred
 brew cask install moom
 brew cask install witch
 brew cask install flux
-brew cast install iterm2
+brew cask install iterm2
 brew cask install the-unarchiver
 brew cask install mou
 brew cask install sourcetree
 brew cask install swinsian
+brew cask install adium
+brew cask install intellij-idea
+brew cask install bettertouchtool
+brew cask install mailbox
+
+brew cask alfred link
