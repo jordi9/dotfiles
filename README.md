@@ -1,11 +1,11 @@
 dotfiles
 ========
 
-A combination of Antigen, Homesick and Dropbox dotfiles setup. 
+A combination of Antigen, Homesick and some private repos at Bitbucket dotfiles setup. 
 
 Some inspiration: [technicalpickles/homesick](http://www.github.com/technicalpickles/homesick), [mathiasbynens/dotfiles](http://www.github.com/mathiasbynens/dotfiles)
 
-# Instalation 
+# Installation 
 
 ## Homebrew
 
@@ -15,17 +15,29 @@ Installing Homebrew first we will get Command Line Tools (required) and an old g
 
 ## Homesick
 
+Install Homesick first
+
     gem install homesick
 
-Now it's time to clone the dotfiles as a Castle
+Time to set up my ssh keys
 
-    homesick clone jordi9/dotfiles
+    homesick clone https://jordi9@bitbucket.org/jordi9/ssh-home.git
+    homesick link ssh-home
 
-And linking time
+Fix file permissions
 
+    sudo chmod 600 ~/.ssh/id_rsa
+    sudo chmod 600 ~/.ssh/id_rsa.pub
+
+Now it's time to clone this dotfiles as a Castle
+
+    homesick clone git@github.com:jordi9/dotfiles.git
     homesick link dotfiles
 
-Start a new shell and everything should be in place
+And private scripts and settings
+
+    homesick clone git@bitbucket.org:jordi9/private-home.git
+    homesick link private-home
 
 ## Brew
 
@@ -38,12 +50,6 @@ And Apps
     ./Caskfile
 
 ## One time scripts
-
-### Private dotfiles
-
-With Dropbox in place, it's time to setup some links for private stuff
-
-    init/private.zsh
 
 ### OS X config
 

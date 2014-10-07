@@ -4,7 +4,7 @@
 export HOMEBREW_CASK_OPTS="--caskroom=/opt/apps"
 
 # The PATH
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.bin
 
 # Aliases
 #########
