@@ -23,6 +23,8 @@ brew cask install bettertouchtool
 brew cask install mailbox
 brew cask install sequel-pro
 brew cask install todoist
+brew cask install music-manager
+brew cask install xld
 
 brew cask alfred link
 
