@@ -5,8 +5,9 @@ brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
 brew cask install google-chrome-beta
-# brew cask install dropbox
+brew cask install dropbox
 brew cask install evernote
+brew cask install java7
 brew cask install radiant-player
 brew cask install alfred
 brew cask install moom

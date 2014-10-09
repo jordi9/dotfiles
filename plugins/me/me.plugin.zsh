@@ -7,7 +7,7 @@ export HOMEBREW_CASK_OPTS="--caskroom=/opt/apps"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.bin
 
 # Set desired java version
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
 
 # Set locale properly
 export LANG=en_US.UTF-8

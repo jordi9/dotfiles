@@ -12,6 +12,7 @@ brew install htop
 brew install wget
 brew install pv
 brew install tree
+brew install mysql
 
 # JDK
 brew install maven
