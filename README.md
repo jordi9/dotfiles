@@ -39,6 +39,10 @@ And private scripts and settings
     homesick clone git@bitbucket.org:jordi9/private-home.git
     homesick link private-home
 
+Time to change the shell to zsh
+
+    chsh -s /bin/zsh
+
 ## Brew
 
 Install cli tools

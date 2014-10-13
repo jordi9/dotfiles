@@ -4,12 +4,17 @@ brew install caskroom/cask/brew-cask
 
 brew tap caskroom/versions
 
+brew cask install alfred
+brew cask alfred link
+
+brew cask install logitech-control-center
+brew cask install adium
 brew cask install google-chrome-beta
 brew cask install dropbox
 brew cask install evernote
+brew cask install skitch
 brew cask install java7
 brew cask install radiant-player
-brew cask install alfred
 brew cask install moom
 brew cask install witch
 brew cask install flux
@@ -18,7 +23,6 @@ brew cask install the-unarchiver
 brew cask install mou
 brew cask install sourcetree
 brew cask install swinsian
-brew cask install adium
 brew cask install intellij-idea
 brew cask install bettertouchtool
 brew cask install mailbox
@@ -26,8 +30,6 @@ brew cask install sequel-pro
 brew cask install todoist
 brew cask install music-manager
 brew cask install xld
-
-brew cask alfred link
 
 # Manual installation
 #######################
