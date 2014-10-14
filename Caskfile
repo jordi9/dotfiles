@@ -31,4 +31,5 @@ brew cask install todoist
 brew cask install music-manager
 brew cask install xld
 brew cask install caffeine
+brew cask install asepsis
 
