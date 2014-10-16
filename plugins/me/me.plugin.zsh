@@ -29,4 +29,7 @@ alias reload-dock="killall Dock"
 # Add a spacer to the left side of the Dock (where the applications are)
 alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}' && reload-dock"
 
+# Misc
+######
 
+alias copy-mysql-driver="cp ~/.m2/repository/mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar ."
