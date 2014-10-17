@@ -19,7 +19,7 @@ alias homecnf="cd ~/.homesick/repos/dotfiles"
 alias zcnf="vim ~/.zshrc"
 alias reload="source ~/.zshrc"
 alias mvn="mvn-color"
-
+alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 # Mac
 #####
 
