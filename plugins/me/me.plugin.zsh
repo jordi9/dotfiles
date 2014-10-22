@@ -18,7 +18,7 @@ export LC_ALL=en_US.UTF-8
 alias homecnf="cd ~/.homesick/repos/dotfiles"
 alias zcnf="vim ~/.zshrc"
 alias reload="source ~/.zshrc"
-alias mvn="mvn-color"
+#alias mvn="mvn-color"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 # Mac
 #####
@@ -33,3 +33,19 @@ alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add 
 ######
 
 alias copy-mysql-driver="cp ~/.m2/repository/mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar ."
+
+# Audophile
+###########
+
+function transcode () {
+  echo 'Transcoding FLAC files to 16-bit'
+  mkdir resampled # make a subdirectory to put our files in
+
+  for file in *.flac
+    do
+      newfile=`echo "$file" | sed "s/ /_/g"`
+      mv "$file" "$newfile" # get rid of filename spaces to avoid errors
+      sox -S $newfile -b 16 "resampled/$newfile" # resample
+      mv "$newfile" "$file" # put stuff back the way we found it
+    done
+}

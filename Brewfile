@@ -27,3 +27,6 @@ brew install thrift
 brew install protobuf
 brew install liquibase
 brew install grails
+
+# Audiophile
+brew install sox --with-flac

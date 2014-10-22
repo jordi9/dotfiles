@@ -1,5 +1,3 @@
-# Good example: https://github.com/add20/dotfiles
-
 source ~/.homesick/repos/dotfiles/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
