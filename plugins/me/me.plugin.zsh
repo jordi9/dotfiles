@@ -20,6 +20,8 @@ alias zcnf="vim ~/.zshrc"
 alias reload="source ~/.zshrc"
 #alias mvn="mvn-color"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
+alias ge="gradle"
+
 # Mac
 #####
 
@@ -45,7 +47,7 @@ function transcode () {
     do
       newfile=`echo "$file" | sed "s/ /_/g"`
       mv "$file" "$newfile" # get rid of filename spaces to avoid errors
-      sox -S $newfile -b 16 "resampled/$newfile" # resample
+      sox -S $newfile -b 16 -r 44100 "resampled/$newfile" # resample
       mv "$newfile" "$file" # put stuff back the way we found it
     done
 }
