@@ -30,3 +30,7 @@ brew install grails
 
 # Audiophile
 brew install sox --with-flac
+
+# Nerdy 
+# Advent calendar http://www.qemu-advent-calendar.org/
+brew install qemu

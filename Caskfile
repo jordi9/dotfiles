@@ -35,4 +35,6 @@ brew cask install adobe-reader
 brew cask install transmission
 brew cask install android-file-transfer
 brew cask install teamviewer
+brew cask install picasa
+brew cask install vlc
 
