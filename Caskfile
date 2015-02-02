@@ -37,4 +37,5 @@ brew cask install android-file-transfer
 brew cask install teamviewer
 brew cask install picasa
 brew cask install vlc
+brew cask install soulver
 

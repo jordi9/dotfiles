@@ -21,6 +21,7 @@ alias reload="source ~/.zshrc"
 #alias mvn="mvn-color"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 alias ge="gradle"
+alias fucking="sudo"
 
 # Mac
 #####

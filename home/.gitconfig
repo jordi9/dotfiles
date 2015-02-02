@@ -28,7 +28,7 @@
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
-	autocrlf = input
+	autocrlf = input 
 [color]
   # Use colors in Git commands that are capable of colored output when outputting to the terminal
   ui = auto
@@ -52,3 +52,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[pull]
+	rebase = true
