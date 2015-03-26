@@ -22,6 +22,7 @@ alias reload="source ~/.zshrc"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 alias ge="gradle"
 alias fucking="sudo"
+alias gf="git fetch"
 
 # Mac
 #####

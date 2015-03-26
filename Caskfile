@@ -38,4 +38,6 @@ brew cask install teamviewer
 brew cask install picasa
 brew cask install vlc
 brew cask install soulver
+brew cask install disk-inventory-x
+brew cask install libreoffice
 
