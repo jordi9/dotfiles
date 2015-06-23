@@ -40,4 +40,5 @@ brew cask install vlc
 brew cask install soulver
 brew cask install disk-inventory-x
 brew cask install libreoffice
+brew cask install chicken
 

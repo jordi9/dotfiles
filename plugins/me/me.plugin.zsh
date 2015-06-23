@@ -3,15 +3,17 @@
 # Cask options
 export HOMEBREW_CASK_OPTS="--caskroom=/opt/apps"
 
-# The PATH
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.bin
-
 # Set desired java version
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
 
 # Set locale properly
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+export GOPATH=~/.gopath
+
+# The PATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.bin:$GOPATH/bin
 
 # Aliases
 #########
@@ -23,6 +25,9 @@ alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 alias ge="gradle"
 alias fucking="sudo"
 alias gf="git fetch"
+alias wr="cd ~/workspace/homeland/rtb"
+alias wn="cd ~/workspace/nebraska"
+alias s="ssh" 
 
 # Mac
 #####

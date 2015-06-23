@@ -19,7 +19,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
 # Theme I like: fox
-antigen theme $HOME/.homesick/repos/dotfiles/themes/in-fino-veritas.zsh-theme --no-local-clone
+antigen theme $HOME/.homesick/repos/dotfiles themes/in-fino-veritas --no-local-clone
 
 # Tell antigen that you're done.
 antigen apply
