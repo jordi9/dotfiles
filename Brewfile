@@ -14,6 +14,7 @@ brew install pv
 brew install tree
 brew install mysql
 brew install redis
+brew install ack
 
 # Install more recent versions of some OS X tools
 brew install vim --override-system-vi
