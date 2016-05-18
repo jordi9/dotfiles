@@ -27,7 +27,19 @@ alias fucking="sudo"
 alias gf="git fetch"
 alias wr="cd ~/workspace/homeland/rtb"
 alias wn="cd ~/workspace/nebraska"
-alias s="ssh" 
+alias s="ssh"
+
+function gl () {
+  local old_rev="$(git rev-parse HEAD)"
+  git pull
+  local new_rev="$(git rev-parse HEAD)"
+  if [[ -n $old_rev && $old_rev != $new_rev ]]; then
+    echo Updated from ${old_rev:0:7} to ${new_rev:0:7}.
+    git --no-pager log --oneline --reverse --no-merges --stat '@{1}..'
+  fi
+}
+
+alias gl=gl
 
 # Mac
 #####
