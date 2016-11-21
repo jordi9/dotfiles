@@ -4,7 +4,7 @@
 export HOMEBREW_CASK_OPTS="--caskroom=/opt/apps"
 
 # Set desired java version
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
 
 # Set locale properly
 export LANG=en_US.UTF-8
@@ -18,16 +18,21 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.bin:$GOPATH/bin
 # Aliases
 #########
 alias homecnf="cd ~/.homesick/repos/dotfiles"
+alias cnf="vim ~/.homesick/repos/dotfiles/plugins/me/me.plugin.zsh"
 alias zcnf="vim ~/.zshrc"
 alias reload="source ~/.zshrc"
 #alias mvn="mvn-color"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 alias ge="gradle"
 alias fucking="sudo"
-alias gf="git fetch"
 alias wr="cd ~/workspace/homeland/rtb"
 alias wn="cd ~/workspace/nebraska"
+alias wb="cd ~/workspace/rtb-board"
 alias s="ssh"
+
+# Git
+#####
+alias gf="git fetch"
 
 function gl () {
   local old_rev="$(git rev-parse HEAD)"
@@ -38,8 +43,8 @@ function gl () {
     git --no-pager log --oneline --reverse --no-merges --stat '@{1}..'
   fi
 }
-
 alias gl=gl
+alias g-delete-merged-branches="git branch --merged | grep -v "\*" | grep -v master | xargs -n 1 git branch -d"
 
 # Mac
 #####
@@ -77,3 +82,4 @@ function transcode () {
       mv "$newfile" "$file" # put stuff back the way we found it
     done
 }
+
