@@ -28,6 +28,9 @@
   lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	dt = difftool
 	cp = cherry-pick
+	un = reset @^1
+  bd = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  
 [core]
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
@@ -58,3 +61,11 @@
 	smudge = git-media-smudge %f
 [pull]
 	rebase = true
+[rebase]
+	instructionFormat = (%an <%ae>) %s
+	instructionFormat = %s - %an <%ae>
+	instructionFormat = %s [%an]
+	instructionFormat = %s  %C(blue)[%an]
+	instructionFormat = %s  %Cblue%[%an]%Creset
+	instructionFormat = %s [%an]
+	instructionFormat = %s [@%an]
