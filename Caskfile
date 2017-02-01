@@ -1,8 +1,6 @@
 #!/bin/bash
 
-brew install caskroom/cask/brew-cask
-
-brew tap caskroom/versions
+brew tap caskroom/cask
 
 brew cask install alfred
 brew cask alfred link
