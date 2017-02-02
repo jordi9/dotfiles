@@ -21,17 +21,17 @@ brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/screen
 
-# JDK
-brew install maven
-brew install gradle
-brew install thrift
-brew install protobuf
-brew install liquibase
-brew install grails
+# JDK --> sdkman
+#brew install maven
+#brew install gradle
+#brew install thrift
+#brew install protobuf
+#brew install liquibase
+#brew install grails --> sdkman
 
 # Audiophile
 brew install sox --with-flac
 
 # Nerdy 
 # Advent calendar http://www.qemu-advent-calendar.org/
-brew install qemu
+#brew install qemu

@@ -3,27 +3,25 @@
 brew tap caskroom/cask
 
 brew cask install alfred
-brew cask alfred link
 
-brew cask install logitech-control-center
+#brew cask install logitech-control-center
 brew cask install adium
 brew cask install google-chrome-beta
 brew cask install dropbox
 brew cask install evernote
 brew cask install skitch
-brew cask install java7
+brew cask install java
 brew cask install radiant-player
 brew cask install moom
 brew cask install witch
 brew cask install flux
 brew cask install iterm2
 brew cask install the-unarchiver
-brew cask install mou
-brew cask install sourcetree
+#brew cask install mou
+#brew cask install sourcetree
 brew cask install swinsian
 brew cask install intellij-idea
 brew cask install bettertouchtool
-brew cask install mailbox
 brew cask install sequel-pro
 brew cask install todoist
 brew cask install music-manager
@@ -32,11 +30,13 @@ brew cask install caffeine
 brew cask install adobe-reader
 brew cask install transmission
 brew cask install android-file-transfer
-brew cask install teamviewer
-brew cask install picasa
 brew cask install vlc
-brew cask install soulver
+#brew cask install soulver
 brew cask install disk-inventory-x
-brew cask install libreoffice
+brew cask install istat-menus
 brew cask install chicken
+brew cask install bartender
+brew cask install sonos
+brew cask install slack
+
 
