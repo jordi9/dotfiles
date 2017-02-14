@@ -1,5 +1,7 @@
 source ~/.homesick/repos/dotfiles/antigen/antigen.zsh
 
+export SPACESHIP_TIME_SHOW=true
+
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
@@ -20,7 +22,8 @@ antigen bundle zsh-users/zsh-history-substring-search
 
 # Load the theme.
 # Theme I like: fox
-antigen theme $HOME/.homesick/repos/dotfiles themes/in-fino-veritas --no-local-clone
+#antigen theme $HOME/.homesick/repos/dotfiles themes/in-fino-veritas --no-local-clone
+antigen theme denysdovhan/spaceship-zsh-theme spaceship
 
 # Tell antigen that you're done.
 antigen apply
