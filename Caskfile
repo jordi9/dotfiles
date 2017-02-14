@@ -38,5 +38,5 @@ brew cask install chicken
 brew cask install bartender
 brew cask install sonos
 brew cask install slack
-
-
+brew cask install atom
+brew cask install google-photos-backup

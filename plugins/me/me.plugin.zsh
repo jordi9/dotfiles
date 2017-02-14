@@ -34,7 +34,7 @@ alias s="ssh"
 #####
 alias gf="git fetch"
 
-function gl () {
+gl () {
   local old_rev="$(git rev-parse HEAD)"
   git pull
   local new_rev="$(git rev-parse HEAD)"
@@ -59,6 +59,15 @@ alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add 
 alias do-not-disturb="defaults write com.apple.dock no-bouncing -bool TRUE && reload-dock"
 alias disturb="defaults write com.apple.dock no-bouncing -bool FALSE && reload-dock"
 
+
+cask-install () {
+  COMMAND=(brew cask install $1)
+  if $COMMAND; then
+    print $COMMAND >> ~/.homesick/repos/dotfiles/Caskfile
+    print "👌 Saved in Caskfile"
+  fi
+}
+
 # Misc
 ######
 
@@ -70,7 +79,7 @@ alias fix-htop-permissions="sudo chown root:wheel /usr/local/bin/htop && sudo ch
 # Audophile
 ###########
 
-function transcode () {
+transcode () {
   echo 'Transcoding FLAC files to 16-bit'
   mkdir resampled # make a subdirectory to put our files in
 
