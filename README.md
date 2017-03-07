@@ -53,6 +53,10 @@ And Apps
 
     ./Caskfile
 
+## Upgrade zsh
+
+Follow steps at https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
+
 ## One time scripts
 
 ### OS X config
