@@ -10,11 +10,6 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export GOPATH=~/.gopath
-
-# The PATH
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.bin:$GOPATH/bin
-
 # Aliases
 #########
 alias homecnf="cd ~/.homesick/repos/dotfiles"
@@ -34,7 +29,7 @@ alias s="ssh"
 #####
 alias gf="git fetch"
 
-gl () {
+function gl {
   local old_rev="$(git rev-parse HEAD)"
   git pull
   local new_rev="$(git rev-parse HEAD)"
@@ -45,6 +40,7 @@ gl () {
 }
 alias gl=gl
 alias g-delete-merged-branches="git branch --merged | grep -v "\*" | grep -v master | xargs -n 1 git branch -d"
+
 
 # Mac
 #####
@@ -60,7 +56,7 @@ alias do-not-disturb="defaults write com.apple.dock no-bouncing -bool TRUE && re
 alias disturb="defaults write com.apple.dock no-bouncing -bool FALSE && reload-dock"
 
 
-cask-install () {
+function cask-install {
   COMMAND=(brew cask install $1)
   if $COMMAND; then
     print $COMMAND >> ~/.homesick/repos/dotfiles/Caskfile
@@ -79,7 +75,7 @@ alias fix-htop-permissions="sudo chown root:wheel /usr/local/bin/htop && sudo ch
 # Audophile
 ###########
 
-transcode () {
+function transcode {
   echo 'Transcoding FLAC files to 16-bit'
   mkdir resampled # make a subdirectory to put our files in
 
@@ -91,4 +87,3 @@ transcode () {
       mv "$newfile" "$file" # put stuff back the way we found it
     done
 }
-

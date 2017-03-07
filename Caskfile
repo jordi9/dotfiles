@@ -40,3 +40,4 @@ brew cask install sonos
 brew cask install slack
 brew cask install atom
 brew cask install google-photos-backup
+brew cask install google-chrome-canary
