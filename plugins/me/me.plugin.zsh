@@ -4,11 +4,16 @@
 export HOMEBREW_CASK_OPTS="--caskroom=/opt/apps"
 
 # Set desired java version
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 # Set locale properly
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+export KAFKA_HOME=/usr/local/lib/kafka
+
+export PATH=$PATH:$KAFKA_HOME/bin
 
 # Aliases
 #########
@@ -20,10 +25,9 @@ alias reload="source ~/.zshrc"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 alias ge="gradle"
 alias fucking="sudo"
-alias wr="cd ~/workspace/homeland/rtb"
-alias wn="cd ~/workspace/nebraska"
-alias wb="cd ~/workspace/rtb-board"
 alias s="ssh"
+alias dc="docker-compose"
+alias d="docker"
 
 # Git
 #####
