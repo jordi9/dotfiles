@@ -1,7 +1,5 @@
 # Exports
 #########
-# Cask options
-export HOMEBREW_CASK_OPTS="--caskroom=/opt/apps"
 
 # Set desired java version
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
