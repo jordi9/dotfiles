@@ -4,21 +4,29 @@ source ~/.homesick/repos/dotfiles/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-#antigen bundle git-extras
-antigen bundle lein
-antigen bundle command-not-found
-#antigen bundle mvn
-antigen bundle gradle
+# Bundles from the default repo (robbyrussell's oh-my-zsh)
+
+antigen bundles <<EOBUNDLES
+
+git
+# git-extras
+lein
+command-not-found
+
+gradle
 
 # My custom plugins and shortcuts
-antigen bundle $HOME/.homesick/repos/dotfiles/plugins/me --no-local-clone
-antigen bundle $HOME/.homesick/repos/private-home/plugins/zopa --no-local-clone
+$HOME/.homesick/repos/dotfiles/plugins/me --no-local-clone
+$HOME/.homesick/repos/private-home/plugins/zopa --no-local-clone
 
 # Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+
+# Fish-like autosuggestions for zsh
+zsh-users/zsh-autosuggestions
+
+EOBUNDLES
 
 # Load the theme.
 # Theme I like: fox
