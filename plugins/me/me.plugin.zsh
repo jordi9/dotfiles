@@ -26,6 +26,7 @@ alias fucking="sudo"
 alias s="ssh"
 alias dc="docker-compose"
 alias d="docker"
+alias hs="homesick"
 
 # Git
 #####
