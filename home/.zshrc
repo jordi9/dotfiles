@@ -12,6 +12,7 @@ git
 # git-extras
 lein
 command-not-found
+autojump
 
 gradle
 

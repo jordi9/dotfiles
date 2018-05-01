@@ -70,3 +70,5 @@
 	instructionFormat = %s  %Cblue%[%an]%Creset
 	instructionFormat = %s [%an]
 	instructionFormat = %s [@%an]
+[commit]
+	template = ~/.gitcommittemplate
