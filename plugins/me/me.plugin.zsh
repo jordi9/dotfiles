@@ -3,7 +3,7 @@
 
 # Set desired java version
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 # Set locale properly
 export LANG=en_US.UTF-8
@@ -27,10 +27,12 @@ alias s="ssh"
 alias dc="docker-compose"
 alias d="docker"
 alias hs="homesick"
+alias d-stop-all='docker stop $(docker ps -a -q)'
 
 # Git
 #####
 alias gf="git fetch"
+alias gpf="gp --force-with-lease"
 
 function gl {
   local old_rev="$(git rev-parse HEAD)"
