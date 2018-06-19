@@ -69,6 +69,11 @@ function cask-install {
   fi
 }
 
+# Linux
+#######
+
+alias x='xclip -selection clipboard'
+
 # Misc
 ######
 
