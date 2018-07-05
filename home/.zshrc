@@ -41,5 +41,5 @@ antigen theme denysdovhan/spaceship-zsh-theme spaceship
 antigen apply
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/zopadev/.sdkman"
-[[ -s "/home/zopadev/.sdkman/bin/sdkman-init.sh" ]] && source "/home/zopadev/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="~/.sdkman"
+[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
