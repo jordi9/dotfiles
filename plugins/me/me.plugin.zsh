@@ -44,8 +44,9 @@ function gl {
   fi
 }
 alias gl=gl
-alias g-delete-merged-branches="git branch --merged | grep -v "\*" | grep -v master | xargs -n 1 git branch -d"
 
+# https://ben.lobaugh.net/blog/201616/cleanup-and-remove-all-merged-local-and-remote-git-branches
+alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xargs -n 1 git branch -d"
 
 # Mac
 #####
