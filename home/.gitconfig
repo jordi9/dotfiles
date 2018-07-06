@@ -72,3 +72,6 @@
 	instructionFormat = %s [@%an]
 [commit]
 	template = ~/.gitcommittemplate
+[pager]
+  #eg: g config --global pager.diff false
+	branch = false
