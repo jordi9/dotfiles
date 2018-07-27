@@ -55,7 +55,7 @@ alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xa
 alias reload-dock="killall Dock"
 
 # Add a spacer to the left side of the Dock (where the applications are)
-alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}' && reload-dock"
+alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && reload-dock"
 
 # Do not disturb, stop bouncing
 alias do-not-disturb="defaults write com.apple.dock no-bouncing -bool TRUE && reload-dock"
