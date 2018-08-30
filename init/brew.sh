@@ -7,6 +7,7 @@ brew update
 brew upgrade
 
 brew install git
+brew install git-recent
 
 brew install htop
 brew install wget
