@@ -43,22 +43,20 @@ Time to change the shell to zsh
 
     chsh -s /bin/zsh
 
-## Brew
-
-Install cli tools
-
-    ./Brewfile
-
-And Apps
-
-    ./Caskfile
-
 ## Upgrade zsh
 
 Follow steps at https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
 
-## One time scripts
+# One time scripts
 
-### OS X config
+All of them located in `init` folder:
 
-    init/osx.zsh
+    init/brew.sh
+    init/cash.sk
+    init/macos.zsh
+
+# Inspiration
+
+* https://github.com/maximbaz/dotfiles
+* https://github.com/paulirish/dotfiles
+* https://github.com/sharat87/lawn/blob/master/shell/zsh

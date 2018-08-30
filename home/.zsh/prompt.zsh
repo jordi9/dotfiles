@@ -1,0 +1,5 @@
+setopt correct
+
+export SPACESHIP_TIME_SHOW=true
+export SPACESHIP_BATTERY_SHOW=false
+export SPACESHIP_KUBECONTEXT_SHOW=false
