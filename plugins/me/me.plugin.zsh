@@ -28,6 +28,7 @@ alias dc="docker-compose"
 alias d="docker"
 alias hs="homesick"
 alias d-stop-all='docker stop $(docker ps -a -q)'
+alias d-kill-all='docker kill $(docker ps -a -q)'
 
 # Git
 #####
