@@ -34,6 +34,7 @@ alias d-kill-all='docker kill $(docker ps -a -q)'
 #####
 alias gf="git fetch"
 alias gpf="gp --force-with-lease"
+alias gpub='gp -u origin `g rev-parse --abbrev-ref HEAD`'
 
 function gl {
   local old_rev="$(git rev-parse HEAD)"
@@ -48,6 +49,7 @@ alias gl=gl
 
 # https://ben.lobaugh.net/blog/201616/cleanup-and-remove-all-merged-local-and-remote-git-branches
 alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xargs -n 1 git branch -d"
+
 
 # Mac
 #####
