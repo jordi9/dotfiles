@@ -11,7 +11,7 @@ export LC_ALL=en_US.UTF-8
 
 export KAFKA_HOME=/usr/local/lib/kafka
 
-export PATH=$PATH:$KAFKA_HOME/bin
+export PATH=/usr/local/opt/gettext/bin:$PATH:$KAFKA_HOME/bin
 
 # Aliases
 #########

@@ -17,6 +17,8 @@ brew install mysql
 brew install redis
 brew install ack
 brew install autojump
+brew install watch
+brew install gettext
 
 # Install more recent versions of some OS X tools
 brew install vim --override-system-vi
