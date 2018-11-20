@@ -36,6 +36,9 @@ alias gf="git fetch"
 alias gpf="gp --force-with-lease"
 alias gpub='gp -u origin `g rev-parse --abbrev-ref HEAD`'
 
+# https://stackoverflow.com/questions/20433867/git-ahead-behind-info-between-master-and-branch
+alias gah='g rev-list --left-right --count master...`g rev-parse --abbrev-ref HEAD`'
+
 function gl {
   local old_rev="$(git rev-parse HEAD)"
   git pull
@@ -48,7 +51,7 @@ function gl {
 alias gl=gl
 
 # https://ben.lobaugh.net/blog/201616/cleanup-and-remove-all-merged-local-and-remote-git-branches
-alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xargs -n 1 git branch -d"
+alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xargs -n 1 git branch -d && g remote update origin --prune"
 
 
 # Mac

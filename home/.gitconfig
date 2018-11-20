@@ -75,3 +75,5 @@
 [pager]
   #eg: g config --global pager.diff false
 	branch = false
+[rerere]
+	enabled = true
