@@ -67,6 +67,14 @@ alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add 
 alias do-not-disturb="defaults write com.apple.dock no-bouncing -bool TRUE && reload-dock"
 alias disturb="defaults write com.apple.dock no-bouncing -bool FALSE && reload-dock"
 
+## High Sierra dark mode for mojave https://www.tekrevue.com/tip/only-dark-menu-bar-dock-mojave/
+# System Preferences > General and select Light for Appearance
+alias high-sierra-dark-on="defaults write -g NSRequiresAquaSystemAppearance -bool Yes"
+# Logout. System Preferences > General and select Dark for Appearance
+alias high-sierra-dark-off="defaults delete -g NSRequiresAquaSystemAppearance"
+
+# Brew
+#######
 
 function cask-install {
   COMMAND=(brew cask install $1)
@@ -75,6 +83,20 @@ function cask-install {
     print "👌 Saved in Caskfile"
   fi
 }
+
+# https://www.client9.com/using-macos-homebrew-to-install-a-specific-version/
+function brew-versions-search {
+  formula=$1
+  git -C "$(brew --repo homebrew/core)" log master -- Formula/$formula.rb
+}
+
+function brew-versions-install {
+  brewurl=https://raw.githubusercontent.com/Homebrew/homebrew-core
+  formula=$1
+  sha=$2
+  brew install ${BREWURL}/$sha/Formula/$formula.rb
+}
+
 
 # Linux
 #######
