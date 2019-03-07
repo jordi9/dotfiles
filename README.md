@@ -54,6 +54,8 @@ All of them located in `init` folder:
     init/brew.sh
     init/cash.sk
     init/macos.zsh
+    init/sdkman.zsh
+    init/conf.zsh
 
 # Inspiration
 
