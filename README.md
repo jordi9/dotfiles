@@ -55,7 +55,13 @@ All of them located in `init` folder:
     init/cash.sk
     init/macos.zsh
     init/sdkman.zsh
-    init/conf.zsh
+
+## Manytricks settings
+
+If they're not picked up, run:
+
+    killall cfprefsd
+
 
 # Inspiration
 
