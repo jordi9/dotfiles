@@ -6,6 +6,7 @@ antigen bundles <<EOBUNDLES
 git
 autojump
 gradle
+docker
 
 paulirish/git-open
 zsh-users/zsh-syntax-highlighting

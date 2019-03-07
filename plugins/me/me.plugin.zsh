@@ -21,6 +21,8 @@ alias zcnf="vim ~/.zshrc"
 alias acnf="vim ~/.zsh/antigenrc.zsh"
 alias reload="source ~/.zshrc"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
+# Avoid stupid gradle or gradlew from oh-my-zsh gradle plugin
+alias gradle="gradle"
 alias ge="gradle"
 alias fucking="sudo"
 alias s="ssh"
@@ -51,7 +53,7 @@ function gl {
 alias gl=gl
 
 # https://ben.lobaugh.net/blog/201616/cleanup-and-remove-all-merged-local-and-remote-git-branches
-alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xargs -n 1 git branch -d && g remote update origin --prune"
+alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xargs -n 1 git branch -d && g remote prune origin"
 
 
 # Mac
