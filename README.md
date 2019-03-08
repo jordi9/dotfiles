@@ -62,7 +62,6 @@ If they're not picked up, run:
 
     killall cfprefsd
 
-
 # Inspiration
 
 * https://github.com/maximbaz/dotfiles
