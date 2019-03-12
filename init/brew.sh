@@ -19,11 +19,12 @@ ack
 autojump
 watch
 gettext
-vim --override-system-vi
+vim
 grep
 screen
 "
 for f in $formulae; do
+  echo ">> $f"
   brew install $f
 done
 
