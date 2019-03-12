@@ -15,8 +15,10 @@ zsh-users/zsh-autosuggestions
 
 # My custom plugins and shortcuts
 $HOME/.homesick/repos/dotfiles/plugins/me --no-local-clone
-# $HOME/.homesick/repos/private-home/plugins/zopa --no-local-clone
 EOBUNDLES
+
+## Optinally load extra bundles, usually private/company related
+[[ -a ~/.antigenextra ]] && source ~/.antigenextra
 
 ## THEME
 # Theme I like: fox
