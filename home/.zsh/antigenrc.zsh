@@ -15,7 +15,7 @@ zsh-users/zsh-autosuggestions
 
 # My custom plugins and shortcuts
 $HOME/.homesick/repos/dotfiles/plugins/me --no-local-clone
-$HOME/.homesick/repos/private-home/plugins/zopa --no-local-clone
+# $HOME/.homesick/repos/private-home/plugins/zopa --no-local-clone
 EOBUNDLES
 
 ## THEME
