@@ -2,6 +2,7 @@
 
 # Inspired by ~/.osx — https://mths.be/osx
 # More examples https://github.com/ymendel/dotfiles/tree/master/osx
+# How to discover defaults: https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
 
 # Ask for the administrator password upfront
 sudo -v
@@ -93,13 +94,12 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # enable ctrl modifier key + scrolling for zoom in/out
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 262144
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
@@ -114,9 +114,45 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 ###############################################################################
+# Keyboard Shortcuts                                                          #
+###############################################################################
+
+# Launchpad & Dock / Turn Dock hiding
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 52 "{ enabled = 0; value = { parameters = (100,2,1572864); type = 'standard';};}"
+
+#  Mission Control / Application windows
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 35 "{ enabled = 0; value = { parameters = (65535,125,8781824); type = 'standard';};}"
+
+# Mission Control / Move left a space
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 80 "{ enabled = 1; value = { parameters = (65535,123,11927552); type = 'standard';};}"
+
+# Mission Control / Move right a space
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 "{ enabled = 1; value = { parameters = (65535,124,11796480); type = 'standard';};}"
+
+# Mission Control / Switch to Desktop 1
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 118 "{ enabled = 1; value = { parameters = (49,18,1179648); type = 'standard';};}"
+
+# Mission Control / Switch to Desktop 2
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 119 "{ enabled = 1; value = { parameters = (50,19,1179648); type = 'standard';};}"
+
+# Input sources / Select next source
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 "{ enabled = 1; value = { parameters = (32,49,1572864); type = 'standard';};}"
+
+# Screenshots / Copy picture of selected area to clipboard
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 31 "{ enabled = 1; value = { parameters = (52,21,655360); type = 'standard';};}"
+
+# Spotlight / Show spotlight search
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 1; value = { parameters = (32,49,524288); type = 'standard';};}"
+
+# Accessibility / Turn voiceover on off
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 59 "{ enabled = 0; value = { parameters = (65535,96,9437184); type = 'standard';};}"
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
 for app in "Dock" "Finder"; do
   killall "${app}" > /dev/null 2>&1
 done
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."
