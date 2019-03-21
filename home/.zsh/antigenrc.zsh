@@ -7,7 +7,7 @@ git
 autojump
 gradle
 docker
-maven
+mvn
 
 paulirish/git-open
 zsh-users/zsh-syntax-highlighting
