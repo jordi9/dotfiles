@@ -14,7 +14,6 @@ htop
 wget
 pv
 tree
-mysql
 ack
 autojump
 watch
@@ -22,6 +21,7 @@ gettext
 vim
 grep
 screen
+bat
 "
 for f in $formulae; do
   echo ">> $f"
