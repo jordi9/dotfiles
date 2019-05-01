@@ -16,7 +16,7 @@ zsh-users/zsh-history-substring-search
 zsh-users/zsh-autosuggestions
 
 # My custom plugins and shortcuts
-$HOME/.homesick/repos/dotfiles/plugins/me --no-local-clone
+$HOME/.homesick/repos/dotfiles --no-local-clone
 EOBUNDLES
 
 ## Optinally load extra bundles, usually private/company related

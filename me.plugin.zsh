@@ -16,7 +16,7 @@ export PATH=/usr/local/opt/gettext/bin:$PATH:$KAFKA_HOME/bin
 # Aliases
 #########
 alias homecnf="cd ~/.homesick/repos/dotfiles"
-alias cnf="vim ~/.homesick/repos/dotfiles/plugins/me/me.plugin.zsh"
+alias cnf="vim ~/.homesick/repos/dotfiles/me.plugin.zsh"
 alias zcnf="vim ~/.zshrc"
 alias acnf="vim ~/.zsh/antigenrc.zsh"
 alias reload="source ~/.zshrc"
