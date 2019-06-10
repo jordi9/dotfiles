@@ -9,7 +9,7 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export KAFKA_HOME=/usr/local/lib/kafka
+export KAFKA_HOME=$HOME/.bin/kafka_2.12-2.2.0
 
 export PATH=/usr/local/opt/gettext/bin:$PATH:$KAFKA_HOME/bin
 
