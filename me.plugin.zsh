@@ -23,6 +23,7 @@ alias reload="source ~/.zshrc"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 # Avoid stupid gradle or gradlew from oh-my-zsh gradle plugin
 alias gradle="gradle"
+alias mvn="mvn"
 alias ge="gradle"
 alias fucking="sudo"
 alias s="ssh"
