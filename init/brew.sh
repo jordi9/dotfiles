@@ -22,6 +22,7 @@ vim
 grep
 screen
 bat
+stern
 "
 for f in $formulae; do
   echo ">> $f"
