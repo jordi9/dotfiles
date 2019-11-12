@@ -84,7 +84,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>760 786 400 129 0 0 1920 1177 </string>
+	<string>744 508 400 129 0 0 1920 1177 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 588 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -675,7 +675,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -709,7 +709,7 @@
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
-			<false/>
+			<true/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -730,16 +730,18 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.2.9</string>
-		<string>3.3.0</string>
 		<string>3.3.2</string>
+		<string>3.2.9</string>
+		<string>3.3.4</string>
+		<string>3.3.0</string>
+		<string>3.3.3</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1440, 900}}</string>
+		<string>{{0, 0}, {1920, 1200}}</string>
 		<key>topLeft</key>
-		<string>{244, 679}</string>
+		<string>{278, 781}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -748,7 +750,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>F7CDD18B-CA42-4AFF-A8F3-086554BAA51B</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>11</integer>
+	<integer>19</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>586519968.53330696</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -1477,6 +1479,17 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSearchHistory2</key>
+	<array>
+		<string>flywa</string>
+		<string>migration</string>
+		<string>branch</string>
+		<string>blueoc</string>
+		<string>libdev</string>
+		<string>libv</string>
+		<string>ehcach</string>
+		<string>ehcacc</string>
+	</array>
 	<key>NoSyncSuppressBroadcastInputWarning</key>
 	<true/>
 	<key>NoSyncSuppressBroadcastInputWarning_selection</key>
@@ -1535,7 +1548,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-08-23T09:16:35Z</date>
+	<date>2019-09-20T15:20:58Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -1565,6 +1578,6 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.2</string>
+	<string>3.3.4</string>
 </dict>
 </plist>
