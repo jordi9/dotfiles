@@ -10,8 +10,14 @@
 	<integer>1</integer>
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
+	<key>BracketedPasteMode</key>
+	<true/>
+	<key>ConvertDosNewlines</key>
+	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>8F2BD97E-639E-4FD5-80D2-C77247C79EBD</string>
+	<key>EscapeShellCharsWithBackslash</key>
+	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideScrollbar</key>
@@ -84,7 +90,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>744 508 400 129 0 0 1920 1177 </string>
+	<string>520 561 400 129 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 588 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -735,13 +741,21 @@
 		<string>3.3.4</string>
 		<string>3.3.0</string>
 		<string>3.3.3</string>
+		<string>3.3.6</string>
 	</array>
+	<key>NoSyncFrame_SessionsPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{0, 0}, {1920, 1200}}</string>
+		<key>topLeft</key>
+		<string>{657, 1012}</string>
+	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1920, 1200}}</string>
 		<key>topLeft</key>
-		<string>{278, 781}</string>
+		<string>{191, 888}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -750,7 +764,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>F7CDD18B-CA42-4AFF-A8F3-086554BAA51B</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>19</integer>
+	<integer>28</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>586519968.53330696</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -1276,9 +1290,25 @@
 			</dict>
 			<dict>
 				<key>isTerminal</key>
+				<false/>
+				<key>name</key>
+				<string>title</string>
+				<key>nonterminalContext</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
 				<string>tmuxWindowTitle</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>title</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -1481,14 +1511,15 @@
 	</dict>
 	<key>NoSyncSearchHistory2</key>
 	<array>
-		<string>flywa</string>
-		<string>migration</string>
-		<string>branch</string>
-		<string>blueoc</string>
-		<string>libdev</string>
-		<string>libv</string>
-		<string>ehcach</string>
-		<string>ehcacc</string>
+		<string>redis</string>
+		<string>rele</string>
+		<string>artifacto</string>
+		<string>1763</string>
+		<string>1764</string>
+		<string>1767</string>
+		<string>stream</string>
+		<string>compl</string>
+		<string>1981</string>
 	</array>
 	<key>NoSyncSuppressBroadcastInputWarning</key>
 	<true/>
@@ -1501,6 +1532,16 @@
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>574096507.39604497</real>
 	<key>OnlyWhenMoreTabs</key>
+	<false/>
+	<key>PasteSpecialChunkDelay</key>
+	<real>0.00099999990407369449</real>
+	<key>PasteSpecialChunkSize</key>
+	<integer>1024</integer>
+	<key>PasteSpecialRegex</key>
+	<string></string>
+	<key>PasteSpecialSubstitution</key>
+	<string></string>
+	<key>PasteSpecialUseRegexSubstitution</key>
 	<false/>
 	<key>PointerActions</key>
 	<dict>
@@ -1539,6 +1580,10 @@
 	<string>/Users/jordi.gerona/.homesick/repos/dotfiles/conf</string>
 	<key>PromptOnQuit</key>
 	<false/>
+	<key>QuickPasteBytesPerCall</key>
+	<integer>1728</integer>
+	<key>QuickPasteDelayBetweenCalls</key>
+	<real>0.0044444440864026546</real>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -1548,7 +1593,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-09-20T15:20:58Z</date>
+	<date>2019-11-08T15:10:30Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -1578,6 +1623,6 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.4</string>
+	<string>3.3.6</string>
 </dict>
 </plist>
