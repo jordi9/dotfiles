@@ -42,6 +42,7 @@ soulver
 kindle
 typora
 visual-studio-code
+font-fira-mono-for-powerline
 "
 
 for f in $formulae; do
