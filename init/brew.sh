@@ -23,6 +23,8 @@ grep
 screen
 bat
 stern
+rbenv
+ruby-build
 "
 for f in $formulae; do
   echo ">> $f"
