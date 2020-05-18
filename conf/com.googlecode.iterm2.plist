@@ -134,9 +134,9 @@
 	<key>Hotkey</key>
 	<true/>
 	<key>HotkeyChar</key>
-	<integer>49</integer>
+	<integer>60</integer>
 	<key>HotkeyCode</key>
-	<integer>18</integer>
+	<integer>50</integer>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>HotkeyModifiers</key>
@@ -197,9 +197,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 2560 1417 0 0 2560 1417 </string>
+	<string>0 0 3008 1669 0 0 3008 1669 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 1920 1177 0 0 1920 1177 </string>
+	<string>0 0 2560 1417 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -852,12 +852,12 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{762, 1040}</string>
+		<string>{776, 1045}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>004F00C5-F6D9-422D-A91F-3B6CB48EE03F</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>37</integer>
+	<integer>39</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>595547371.95665801</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -1666,7 +1666,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-04-16T07:13:34Z</date>
+	<date>2020-04-19T23:26:42Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>

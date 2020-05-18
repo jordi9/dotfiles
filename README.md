@@ -62,6 +62,8 @@ If they're not picked up, run:
 
     killall cfprefsd
 
+Some Moom hotkeys inspired in [Rectangle](https://github.com/rxhanson/Rectangle)
+
 # Inspiration
 
 * https://github.com/maximbaz/dotfiles
