@@ -2,6 +2,7 @@
 IFS='
 '
 
+brew tap homebrew/cask-versions
 brew tap homebrew/cask-fonts
 
 formulae="
