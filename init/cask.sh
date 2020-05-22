@@ -6,43 +6,31 @@ brew tap homebrew/cask-fonts
 
 formulae="
 alfred
-adium
-google-chrome-beta
-dropbox
-evernote
-skitch
-java
-radiant-player
-moom
-witch
-flux
-iterm2
-the-unarchiver
-swinsian
-intellij-idea
-bettertouchtool
-music-manager
-xld
-caffeine
-adobe-reader
-transmission
-android-file-transfer
-vlc
-disk-inventory-x
-istat-menus
 bartender
-sonos
-slack
-atom
-google-photos-backup
-google-chrome-canary
-music-manager
-spotify
-soulver
-kindle
-typora
-visual-studio-code
+bettertouchtool
+chatmate-for-whatsapp
+dropbox
+flux
+font-consolas-for-powerline
 font-fira-mono-for-powerline
+font-inconsolata-for-powerline
+font-source-code-pro-for-powerline
+google-chrome-beta
+google-chrome-canary
+intellij-idea
+istat-menus
+iterm2
+moom
+roon
+slack
+swinsian
+the-unarchiver
+transmission
+visual-studio-code
+vlc
+witch
+xld
+zoom
 "
 
 for f in $formulae; do
@@ -53,3 +41,5 @@ done
 # mou
 # sourcetree
 # chicken
+# soulver
+# typora

@@ -8,23 +8,23 @@ brew update
 brew upgrade
 
 formulae="
-git
-git-recent
-htop
-wget
-pv
-tree
 ack
 autojump
-watch
-gettext
-vim
-grep
-screen
 bat
-stern
+gettext
+git
+git-recent
+grep
+htop
+pv
 rbenv
 ruby-build
+screen
+stern
+tree
+vim
+watch
+wget
 "
 for f in $formulae; do
   echo ">> $f"
