@@ -26,6 +26,11 @@ sudo pmset -a standbydelay 86400
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
+# System Preferences > Desktop & Screen Saver > Start after: Never
+defaults -currentHost write com.apple.screensaver idleTime -int 0
+
+# System Preferences > Mission Controll > Automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
 
 ###############################################################################
 # High Sierra dark mode for mojave                                            #
@@ -46,6 +51,9 @@ defaults write com.apple.finder ShowStatusBar -bool true
 
 # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
+
+# Finder > Preferences > Show warning before changing an extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
