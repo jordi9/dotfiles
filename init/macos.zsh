@@ -4,27 +4,14 @@
 # More examples https://github.com/ymendel/dotfiles/tree/master/osx
 # How to discover defaults: https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
 
-# Ask for the administrator password upfront
-sudo -v
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-
-# Disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-# Set standby delay to 24 hours (default is 1 hour)
-sudo pmset -a standbydelay 86400
-
-# Disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # System Preferences > Desktop & Screen Saver > Start after: Never
 defaults -currentHost write com.apple.screensaver idleTime -int 0
@@ -32,13 +19,19 @@ defaults -currentHost write com.apple.screensaver idleTime -int 0
 # System Preferences > Mission Controll > Automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
+# Increase window resize speed for Cocoa applications
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# System Preferences > General > Click in the scrollbar to: Jump to the spot that's clicked
+defaults write -globalDomain AppleScrollerPagingBehavior -bool true
+
 ###############################################################################
 # High Sierra dark mode for mojave                                            #
 ###############################################################################
 
 # https://www.tekrevue.com/tip/only-dark-menu-bar-dock-mojave/
 # System Preferences > General and select Light for Appearance > Run:
-defaults write -g NSRequiresAquaSystemAppearance -bool Yes
+# defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 # Logout. System Preferences > General and select Dark for Appearance
 # Back to normal: defaults delete -g NSRequiresAquaSystemAppearance"
 
@@ -62,17 +55,28 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 ###############################################################################
-# Dock, Hot corners                                                           #
+# Dock
 ###############################################################################
 
 # Tiny Dock!
 defaults write com.apple.dock tilesize -int 16
 
+# System Preferences > Dock > Automatically hide and show the Dock:
 defaults write com.apple.dock autohide -bool true
+
+# System Preferences > Dock > Automatically hide and show the Dock (duration)
+defaults write com.apple.dock autohide-time-modifier -float 0.5
+
+# System Preferences > Dock > Automatically hide and show the Dock (delay)
+defaults write com.apple.dock autohide-delay -float 0
+
 defaults write com.apple.dock show-recents -bool false
 
 # Wipe all (default) app icons from the Dock
-defaults write com.apple.dock persistent-apps -array ""
+defaults write com.apple.dock persistent-apps -array
+
+# Hot corners
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Possible values:
 #  0: no-op
