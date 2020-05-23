@@ -4,6 +4,7 @@ IFS='
 
 brew tap homebrew/cask-versions
 brew tap homebrew/cask-fonts
+brew tap homebrew/cask-drivers
 
 formulae="
 alfred
@@ -21,6 +22,7 @@ google-chrome-canary
 intellij-idea
 istat-menus
 iterm2
+logitech-options
 moom
 roon
 slack
