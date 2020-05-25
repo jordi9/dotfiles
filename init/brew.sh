@@ -4,8 +4,7 @@ IFS='
 # Make sure we’re using the latest Homebrew
 brew update
 
-# Upgrade any already-installed formulae
-brew upgrade
+brew tap heroku/brew
 
 formulae="
 ack
@@ -15,6 +14,7 @@ gettext
 git
 git-recent
 grep
+heroku
 htop
 pv
 rbenv
