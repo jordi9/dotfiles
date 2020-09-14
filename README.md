@@ -13,6 +13,13 @@ Installing Homebrew first we will get Command Line Tools (required) and an old g
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+## Ruby
+
+Due to newer ruby versions in macOS, gem needs sudo (wrong) to run. Better install ruby ourselves:
+
+    brew install rbenv
+    init/ruby.zsh
+
 ## Homesick
 
 Install Homesick first
