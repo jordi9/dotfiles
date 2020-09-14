@@ -22,11 +22,13 @@ google-chrome-canary
 intellij-idea
 istat-menus
 iterm2
+karabiner-elements
 logitech-options
 moom
 roon
 slack
 swinsian
+telegram
 the-unarchiver
 transmission
 visual-studio-code
