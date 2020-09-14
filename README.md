@@ -19,6 +19,7 @@ Due to newer ruby versions in macOS, gem needs sudo (wrong) to run. Better insta
 
     brew install rbenv
     init/ruby.zsh
+    eval "$(rbenv init -)"
 
 ## Homesick
 
