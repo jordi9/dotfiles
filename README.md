@@ -55,6 +55,12 @@ Time to change the shell to zsh
 
 Follow steps at https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
 
+Fix `compdef` errors:
+
+    cd /usr/local/share/
+    sudo chmod -R 755 zsh
+    sudo chown -R root:staff zsh
+
 # One time scripts
 
 All of them located in `init` folder:
