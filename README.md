@@ -37,19 +37,26 @@ Fix file permissions
     sudo chmod 600 ~/.ssh/id_rsa
     sudo chmod 600 ~/.ssh/id_rsa.pub
 
-Now it's time to clone this dotfiles as a Castle
+Now it's time to clone this `dotfiles` as a Castle
 
     homesick clone git@github.com:jordi9/dotfiles.git
     homesick link dotfiles
 
-And private scripts and settings
+This `dotfiles` at the same time is an antigen plugin.
 
-    homesick clone git@bitbucket.org:jordi9/private-home.git
-    homesick link private-home
+## Optional plugins per laptop
 
-Time to change the shell to zsh
+If you want to load more antigen plugins, but depending on the laptop (eg: work), create a file `~/.antigenextra` to load more bundles.
 
-    chsh -s /bin/zsh
+    vim ~/.antigenextra
+    antigen bundle $HOME/.homesick/repos/home-bumble --no-local-clone
+
+## More Homes
+
+For example, private scripts or configs with licences
+
+    homesick clone git@github.com:jordi9/private-dotfiles.git
+    homesick link private-dotfiles
 
 ## Upgrade zsh
 
