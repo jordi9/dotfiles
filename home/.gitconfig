@@ -1,6 +1,6 @@
 [user]
 	name = Jordi Gerona
-	email = jordi@donky.org
+	email = jordi.gerona@team.bumble.com
 [core]
 	excludesfile = /Users/jordigerona/.gitignore_global
 [difftool "sourcetree"]

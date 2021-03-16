@@ -32,6 +32,8 @@ alias d="docker"
 alias hs="homesick"
 alias d-stop-all='docker stop $(docker ps -a -q)'
 alias d-kill-all='docker kill $(docker ps -a -q)'
+alias bluetooth-restart='blueutil -p 0 && sleep 1 && blueutil -p 1'
+alias d-nuke='d-stop-all && d system prune --volumes --force'
 
 # Git
 #####
