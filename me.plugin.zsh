@@ -23,8 +23,10 @@ alias reload="source ~/.zshrc"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 # Avoid stupid gradle or gradlew from oh-my-zsh gradle plugin
 alias gradle="gradle"
+alias ge="gradle-or-gradlew"
+alias gen="gradle"
 alias mvn="mvn"
-alias ge="gradle"
+
 alias fucking="sudo"
 alias s="ssh"
 alias dc="docker-compose"
@@ -44,9 +46,12 @@ alias gri="g r -i master"
 
 # https://stackoverflow.com/questions/20433867/git-ahead-behind-info-between-master-and-branch
 alias gah='g rev-list --left-right --count master...`g rev-parse --abbrev-ref HEAD`'
+
+# commit.md | Set up .local_gitignore -> https://medium.com/@peter_graham/how-to-create-a-local-gitignore-1b19f083492b
 alias gmdd='g log -1 --pretty=%B > commit.md'
 alias gmde='code commit.md'
 alias gmdc='g ci -F commit.md'
+alias gmdc!='gmdc --amend'
 
 function gl {
   local old_rev="$(git rev-parse HEAD)"
