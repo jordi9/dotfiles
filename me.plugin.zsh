@@ -67,6 +67,18 @@ alias gl=gl
 # https://ben.lobaugh.net/blog/201616/cleanup-and-remove-all-merged-local-and-remote-git-branches
 alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xargs -n 1 git branch -d && g remote prune origin"
 
+# Gradle
+#####
+
+function gradle-create-subproject {
+  local name=$1
+  mkdir "$name"
+  mkdir -p "$name"/src/test/kotlin
+  mkdir -p "$name"/src/main/kotlin
+  touch "$name/$name".gradle
+  echo "include \"$name\"" | pbcopy
+  echo "include string ready to be pasted in settings.gradle"
+}
 
 # Mac
 #####
