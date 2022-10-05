@@ -75,8 +75,8 @@ function gradle-create-subproject {
   mkdir "$name"
   mkdir -p "$name"/src/test/kotlin
   mkdir -p "$name"/src/main/kotlin
-  touch "$name/$name".gradle
-  echo "include \"$name\"" | pbcopy
+  touch "$name/$name".gradle.kts
+  echo "include(\"$name\")" | pbcopy
   echo "include string ready to be pasted in settings.gradle"
 }
 
@@ -98,6 +98,15 @@ alias disturb="defaults write com.apple.dock no-bouncing -bool FALSE && reload-d
 alias high-sierra-dark-on="defaults write -g NSRequiresAquaSystemAppearance -bool Yes"
 # Logout. System Preferences > General and select Dark for Appearance
 alias high-sierra-dark-off="defaults delete -g NSRequiresAquaSystemAppearance"
+
+# Always use the integrated graphics card while running on battery power
+alias graphics-integrated="sudo pmset -b gpuswitch 0"
+
+# Always use the discrete graphics card while running on battery power
+alias graphics-discrete="sudo pmset -b gpuswitch 1"
+
+# Switch between discrete and integrated graphics cards automatically while running on battery power
+alias graphics-auto="sudo pmset -b gpuswitch 2"
 
 # Brew
 #######
