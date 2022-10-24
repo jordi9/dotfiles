@@ -1,17 +1,9 @@
 # Exports
 #########
 
-# Set desired java version
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
-#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-
 # Set locale properly
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-export KAFKA_HOME=$HOME/.bin/kafka_2.12-2.2.0
-
-export PATH=/usr/local/opt/gettext/bin:$PATH:$KAFKA_HOME/bin
 
 # Aliases
 #########
@@ -141,7 +133,6 @@ alias x='xclip -selection clipboard'
 # Misc
 ######
 
-alias copy-mysql-driver="cp ~/.m2/repository/mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar ."
 alias xmas='curl climagic.org/txt/jb.txt | while read -r c n l;do printf "\e[1;${c}m%${COLUMNS}s\e[0m\n" " ";play -q -n synth pl $n trim 0 $l;done'
 
 alias fix-htop-permissions="sudo chown root:wheel /usr/local/bin/htop && sudo chmod u+s /usr/local/bin/htop"
