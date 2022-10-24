@@ -27,9 +27,9 @@ Install Homesick first
 
     gem install homesick
 
-Time to set up my ssh keys
+Time to set up my ssh config
 
-    homesick clone https://jordi9@bitbucket.org/jordi9/ssh-home.git
+    homesick clone https://jordi9@...
     homesick link ssh-home
 
 Fix file permissions
