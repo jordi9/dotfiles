@@ -15,7 +15,7 @@ Installing Homebrew first we will get Command Line Tools (required) and an old g
 
 ## Ruby
 
-Due to newer ruby versions in macOS, gem needs sudo (wrong) to run. Better install ruby ourselves:
+Due to newer ruby versions in macOS, gem needs sudo (wrong) to run. Better install ruby ourselves before installing homesick.
 
     brew install rbenv
     init/ruby.zsh
