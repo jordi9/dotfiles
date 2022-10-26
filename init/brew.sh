@@ -16,6 +16,9 @@ git-recent
 grep
 heroku
 htop
+jq
+kubectx
+kubernetes-cli
 pv
 screen
 stern
