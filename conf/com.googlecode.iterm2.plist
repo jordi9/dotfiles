@@ -10,6 +10,8 @@
 	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>8F2BD97E-639E-4FD5-80D2-C77247C79EBD</string>
+	<key>DimInactiveSplitPanes</key>
+	<true/>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>GlobalKeyMap</key>
@@ -833,6 +835,8 @@
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.39507490139563106</real>
 	<key>StretchTabsToFillBar</key>
 	<false/>
 	<key>TabStyle</key>

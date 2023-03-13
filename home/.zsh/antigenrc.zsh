@@ -11,6 +11,7 @@ autojump
 gradle
 docker
 mvn
+ssh-agent
 
 paulirish/git-open
 zsh-users/zsh-syntax-highlighting

@@ -23,6 +23,7 @@ alias fucking="sudo"
 alias s="ssh"
 alias dc="docker-compose"
 alias d="docker"
+alias k="kubectl"
 alias hs="homesick"
 alias d-stop-all='docker stop $(docker ps -a -q)'
 alias d-kill-all='docker kill $(docker ps -a -q)'
@@ -59,6 +60,11 @@ alias gl=gl
 # https://ben.lobaugh.net/blog/201616/cleanup-and-remove-all-merged-local-and-remote-git-branches
 alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xargs -n 1 git branch -d && g remote prune origin"
 
+function gh-personal-account {
+  git config user.email "jordi@donky.org"
+  git config user.name "Jordi Gerona"
+}
+
 # Gradle
 #####
 
@@ -67,7 +73,7 @@ function gradle-create-subproject {
   mkdir "$name"
   mkdir -p "$name"/src/test/kotlin
   mkdir -p "$name"/src/main/kotlin
-  touch "$name/$name".gradle.kts
+  touch "$name/build.gradle.kts"
   echo "include(\"$name\")" | pbcopy
   echo "include string ready to be pasted in settings.gradle"
 }

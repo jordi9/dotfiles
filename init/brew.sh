@@ -19,6 +19,7 @@ htop
 jq
 kubectx
 kubernetes-cli
+k9s
 pv
 screen
 stern

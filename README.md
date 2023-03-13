@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-A combination of Antigen, Homesick and some private repos at Bitbucket dotfiles setup. 
+A combination of Antigen, Homesick, custom plugins and some private repos.
 
 Some inspiration: [technicalpickles/homesick](http://www.github.com/technicalpickles/homesick), [mathiasbynens/dotfiles](http://www.github.com/mathiasbynens/dotfiles)
 
@@ -46,19 +46,19 @@ This `dotfiles` at the same time is an antigen plugin.
 
 ## Optional plugins per laptop
 
-If you want to load more antigen plugins, but depending on the laptop (eg: work), create a file `~/.antigenextra` to load more bundles.
+If you want to load more antigen plugins, but depend on the laptop (eg: work), create a file `~/.antigenextra` to load more bundles.
 
     vim ~/.antigenextra
     antigen bundle $HOME/.homesick/repos/home-bumble --no-local-clone
 
 ## More Homes
 
-For example, private scripts or configs with licences
+Time to setup more homes. For example, private scripts or configs with licenses
 
-    homesick clone git@github.com:jordi9/private-dotfiles.git
-    homesick link private-dotfiles
+    homesick clone git@github.com:jordi9/private-dotfiles-example.git
+    homesick link private-dotfiles-example
 
-## Upgrade zsh
+## Upgrade zsh (not needed in recent MacOS versions, eg: Ventura)
 
 Follow steps at https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
 
@@ -82,7 +82,7 @@ If they're not picked up, run:
 
     killall cfprefsd
 
-Some Moom hotkeys inspired in [Rectangle](https://github.com/rxhanson/Rectangle)
+Some Moom hotkeys inspired by [Rectangle](https://github.com/rxhanson/Rectangle)](https://github.com/rxhanson/Rectangle)
 
 # Inspiration
 

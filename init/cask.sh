@@ -12,7 +12,7 @@ bartender
 bettertouchtool
 chatmate-for-whatsapp
 dropbox
-flux
+homebrew/cask/flux
 font-consolas-for-powerline
 font-fira-mono-for-powerline
 font-inconsolata-for-powerline
