@@ -40,7 +40,6 @@ alias gri="g r -i master"
 # https://stackoverflow.com/questions/20433867/git-ahead-behind-info-between-master-and-branch
 alias gah='g rev-list --left-right --count master...`g rev-parse --abbrev-ref HEAD`'
 
-# commit.md | Set up .local_gitignore -> https://medium.com/@peter_graham/how-to-create-a-local-gitignore-1b19f083492b
 alias gmdd='g log -1 --pretty=%B > commit.md'
 alias gmde='code commit.md'
 alias gmdc='g ci -F commit.md'
@@ -63,6 +62,14 @@ alias g-delete-merged-branches="gb --merged | grep -v '\*' | grep -v master | xa
 function gh-personal-account {
   git config user.email "jordi@donky.org"
   git config user.name "Jordi Gerona"
+}
+
+# Set up .local_gitignore -> https://medium.com/@peter_graham/how-to-create-a-local-gitignore-1b19f083492b
+function git-setup-local-ignore {
+  #touch .local_gitignore
+  echo ".local_gitignore\n" >> .local_gitignore
+  echo "excludesfile = $PWD/.local_gitignore" | pbcopy
+  g config --local -e
 }
 
 # Gradle

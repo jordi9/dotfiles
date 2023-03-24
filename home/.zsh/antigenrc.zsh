@@ -13,6 +13,7 @@ docker
 mvn
 ssh-agent
 
+Tarrasch/zsh-autoenv
 paulirish/git-open
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
