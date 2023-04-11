@@ -85,6 +85,14 @@ function gradle-create-subproject {
   echo "include string ready to be pasted in settings.gradle"
 }
 
+# IntelliJ IDEA
+#####
+
+# https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html
+function idea {
+  open -na "IntelliJ IDEA.app" --args "$@"
+}
+
 # Mac
 #####
 
