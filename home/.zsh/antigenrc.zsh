@@ -18,11 +18,13 @@ paulirish/git-open
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-autosuggestions
-spaceship-prompt/spaceship-gradle --branch=main
 
 # My custom plugins and shortcuts
 $HOME/.homesick/repos/dotfiles --no-local-clone
 EOBUNDLES
+
+# tmp until https://github.com/spaceship-prompt/spaceship-gradle/pull/2 gets merged
+#spaceship-prompt/spaceship-gradle --branch=main
 
 ## Optinally load extra bundles, usually private/company related
 [[ -a ~/.antigenextra ]] && source ~/.antigenextra
