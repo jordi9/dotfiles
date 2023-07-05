@@ -79,3 +79,5 @@
 	enabled = true
 [init]
 	defaultBranch = main
+[url "ssh://git@github.bumble.dev/"]
+	insteadOf = https://github.bumble.dev/

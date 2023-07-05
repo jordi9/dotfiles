@@ -11,7 +11,7 @@ alias homecnf="cd ~/.homesick/repos/dotfiles"
 alias cnf="vim ~/.homesick/repos/dotfiles/me.plugin.zsh"
 alias zcnf="vim ~/.zshrc"
 alias acnf="vim ~/.zsh/antigenrc.zsh"
-alias reload="source ~/.zshrc"
+alias reload="omz reload"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 # Avoid stupid gradle or gradlew from oh-my-zsh gradle plugin
 alias gradle="gradle"
