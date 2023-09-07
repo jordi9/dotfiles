@@ -11,7 +11,7 @@ Some inspiration: [technicalpickles/homesick](http://www.github.com/technicalpic
 
 Installing Homebrew first we will get Command Line Tools (required) and an old git version for free that would do the trick to use homesick
 
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ## Ruby
 
