@@ -18,7 +18,12 @@ Installing Homebrew first we will get Command Line Tools (required) and an old g
 Due to newer ruby versions in macOS, gem needs sudo (wrong) to run. Better install ruby ourselves before installing homesick.
 
     brew install rbenv
-    init/ruby.zsh
+
+Find a recent 2.x ruby version with `rbenv install -l`
+
+    local rbver=2.7.6
+    rbenv install $rbver
+    rbenv global $rbver
     eval "$(rbenv init -)"
 
 ## Homesick
