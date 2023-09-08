@@ -2,9 +2,7 @@
 IFS='
 '
 
-brew tap homebrew/cask-versions
 brew tap homebrew/cask-fonts
-brew tap homebrew/cask-drivers
 
 formulae="
 alfred
