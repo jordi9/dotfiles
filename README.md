@@ -42,6 +42,11 @@ Fix file permissions
     sudo chmod 600 ~/.ssh/id_rsa
     sudo chmod 600 ~/.ssh/id_rsa.pub
 
+Add keys to ssh-agent
+    
+    eval "$(ssh-agent -s)"
+    ssh-add --apple-use-keychain foo_key
+
 Now it's time to clone this `dotfiles` as a Castle
 
     homesick clone git@github.com:jordi9/dotfiles.git
