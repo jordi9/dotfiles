@@ -10,9 +10,8 @@ formulae="
 alfred
 bartender
 bettertouchtool
-chatmate-for-whatsapp
-dropbox
 homebrew/cask/flux
+ferdium
 font-consolas-for-powerline
 font-fira-mono-for-powerline
 font-inconsolata-for-powerline
@@ -39,7 +38,7 @@ zoom
 "
 
 for f in $formulae; do
-  brew cask install $f
+  brew install --cash $f
 done
 
 # Not used now
