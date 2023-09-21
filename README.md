@@ -59,15 +59,6 @@ Time to setup more homes. For example, private scripts or configs with licenses
     homesick clone git@github.com:jordi9/private-dotfiles-example.git
     homesick link private-dotfiles-example
 
-## Upgrade zsh (not needed in recent MacOS versions, eg: Ventura)
-
-Follow steps at https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
-
-Fix `compdef` errors:
-
-    sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
-    chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
-
 # One time scripts
 
 All of them located in `init` folder:
