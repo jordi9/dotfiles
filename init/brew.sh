@@ -10,6 +10,7 @@ formulae="
 ack
 autojump
 bat
+btop
 gettext
 git
 git-recent
@@ -27,10 +28,11 @@ tree
 vim
 watch
 wget
+zsh
 "
 for f in $formulae; do
   echo ">> $f"
-  arch -arm64 brew install $f
+  brew install $f
 done
 
 # Audiophile
