@@ -68,6 +68,11 @@ All of them located in `init` folder:
     init/macos.zsh
     init/sdkman.zsh
 
+# Setup 
+
+* iTerm2: Load preferences from `conf` folder
+
+
 ## Manytricks settings
 
 If they're not picked up, run:
