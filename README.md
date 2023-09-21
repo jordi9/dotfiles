@@ -18,30 +18,18 @@ Installing Homebrew first we will get Command Line Tools (required) and an old g
     brew install iterm2
     brew install bitwarden
     
+## Homeshick
 
-## Ruby
+Install Homeshick first (thanks Homesick!)
 
-Due to newer ruby versions in macOS, gem needs sudo (wrong) to run. Better install ruby ourselves before installing homesick.
-
-    brew install rbenv
-
-Find a recent 2.x ruby version with `rbenv install -l`
-
-    local rbver=2.7.6
-    rbenv install $rbver
-    rbenv global $rbver
-    eval "$(rbenv init -)"
-
-## Homesick
-
-Install Homesick first
-
-    gem install homesick
+    brew install homeshick
+    export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
+    source "/opt/homebrew/opt/homeshick/homeshick.sh"
 
 Time to set up my ssh config
 
-    homesick clone https://jordi9@...
-    homesick link ssh-home
+    homeshick clone https://jordi9@...
+    homeshick link ssh-home
 
 Fix file permissions
 
@@ -55,8 +43,8 @@ Add keys to ssh-agent
 
 Now it's time to clone this `dotfiles` as a Castle
 
-    homesick clone git@github.com:jordi9/dotfiles.git
-    homesick link dotfiles
+    homeshick clone git@github.com:jordi9/dotfiles.git
+    homeshick link dotfiles
 
 This `dotfiles` at the same time is an antigen plugin.
 
