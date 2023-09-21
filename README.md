@@ -29,12 +29,10 @@ Install Homeshick first (thanks Homesick!)
 Time to set up my ssh config
 
     homeshick clone https://jordi9@...
-    homeshick link ssh-home
 
 Fix file permissions
 
-    sudo chmod 600 ~/.ssh/id_rsa
-    sudo chmod 600 ~/.ssh/id_rsa.pub
+    sudo chmod 600 ~/.ssh/id_*
 
 Add keys to ssh-agent
     
@@ -44,7 +42,6 @@ Add keys to ssh-agent
 Now it's time to clone this `dotfiles` as a Castle
 
     homeshick clone git@github.com:jordi9/dotfiles.git
-    homeshick link dotfiles
 
 This `dotfiles` at the same time is an antigen plugin.
 
