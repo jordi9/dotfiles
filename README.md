@@ -13,6 +13,12 @@ Installing Homebrew first we will get Command Line Tools (required) and an old g
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+## Basic apps to not die in the intent
+
+    brew install iterm2
+    brew install bitwarden
+    
+
 ## Ruby
 
 Due to newer ruby versions in macOS, gem needs sudo (wrong) to run. Better install ruby ourselves before installing homesick.
