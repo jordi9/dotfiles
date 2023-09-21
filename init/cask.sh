@@ -6,37 +6,32 @@ brew tap homebrew/cask-fonts
 
 formulae="
 alfred
+arc
 bartender
 bettertouchtool
-homebrew/cask/flux
+flux
 ferdium
 font-consolas-for-powerline
 font-fira-mono-for-powerline
 font-inconsolata-for-powerline
 font-source-code-pro-for-powerline
-google-chrome-beta
-google-chrome-canary
 intellij-idea
 istat-menus
-iterm2
 karabiner-elements
 logitech-options
+meetingbar
 moom
 roon
 slack
-swinsian
-telegram
-the-unarchiver
-transmission
+tidal
 visual-studio-code
-vlc
 witch
 xld
 zoom
 "
 
 for f in $formulae; do
-  brew install --cash $f
+  brew install --cask $f
 done
 
 # Not used now
