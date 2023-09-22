@@ -80,5 +80,4 @@
   path = ~/.gitconfig-personal
 [includeIf "gitdir:~/workspace/"]
   path = ~/.gitconfig-work
-[url "ssh://git@github.bumble.dev/"]
-	insteadOf = https://github.bumble.dev/
+
