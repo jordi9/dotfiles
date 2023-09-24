@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>build</key>
-	<string>1177</string>
+	<string>1203</string>
 	<key>license</key>
 	<dict>
 		<key>email</key>
@@ -44,13 +44,7 @@
 				<key>key</key>
 				<string>3</string>
 				<key>uuid</key>
-				<string>E117C844-F856-4212-9B32-9CA8C1692C51</string>
-			</dict>
-			<dict>
-				<key>key</key>
-				<string>0</string>
-				<key>uuid</key>
-				<string>BF139B36-FED6-4C80-AFB2-FA8621ADA645</string>
+				<string>B7B5CC0A-E855-447A-9595-CDCA045901CE</string>
 			</dict>
 		</array>
 		<key>Battery_MenubarModeCharging</key>
@@ -59,13 +53,7 @@
 				<key>key</key>
 				<string>3</string>
 				<key>uuid</key>
-				<string>038E430C-26B8-4A32-9EEB-4B6E97E2AFDD</string>
-			</dict>
-			<dict>
-				<key>key</key>
-				<string>0</string>
-				<key>uuid</key>
-				<string>27B5C25F-FD77-4080-B3BF-B89BD1796677</string>
+				<string>B98ADFDB-24ED-4863-B811-5013321F8EF7</string>
 			</dict>
 		</array>
 		<key>Battery_MenubarModeDraining</key>
@@ -74,13 +62,13 @@
 				<key>key</key>
 				<string>3</string>
 				<key>uuid</key>
-				<string>E4F0B158-059C-4CCA-8096-991161E9A380</string>
+				<string>658655EA-870A-4B39-ADC9-E2A66DEFD1CF</string>
 			</dict>
 			<dict>
 				<key>key</key>
 				<string>0</string>
 				<key>uuid</key>
-				<string>73429B87-FA1E-4001-9954-E8DC604C7BC5</string>
+				<string>09771393-8AF1-4154-8153-5731AC79A9C9</string>
 			</dict>
 		</array>
 		<key>Battery_MenubarModeNotCharging</key>
@@ -89,30 +77,70 @@
 				<key>key</key>
 				<string>3</string>
 				<key>uuid</key>
-				<string>038E430C-26B8-4A32-9EEB-4B6E97E2AFDD</string>
+				<string>3E78E23E-A214-4654-B463-F5E67E2285F2</string>
 			</dict>
 			<dict>
 				<key>key</key>
 				<string>0</string>
 				<key>uuid</key>
-				<string>27B5C25F-FD77-4080-B3BF-B89BD1796677</string>
+				<string>8798998B-FD99-41C5-836E-12B1A36DABE7</string>
 			</dict>
 		</array>
 		<key>CPU_CombineLogicalCores</key>
+		<integer>1</integer>
+		<key>CPU_DropdownOrderDisabled</key>
+		<string>buttons</string>
+		<key>CPU_MenubarCombineCores</key>
+		<integer>1</integer>
+		<key>CPU_MenubarGraphBreakdowns</key>
+		<integer>1</integer>
+		<key>CPU_MenubarGroupItems</key>
 		<integer>1</integer>
 		<key>CPU_MenubarMode</key>
 		<array>
 			<dict>
 				<key>key</key>
-				<string>100</string>
+				<string>0</string>
 				<key>uuid</key>
-				<string>D6817F67-F7F5-4449-ADC1-07F6FE061AAC</string>
+				<string>C602CB53-E2F1-4FAD-AF94-86A84E9A82D1</string>
+			</dict>
+		</array>
+		<key>CPU_MenubarSingleHistoryGraph</key>
+		<integer>1</integer>
+		<key>CombinedDropdownDisplayMode</key>
+		<array>
+			<dict>
+				<key>key</key>
+				<string>1</string>
+				<key>uuid</key>
+				<string>E93C4B6A-A82B-494F-A9DB-1302E29C4E25</string>
 			</dict>
 			<dict>
 				<key>key</key>
-				<string>6</string>
+				<string>2</string>
 				<key>uuid</key>
-				<string>31CF9BC1-4209-4981-88EA-9F1D722F8410</string>
+				<string>68536F53-ABF2-41ED-844E-42C1FED070C1</string>
+			</dict>
+			<dict>
+				<key>key</key>
+				<string>4</string>
+				<key>uuid</key>
+				<string>E2073038-93F9-443F-BEEE-1B05C4FE893F</string>
+			</dict>
+			<dict>
+				<key>key</key>
+				<string>5</string>
+				<key>uuid</key>
+				<string>198C81F2-821F-4044-947A-F9ADDBA9073F</string>
+			</dict>
+		</array>
+		<key>CombinedMenubarDisplayMode</key>
+		<array>
+			<dict>
+				<key>key</key>
+				<string>1</string>
+				<key>uuid</key>
+				<string>5C62B68A-A31E-4F53-8762-D22F3CD141F2</string>
 			</dict>
 		</array>
 		<key>Disks_MenubarItems</key>
@@ -121,21 +149,105 @@
 				<key>boot</key>
 				<true/>
 				<key>key</key>
-				<string>95D3C5F2-AB2F-4597-A74C-B91A40038568</string>
+				<string>B5598400-15AF-4E92-ABD6-69AF0D517E63</string>
 				<key>name</key>
-				<string>Macintosh HD - Data</string>
+				<string>Data</string>
 			</dict>
 		</array>
 		<key>DropdownTheme-Dark</key>
 		<integer>3</integer>
 		<key>FanControl_Sets</key>
-		<array/>
+		<array>
+			<dict>
+				<key>model</key>
+				<string>MacBookPro18,4</string>
+				<key>name</key>
+				<string>Medium</string>
+				<key>speeds</key>
+				<array>
+					<dict>
+						<key>fan</key>
+						<string>F0Ac</string>
+						<key>high</key>
+						<integer>5779</integer>
+						<key>low</key>
+						<integer>1200</integer>
+						<key>percentage</key>
+						<integer>50</integer>
+						<key>speed</key>
+						<integer>3489</integer>
+					</dict>
+					<dict>
+						<key>fan</key>
+						<string>F1Ac</string>
+						<key>high</key>
+						<integer>6241</integer>
+						<key>low</key>
+						<integer>1200</integer>
+						<key>percentage</key>
+						<integer>50</integer>
+						<key>speed</key>
+						<integer>3720</integer>
+					</dict>
+				</array>
+				<key>uuid</key>
+				<string>2328546A-EC2F-4083-85A2-B1230FA692A8</string>
+			</dict>
+			<dict>
+				<key>model</key>
+				<string>MacBookPro18,4</string>
+				<key>name</key>
+				<string>High</string>
+				<key>speeds</key>
+				<array>
+					<dict>
+						<key>fan</key>
+						<string>F0Ac</string>
+						<key>high</key>
+						<integer>5779</integer>
+						<key>low</key>
+						<integer>1200</integer>
+						<key>percentage</key>
+						<integer>100</integer>
+						<key>speed</key>
+						<integer>5779</integer>
+					</dict>
+					<dict>
+						<key>fan</key>
+						<string>F1Ac</string>
+						<key>high</key>
+						<integer>6241</integer>
+						<key>low</key>
+						<integer>1200</integer>
+						<key>percentage</key>
+						<integer>100</integer>
+						<key>speed</key>
+						<integer>6241</integer>
+					</dict>
+				</array>
+				<key>uuid</key>
+				<string>48880BC4-5825-409C-B1A6-EE5E3E6FB24B</string>
+			</dict>
+		</array>
+		<key>Memory_DropdownOrderDisabled</key>
+		<string>buttons</string>
+		<key>Memory_MenubarMode</key>
+		<array>
+			<dict>
+				<key>key</key>
+				<string>1</string>
+				<key>uuid</key>
+				<string>7DFD08A6-0019-41B0-819E-350DF481CCE4</string>
+			</dict>
+		</array>
 		<key>Menubar-DetectedColor</key>
 		<string>1.00 1.00 1.00 0.90</string>
 		<key>MenubarGraphOpacity-Dark</key>
 		<real>1</real>
+		<key>MenubarGraphOpacity-Dark-Modern</key>
+		<real>0.20445312559604645</real>
 		<key>MenubarSkinColor-Dark</key>
-		<integer>10</integer>
+		<integer>4</integer>
 		<key>Migrated_6.0</key>
 		<true/>
 		<key>Migrated_6.22</key>
@@ -144,19 +256,21 @@
 		<true/>
 		<key>Migrated_6.52</key>
 		<true/>
+		<key>Migrated_6.60_ARM</key>
+		<true/>
+		<key>Network_DotFlatten</key>
+		<integer>0</integer>
+		<key>Network_DotUpload</key>
+		<string>0.79 0.82 0.76 1.00</string>
+		<key>Network_DropdownOrderDisabled</key>
+		<string>buttons</string>
 		<key>Network_MenubarMode</key>
 		<array>
 			<dict>
 				<key>key</key>
-				<string>4</string>
+				<string>2</string>
 				<key>uuid</key>
-				<string>106F1BB3-AD4E-4C67-A860-69DBBA13E0EC</string>
-			</dict>
-			<dict>
-				<key>key</key>
-				<string>0</string>
-				<key>uuid</key>
-				<string>15E74F24-94CC-4025-BBB0-C9D725FB49CB</string>
+				<string>F4B6F31F-D41A-4DCB-889C-378C6D58C57E</string>
 			</dict>
 		</array>
 		<key>Notifications-Enabled</key>
@@ -216,19 +330,18 @@
 		<true/>
 		<key>StatusItems-Order</key>
 		<array>
-			<integer>1</integer>
+			<integer>8</integer>
 			<integer>7</integer>
-			<integer>2</integer>
-			<integer>4</integer>
 			<integer>6</integer>
 		</array>
+		<key>Theme-SeperateStyles</key>
+		<false/>
 		<key>Time_CalendarShowWeeks</key>
 		<integer>1</integer>
 		<key>Time_CalendarsDisabled</key>
 		<array>
-			<string>7C035C26-6F13-4A9F-8079-5E6A8373AB6F</string>
-			<string>08887FCD-0838-4396-94B2-7AAD9BE69CDF</string>
-			<string>134A5DE2-1644-4BB0-9CCF-35EE646B5D5F</string>
+			<string>5AFF000F-9945-4E84-A0F7-B5739B403281</string>
+			<string>78147D69-DCEC-407A-B110-6B990F06901D</string>
 		</array>
 		<key>Time_Cities</key>
 		<array>
@@ -326,22 +439,6 @@
 			</dict>
 			<dict>
 				<key>city</key>
-				<string>Moscow</string>
-				<key>country</key>
-				<string>Russia</string>
-				<key>identifier</key>
-				<integer>524901</integer>
-				<key>latitude</key>
-				<real>55.752220000000001</real>
-				<key>longitude</key>
-				<real>37.615560000000002</real>
-				<key>state</key>
-				<string>Moscow</string>
-				<key>timezone</key>
-				<string>Europe/Moscow</string>
-			</dict>
-			<dict>
-				<key>city</key>
 				<string>Dubai</string>
 				<key>country</key>
 				<string>United Arab Emirates</string>
@@ -365,8 +462,6 @@
 				<key>format</key>
 				<array>
 					<array>
-						<string>EE</string>
-						<string>' / '</string>
 						<string>dd</string>
 						<string>' '</string>
 						<string>MMM</string>
@@ -391,14 +486,14 @@
 		<key>Zarya-TLE</key>
 		<dict>
 			<key>time</key>
-			<real>1666635293.3728819</real>
+			<real>1695391729.0543871</real>
 			<key>tle</key>
 			<string>ISS (ZARYA)             
-1 25544U 98067A   22297.66831456  .00011193  00000+0  20597-3 0  9991
-2 25544  51.6434  55.1194 0005802   9.7718 122.7613 15.49689577365262</string>
+1 25544U 98067A   23265.31627168  .00017880  00000+0  32580-3 0  9996
+2 25544  51.6422 207.4193 0005807  46.5561 112.3837 15.49525216416854</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>6.60</string>
+	<string>6.63</string>
 </dict>
 </plist>
