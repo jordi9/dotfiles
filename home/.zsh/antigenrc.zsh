@@ -9,7 +9,6 @@ antigen bundles <<EOBUNDLES
 git
 autojump
 gradle
-docker
 mvn
 ssh-agent
 
