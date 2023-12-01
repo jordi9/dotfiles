@@ -30,6 +30,18 @@ alias d-kill-all='docker kill $(docker ps -a -q)'
 alias bluetooth-restart='blueutil -p 0 && sleep 1 && blueutil -p 1'
 alias d-nuke='d-stop-all && d system prune --volumes --force'
 
+
+# directories
+# Inspired by with no compdef https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/directories.zsh
+#####
+alias md='mkdir -p'
+alias rd=rmdir
+
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+
 # Git
 #####
 alias gf="git fetch"
@@ -44,6 +56,9 @@ alias gmdd='g log -1 --pretty=%B > commit.md'
 alias gmde='code commit.md'
 alias gmdc='g ci -F commit.md'
 alias gmdc!='gmdc --amend'
+
+## Optinally load extra bundles, usually private/company related
+[[ -a ~/.antidote-boost ]] && source ~/.antidote-boost
 
 function gl {
   local old_rev="$(git rev-parse HEAD)"
@@ -106,31 +121,8 @@ alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add 
 alias do-not-disturb="defaults write com.apple.dock no-bouncing -bool TRUE && reload-dock"
 alias disturb="defaults write com.apple.dock no-bouncing -bool FALSE && reload-dock"
 
-## High Sierra dark mode for mojave https://www.tekrevue.com/tip/only-dark-menu-bar-dock-mojave/
-# System Preferences > General and select Light for Appearance
-alias high-sierra-dark-on="defaults write -g NSRequiresAquaSystemAppearance -bool Yes"
-# Logout. System Preferences > General and select Dark for Appearance
-alias high-sierra-dark-off="defaults delete -g NSRequiresAquaSystemAppearance"
-
-# Always use the integrated graphics card while running on battery power
-alias graphics-integrated="sudo pmset -b gpuswitch 0"
-
-# Always use the discrete graphics card while running on battery power
-alias graphics-discrete="sudo pmset -b gpuswitch 1"
-
-# Switch between discrete and integrated graphics cards automatically while running on battery power
-alias graphics-auto="sudo pmset -b gpuswitch 2"
-
 # Brew
 #######
-
-function cask-install {
-  COMMAND=(brew cask install $1)
-  if $COMMAND; then
-    print $COMMAND >> ~/.homesick/repos/dotfiles/Caskfile
-    print "👌 Saved in Caskfile"
-  fi
-}
 
 # https://www.client9.com/using-macos-homebrew-to-install-a-specific-version/
 function brew-versions-search {

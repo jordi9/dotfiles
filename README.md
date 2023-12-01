@@ -1,15 +1,15 @@
 dotfiles
 ========
 
-A combination of Antigen, Homesick, custom plugins and some private repos.
+A combination of Antibody, Homesick, custom plugins and some private repos.
 
-Some inspiration: [technicalpickles/homesick](http://www.github.com/technicalpickles/homesick), [mathiasbynens/dotfiles](http://www.github.com/mathiasbynens/dotfiles)
+Some inspiration: [technicalpickles/homesick](http://www.github.com/technicalpickles/homesick), [mathiasbynens/dotfiles](http://www.github.com/mathiasbynens/dotfiles), [getantidote/zdotdir](https://github.com/getantidote/zdotdir)
 
 # Installation 
 
 ## Homebrew
 
-Installing Homebrew first we will get Command Line Tools (required) and an old git version for free that would do the trick to use homesick
+Installing Homebrew first we will get Command Line Tools and other basic goodies
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -17,6 +17,7 @@ Installing Homebrew first we will get Command Line Tools (required) and an old g
 
     brew install iterm2
     brew install bitwarden
+    brew install antibody
     
 ## Homeshick
 
@@ -43,14 +44,14 @@ Now it's time to clone this `dotfiles` as a Castle
 
     homeshick clone git@github.com:jordi9/dotfiles.git
 
-This `dotfiles` at the same time is an antigen plugin.
+This `dotfiles` at the same time is an antidote plugin.
 
 ## Optional plugins per laptop
 
-If you want to load more antigen plugins, but depend on the laptop (eg: work), create a file `~/.antigenextra` to load more bundles.
+If you want to load more antibody plugins, but depend on the laptop (eg: work), create a file `~/.antibody-boost` to load more bundles.
 
-    vim ~/.antigenextra
-    antigen bundle $HOME/.homesick/repos/home-bumble --no-local-clone
+    $ vim ~/.antibody-boost
+    eval $(antidote bundle $HOMESHICK_REPOS/my-secret-home)
 
 ## More Homes
 

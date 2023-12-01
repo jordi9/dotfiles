@@ -8,7 +8,6 @@ brew tap heroku/brew
 
 formulae="
 ack
-autojump
 bat
 btop
 gettext

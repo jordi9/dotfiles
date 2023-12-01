@@ -1,0 +1,37 @@
+# Inspiration: https://github.com/getantidote/zdotdir
+
+spaceship-prompt/spaceship-prompt
+
+agkozak/zsh-z
+mattmc3/zman
+peterhurford/up.zsh
+zshzoo/magic-enter
+zshzoo/macos
+
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/mvn
+ohmyzsh/ohmyzsh path:plugins/ssh-agent
+
+belak/zsh-utils path:history
+belak/zsh-utils path:utility
+belak/zsh-utils path:editor
+
+Tarrasch/zsh-autoenv
+paulirish/git-open
+
+$HOMESHICK_REPOS/dotfiles
+
+zdharma-continuum/fast-syntax-highlighting kind:defer
+
+# zsh-users/zsh-completions is a popular plugin for adding supplemental completions.
+zsh-users/zsh-completions path:src kind:fpath
+
+# Compinit plugins should be near the end of .zsh_plugins.txt so that $fpath has been
+# fully populated. Use zsh-utils for its completion plugin.
+belak/zsh-utils path:completion
+
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/gradle
+
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-history-substring-search
