@@ -21,6 +21,7 @@ alias mvn="mvn"
 
 alias fucking="sudo"
 alias s="ssh"
+alias j=z
 alias dc="docker-compose"
 alias d="docker"
 alias k="kubectl"
