@@ -76,8 +76,11 @@
 	enabled = true
 [init]
 	defaultBranch = main
+[user]
+    # Default to personal account
+	email = jordi@donky.org
+	name = Jordi Gerona
 [includeIf "gitdir:~/homespace/"]
   path = ~/.gitconfig-personal
 [includeIf "gitdir:~/workspace/"]
   path = ~/.gitconfig-work
-

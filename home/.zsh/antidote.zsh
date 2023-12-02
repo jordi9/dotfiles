@@ -6,7 +6,13 @@ setopt extended_glob
 # Source zstyles you might use with antidote.
 [[ -e ${ZDOTDIR:-~}/.zstyles ]] && source ${ZDOTDIR:-~}/.zstyles
 
-source "$(brew --prefix)"/opt/antidote/share/antidote/antidote.zsh
+antidote_home="$(brew --prefix)"/opt/antidote/share/antidote
+
+# Install antidote if necessary
+[[ -d $antidote_home ]] ||
+  brew install antidote
+
+source $antidote_home/antidote.zsh
 
 antidote load
 

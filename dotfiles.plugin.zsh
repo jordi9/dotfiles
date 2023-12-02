@@ -13,7 +13,7 @@ alias zcnf="vim ~/.zshrc"
 alias acnf="vim ~/.zsh/antigenrc.zsh"
 alias reload="omz reload"
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
-# Avoid stupid gradle or gradlew from oh-my-zsh gradle plugin
+# Avoid gradle or gradlew from oh-my-zsh gradle plugin
 alias gradle="gradle"
 alias ge="gradle-or-gradlew"
 alias gen="gradle"
@@ -86,6 +86,10 @@ function git-setup-local-ignore {
   echo ".local_gitignore\n" >> .local_gitignore
   echo "excludesfile = $PWD/.local_gitignore" | pbcopy
   g config --local -e
+}
+
+function gh-setup-ssh {
+  ssh-add --apple-use-keychain ~/.ssh/id_github_com
 }
 
 # Gradle
