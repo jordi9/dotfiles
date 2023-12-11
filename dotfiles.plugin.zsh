@@ -92,6 +92,11 @@ function gh-setup-ssh {
   ssh-add --apple-use-keychain ~/.ssh/id_github_com
 }
 
+# zsh-history-substring-search configuration
+bindkey '\eOA' history-substring-search-up # or '^[[A'
+bindkey '\eOB' history-substring-search-down # or '^[[B'
+export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
 # Gradle
 #####
 
