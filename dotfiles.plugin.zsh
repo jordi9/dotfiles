@@ -38,6 +38,12 @@ alias d-nuke='d-stop-all && d system prune --volumes --force'
 alias md='mkdir -p'
 alias rd=rmdir
 
+alias ..='up 1'
+alias ...='up 2'
+alias ....='up 3'
+alias .....='up 4'
+alias ......='up 5'
+
 alias lsa='ls -lah'
 alias l='ls -lah'
 alias ll='ls -lh'
