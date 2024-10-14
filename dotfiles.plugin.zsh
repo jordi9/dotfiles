@@ -54,7 +54,7 @@ alias la='ls -lAh'
 alias gf="git fetch"
 alias gpf="gp --force-with-lease"
 alias gpub='gp -u origin `g rev-parse --abbrev-ref HEAD`'
-alias gri="g r -i master"
+alias gri='g r -i $(git branch -l main master --format "%(refname:short)")'
 
 # https://stackoverflow.com/questions/20433867/git-ahead-behind-info-between-master-and-branch
 alias gah='g rev-list --left-right --count master...`g rev-parse --abbrev-ref HEAD`'
