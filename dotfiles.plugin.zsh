@@ -166,6 +166,11 @@ alias xmas='curl climagic.org/txt/jb.txt | while read -r c n l;do printf "\e[1;$
 
 alias fix-htop-permissions="sudo chown root:wheel /usr/local/bin/htop && sudo chmod u+s /usr/local/bin/htop"
 
+function mkfile { 
+  mkdir -p -- "$1" && touch -- "$1"/"$2" 
+}
+
+
 # Audophile
 ###########
 
