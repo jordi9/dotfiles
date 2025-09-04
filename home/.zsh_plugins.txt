@@ -20,6 +20,7 @@ Tarrasch/zsh-autoenv
 paulirish/git-open
 
 $HOMESHICK_REPOS/dotfiles
+$HOME/.docker kind:fpath path:completions
 
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
