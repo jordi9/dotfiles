@@ -2,6 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AIFeatureFunctionCalling</key>
+	<true/>
+	<key>AIFeatureHostedCodeInterpeter</key>
+	<false/>
+	<key>AIFeatureHostedFileSearch</key>
+	<false/>
+	<key>AIFeatureHostedWebSearch</key>
+	<false/>
+	<key>AIFeatureStreamingResponses</key>
+	<true/>
+	<key>AITermAPI</key>
+	<integer>3</integer>
+	<key>AIVectorStore</key>
+	<integer>0</integer>
+	<key>AIVendor</key>
+	<integer>1</integer>
+	<key>AiMaxTokens</key>
+	<integer>1048576</integer>
+	<key>AiModel</key>
+	<string>gemini-2.0-flash</string>
+	<key>AiResponseMaxTokens</key>
+	<integer>8192</integer>
+	<key>AitermURL</key>
+	<string>https://generativelanguage.googleapis.com/v1beta/models/{{MODEL}}</string>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>BracketedPasteMode</key>
@@ -10,6 +34,8 @@
 	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>8F2BD97E-639E-4FD5-80D2-C77247C79EBD</string>
+	<key>Default Browser Profile Guid</key>
+	<string>4E9AD567-4603-4BB2-BD76-2E5EEC2F2325</string>
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>EscapeShellCharsWithBackslash</key>
@@ -574,6 +600,8 @@
 	<true/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>com.apple.WebPrivacy.ResourceMonitorURLsVersion</key>
+	<string>qrsAAAGXnXBrwGxMO6s=</string>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>metalMaximizeThroughput</key>
