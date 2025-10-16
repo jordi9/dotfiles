@@ -13,6 +13,7 @@ btop
 gettext
 git
 git-recent
+glow
 grep
 heroku
 htop
