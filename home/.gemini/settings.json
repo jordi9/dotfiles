@@ -1,0 +1,31 @@
+{
+  "general": {
+    "preferredEditor": "vim",
+    "vimMode": false,
+    "checkpointing": {
+      "enabled": true
+    }
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "output": {
+    "format": "text"
+  },
+  "ui": {
+    "showMemoryUsage": true,
+    "showLineNumbers": false,
+    "footer": {
+      "hideSandboxStatus": true
+    }
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
+    },
+    "autoAccept": true,
+    "sandbox": false
+  }
+}
