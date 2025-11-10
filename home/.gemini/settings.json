@@ -8,7 +8,7 @@
   },
   "security": {
     "auth": {
-      "selectedType": "oauth-personal"
+      "selectedType": "gemini-api-key"
     }
   },
   "output": {
@@ -26,6 +26,10 @@
       "showColor": true
     },
     "autoAccept": true,
-    "sandbox": false
+    "sandbox": false,
+    "allowed": [
+      "run_shell_command(git)",
+      "run_shell_command(gradlew)"
+    ]
   }
 }

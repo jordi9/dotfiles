@@ -4,4 +4,5 @@ prompt = """
 - Make a commit of the pending changes we have. 
 - Use conventional commits format and always use present tense.
 - After executing commit you don't need to validate git status
+- Show me the full commit message after it's done
 """

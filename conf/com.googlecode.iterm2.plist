@@ -30,6 +30,8 @@
 	<true/>
 	<key>BracketedPasteMode</key>
 	<true/>
+	<key>BrowserProfiles</key>
+	<false/>
 	<key>ConvertDosNewlines</key>
 	<true/>
 	<key>Custom Color Presets</key>

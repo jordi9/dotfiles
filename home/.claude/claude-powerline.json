@@ -1,0 +1,57 @@
+{
+  "theme": "light",
+  "display": {
+    "style": "minimal",
+    "colorCompatibility": "auto",
+    "lines": [
+      {
+        "segments": {
+          "directory": { "enabled": true, "showBasename": true },
+          "model": { "enabled": false },
+          "session": { "enabled": true, "type": "both", "costSource": "calculated" },
+          "today": { "enabled": true, "type": "both" }
+        }
+      },
+      {
+        "segments": {
+          "block": { "enabled": true, "type": "weighted", "burnType": "tokens" },
+          "version": { "enabled": true },
+          "metrics": {
+            "enabled": true,
+            "showResponseTime": true,
+            "showLastResponseTime": true,
+            "showDuration": true,
+            "showMessageCount": true,
+            "showLinesAdded": true,
+            "showLinesRemoved": true
+          },
+          "context": { "enabled": true, "showPercentageOnly": false },
+          "tmux": { "enabled": false }
+        }
+      },
+      {
+        "segments": {
+          "git": {
+            "enabled": true,
+            "showSha": true,
+            "showWorkingTree": true,
+            "showOperation": true,
+            "showTag": true,
+            "showTimeSinceCommit": true,
+            "showStashCount": true,
+            "showUpstream": true,
+            "showRepoName": true
+          }
+        }
+      }
+    ]
+  },
+  "budget": {
+    "session": { "warningThreshold": 80 },
+    "today": { "amount": 5.0, "warningThreshold": 80 },
+    "block": { "amount": 20000000, "type": "tokens", "warningThreshold": 80 }
+  },
+  "modelContextLimits": {
+    "sonnet": 200000
+  }
+}
