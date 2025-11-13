@@ -1,5 +1,5 @@
 {
-  "theme": "light",
+  "theme": "rose-pine",
   "display": {
     "style": "minimal",
     "colorCompatibility": "auto",
@@ -7,49 +7,37 @@
       {
         "segments": {
           "directory": { "enabled": true, "showBasename": true },
-          "model": { "enabled": false },
-          "session": { "enabled": true, "type": "both", "costSource": "calculated" },
-          "today": { "enabled": true, "type": "both" }
+          "git": { "enabled": true },
+          "model": { "enabled": true },
+          "context": { "enabled": true, "showPercentageOnly": true }
         }
-      },
+      }
+      ,
       {
         "segments": {
-          "block": { "enabled": true, "type": "weighted", "burnType": "tokens" },
-          "version": { "enabled": true },
-          "metrics": {
-            "enabled": true,
-            "showResponseTime": true,
-            "showLastResponseTime": true,
-            "showDuration": true,
-            "showMessageCount": true,
-            "showLinesAdded": true,
-            "showLinesRemoved": true
-          },
-          "context": { "enabled": true, "showPercentageOnly": false },
-          "tmux": { "enabled": false }
-        }
-      },
-      {
-        "segments": {
-          "git": {
-            "enabled": true,
-            "showSha": true,
-            "showWorkingTree": true,
-            "showOperation": true,
-            "showTag": true,
-            "showTimeSinceCommit": true,
-            "showStashCount": true,
-            "showUpstream": true,
-            "showRepoName": true
-          }
+          "session": { "enabled": false, "type": "tokens", "costSource": "calculated" },
+          "block": { "enabled": false, "type": "tokens", "burnType": "tokens" },
+          "today": { "enabled": false, "type": "tokens" }
         }
       }
     ]
   },
-  "budget": {
-    "session": { "warningThreshold": 80 },
-    "today": { "amount": 5.0, "warningThreshold": 80 },
-    "block": { "amount": 20000000, "type": "tokens", "warningThreshold": 80 }
+"budget": {
+    "block": {
+      "amount": 50000,
+      "type": "tokens",
+      "warningThreshold": 75
+    },
+    "today": {
+      "amount": 200000,
+      "type": "tokens",
+      "warningThreshold": 80
+    },
+    "session": {
+      "amount": 30000,
+      "type": "tokens",
+      "warningThreshold": 70
+    }
   },
   "modelContextLimits": {
     "sonnet": 200000

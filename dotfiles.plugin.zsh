@@ -11,11 +11,11 @@ alias homecnf="cd ~/.homesick/repos/dotfiles"
 alias cnf="vim ~/.homesick/repos/dotfiles/me.plugin.zsh"
 alias zcnf="vim ~/.zshrc"
 alias acnf="vim ~/.zsh/antigenrc.zsh"
-alias reload="omz reload"
+alias reload='source ~/.zshrc && echo "✓ Config reloaded"'
 alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 # Avoid gradle or gradlew from oh-my-zsh gradle plugin
 alias gradle="gradle"
-alias ge="gradle-or-gradlew"
+alias ge="gradle-or-gradlew-quiet"
 alias gen="gradle"
 alias mvn="mvn"
 
@@ -63,6 +63,7 @@ alias gmdd='g log -1 --pretty=%B > commit.md'
 alias gmde='code commit.md'
 alias gmdc='g ci -F commit.md'
 alias gmdc!='gmdc --amend'
+alias glm="g log -1 --pretty=%B"
 
 ## Optinally load extra bundles, usually private/company related
 [[ -a ~/.antidote-boost ]] && source ~/.antidote-boost
@@ -114,6 +115,33 @@ function gradle-create-subproject {
   touch "$name/build.gradle.kts"
   echo "include(\"$name\")" | pbcopy
   echo "include string ready to be pasted in settings.gradle"
+}
+
+# Looks for a gradlew-quiet or gradlew file in the current working directory
+# or any of its parent directories, and executes it if found.
+# Otherwise it will call gradle directly.
+function gradle-or-gradlew-quiet() {
+  # find project root
+  # taken from https://github.com/gradle/gradle-completion
+  local dir="$PWD" project_root="$PWD"
+  while [[ "$dir" != / ]]; do
+    if [[ -x "$dir/gradlew" ]]; then
+      project_root="$dir"
+      break
+    fi
+    dir="${dir:h}"
+  done
+
+# prefer gradlew-quiet if it exists, otherwise gradlew, otherwise gradle
+  if [[ -x "$project_root/gradlew-quiet" ]]; then
+    echo "⚡ Running gradlew-quiet"
+    "$project_root/gradlew-quiet" "$@"
+  elif [[ -f "$project_root/gradlew" ]]; then
+    echo "🔨 Running gradlew"
+    "$project_root/gradlew" "$@"
+  else
+    command gradle "$@"
+  fi
 }
 
 # IntelliJ IDEA
