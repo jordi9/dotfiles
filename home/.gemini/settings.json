@@ -8,13 +8,14 @@
   },
   "security": {
     "auth": {
-      "selectedType": "gemini-api-key"
+      "selectedType": "oauth-personal"
     }
   },
   "output": {
     "format": "text"
   },
   "ui": {
+    "useAlternateBuffer": false,
     "showMemoryUsage": true,
     "showLineNumbers": false,
     "footer": {
