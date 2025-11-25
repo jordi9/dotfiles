@@ -5,3 +5,5 @@ export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
 source "/opt/homebrew/opt/homeshick/homeshick.sh"
 
 export HOMESHICK_REPOS=$HOME/.homesick/repos
+export EDITOR='hx'
+export VISUAL='hx'
