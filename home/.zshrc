@@ -1,4 +1,3 @@
 source ~/.zsh/antidote.zsh
 source ~/.zsh/prompt.zsh
-source ~/.zsh/claude.zsh
-source ~/.zsh/sdkman.zsh
+source ~/.zsh/tools.zsh

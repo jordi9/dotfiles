@@ -2,7 +2,6 @@
 
 spaceship-prompt/spaceship-prompt
 
-agkozak/zsh-z
 mattmc3/zman
 peterhurford/up.zsh
 zshzoo/magic-enter
