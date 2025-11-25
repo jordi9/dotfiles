@@ -165,22 +165,6 @@ alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add 
 alias do-not-disturb="defaults write com.apple.dock no-bouncing -bool TRUE && reload-dock"
 alias disturb="defaults write com.apple.dock no-bouncing -bool FALSE && reload-dock"
 
-# Brew
-#######
-
-# https://www.client9.com/using-macos-homebrew-to-install-a-specific-version/
-function brew-versions-search {
-  formula=$1
-  git -C "$(brew --repo homebrew/core)" log master -- Formula/$formula.rb
-}
-
-function brew-versions-install {
-  brewurl=https://raw.githubusercontent.com/Homebrew/homebrew-core
-  formula=$1
-  sha=$2
-  brew install ${BREWURL}/$sha/Formula/$formula.rb
-}
-
 
 # Linux
 #######
@@ -199,18 +183,11 @@ function mkfile {
 }
 
 
-# Audophile
-###########
-
-function transcode {
-  echo 'Transcoding FLAC files to 16-bit'
-  mkdir resampled # make a subdirectory to put our files in
-
-  for file in *.flac
-    do
-      newfile=`echo "$file" | sed "s/ /_/g"`
-      mv "$file" "$newfile" # get rid of filename spaces to avoid errors
-      sox -S $newfile -b 16 -r 44100 "resampled/$newfile" # resample
-      mv "$newfile" "$file" # put stuff back the way we found it
-    done
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
