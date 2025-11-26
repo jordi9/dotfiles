@@ -856,7 +856,7 @@
 	<key>HideTabNumber</key>
 	<false/>
 	<key>Hotkey</key>
-	<true/>
+	<false/>
 	<key>HotkeyChar</key>
 	<integer>63248</integer>
 	<key>HotkeyCode</key>

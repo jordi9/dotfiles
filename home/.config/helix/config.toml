@@ -8,11 +8,11 @@ bufferline = "multiple"    # Show open buffers (tabs) at the top
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
-#select = "underline"
+select = "underline"
 
 [editor.file-picker]
 hidden = false             # Show hidden files (like .gitignore) by default
 
 [keys.normal]
 Z = { Z = ":write-quit", Q = ":quit!" }
-
+Q = ":quit!"  # Shift+Q to quit immediately
