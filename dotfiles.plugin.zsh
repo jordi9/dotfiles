@@ -16,6 +16,7 @@ alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 # Avoid gradle or gradlew from oh-my-zsh gradle plugin
 alias gradle="gradle"
 alias ge="gradle-or-gradlew-quiet"
+alias gw="./gradlew"
 alias gen="gradle"
 alias mvn="mvn"
 
