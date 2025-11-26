@@ -54,9 +54,9 @@ zle -N rationalise-dot
 bindkey '.' rationalise-dot
 bindkey -M isearch '.' self-insert
 
-# Auto-cd when entering just a path (like ../../.. or /some/path)
+# Auto-cd when entering just a path (like ../../.., ../homespace, or /some/path)
 function auto-cd-accept {
-  if [[ $BUFFER =~ '^\.+(/\.+)*/?$' || (-d "$BUFFER" && ! -x "$BUFFER") ]]; then
+  if [[ $BUFFER =~ '^\.+(/\.+)*/?$' || -d "$BUFFER" ]]; then
     BUFFER="cd $BUFFER"
   fi
   zle accept-line
