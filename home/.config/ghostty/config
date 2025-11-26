@@ -1,13 +1,12 @@
 theme = Rose Pine Moon
 
-# Use the font that has the icons for Spaceship & Yazi
 font-family = "FiraMono Nerd Font"
 #font-family = "JetBrainsMono Nerd Font"
-
-# Optional: Adjust size if it feels too small/big compared to iTerm
 font-size = 20
 
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 
 copy-on-select = clipboard
+confirm-close-surface = false
+window-save-state = always
