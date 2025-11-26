@@ -38,11 +38,30 @@ alias d-nuke='d-stop-all && d system prune --volumes --force'
 alias md='mkdir -p'
 alias rd=rmdir
 
-alias ..='up 1'
-alias ...='up 2'
-alias ....='up 3'
-alias .....='up 4'
-alias ......='up 5'
+# Autosuggestions keybindings
+bindkey '^F' forward-word                    # Ctrl+F: accept one word
+
+# Expand ... to ../.. inline (works in paths like .../script.sh)
+function rationalise-dot {
+  if [[ $LBUFFER == *.. ]]; then
+    LBUFFER+='/..'
+  else
+    LBUFFER+='.'
+  fi
+}
+zle -N rationalise-dot
+bindkey '.' rationalise-dot
+bindkey -M isearch '.' self-insert
+
+# Auto-cd when entering just a path (like ../../.. or /some/path)
+function auto-cd-accept {
+  if [[ $BUFFER =~ '^\.+(/\.+)*/?$' || (-d "$BUFFER" && ! -x "$BUFFER") ]]; then
+    BUFFER="cd $BUFFER"
+  fi
+  zle accept-line
+}
+zle -N auto-cd-accept
+bindkey '^M' auto-cd-accept
 
 alias lsa='ls -lah'
 alias l='ls -lah'
