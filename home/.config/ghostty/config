@@ -17,3 +17,6 @@ window-padding-y = 7
 window-padding-balance = true
 unfocused-split-opacity = 0.6
 unfocused-split-fill = #393552
+
+# Claude
+keybind = shift+enter=text:\x1b\r
