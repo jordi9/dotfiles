@@ -18,7 +18,6 @@ belak/zsh-utils path:editor
 Tarrasch/zsh-autoenv
 paulirish/git-open
 
-$HOMESHICK_REPOS/dotfiles
 $HOME/.docker kind:fpath path:completions
 
 zdharma-continuum/fast-syntax-highlighting kind:defer
@@ -32,6 +31,9 @@ belak/zsh-utils path:completion
 
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/gradle
+
+# Load after oh-my-zsh to override aliases
+$HOMESHICK_REPOS/dotfiles
 
 zsh-users/zsh-autosuggestions kind:defer
 zsh-users/zsh-history-substring-search

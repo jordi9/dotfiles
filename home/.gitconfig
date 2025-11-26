@@ -92,5 +92,6 @@
 	side-by-side = true
 	line-numbers = true
 	syntax-theme = Nord
+	pager = less -R
 [merge]
 	conflictStyle = zdiff3

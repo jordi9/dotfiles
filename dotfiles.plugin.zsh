@@ -83,6 +83,7 @@ alias gmde='code commit.md'
 alias gmdc='g ci -F commit.md'
 alias gmdc!='gmdc --amend'
 alias glm="g log -1 --pretty=%B"
+alias gd="git diff | delta --pager 'env TERM=xterm-256color less -R'"
 
 ## Optinally load extra bundles, usually private/company related
 [[ -a ~/.antidote-boost ]] && source ~/.antidote-boost
