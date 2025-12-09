@@ -20,8 +20,8 @@ The dotfiles repository is itself an Antidote plugin loaded via `$HOMESHICK_REPO
 
 **Plugin Loading (home/.zsh/antidote.zsh):**
 - Uses high-performance static loading: generates `.zsh_plugins.zsh` from `.zsh_plugins.txt`
-- Regenerates only when `.zsh_plugins.txt` is modified (timestamp check)
-- Supports optional private plugins via `~/.antidote-boost` file
+- Regenerates only when `.zsh_plugins.txt` or `.zsh_plugins.local.txt` is modified (timestamp check)
+- Supports optional private plugins via `~/.zsh_plugins.local.txt` (merged with main plugins file)
 
 ### Homeshick Integration
 
@@ -159,8 +159,16 @@ These scripts are not idempotent and should be reviewed before running.
 ### Private Configuration Support
 
 The dotfiles support loading private/company-specific configuration via:
-- `~/.antidote-boost` - Additional Antidote bundles (sourced in `antidote.zsh`)
+- `~/.zsh_plugins.local.txt` - Additional Antidote plugins (merged with `.zsh_plugins.txt`)
 - Private Homeshick castles - Clone additional repos and link them
+
+To add private plugins, create `~/.zsh_plugins.local.txt` with entries in the same format as `.zsh_plugins.txt`:
+```
+$HOMESHICK_REPOS/dotfiles-private
+git@github.com:company/zsh-tools
+```
+
+For a cleaner setup, have a private Homeshick castle provide `home/.zsh_plugins.local.txt` which gets symlinked to `~`.
 
 ### Gradle Project Helper
 
