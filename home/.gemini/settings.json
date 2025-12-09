@@ -4,7 +4,8 @@
     "vimMode": false,
     "checkpointing": {
       "enabled": true
-    }
+    },
+    "previewFeatures": true
   },
   "security": {
     "auth": {

@@ -10,6 +10,7 @@ macos-titlebar-proxy-icon = hidden
 copy-on-select = clipboard
 confirm-close-surface = false
 window-save-state = always
+clipboard-paste-protection = false
 
 # Split pane visibility
 window-padding-x = 7
