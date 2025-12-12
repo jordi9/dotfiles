@@ -1,89 +1,83 @@
 dotfiles
 ========
 
-A combination of Antibody, Homesick, custom plugins and some private repos.
+Personal dotfiles managed with [Homeshick](https://github.com/andsens/homeshick)
+and [Antidote](https://getantidote.github.io/). The fun part: this repo is both a Homeshick castle *and* an Antidote
+plugin.
 
-Some inspiration: [technicalpickles/homesick](http://www.github.com/technicalpickles/homesick), [mathiasbynens/dotfiles](http://www.github.com/mathiasbynens/dotfiles), [getantidote/zdotdir](https://github.com/getantidote/zdotdir)
+Inspiration
+from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), [getantidote/zdotdir](https://github.com/getantidote/zdotdir), [maximbaz/dotfiles](https://github.com/maximbaz/dotfiles),
+and [paulirish/dotfiles](https://github.com/paulirish/dotfiles).
 
-# Installation 
+# Installation
 
 ## Homebrew
 
-Installing Homebrew first we will get Command Line Tools and other basic goodies
+Get Homebrew first (includes Command Line Tools):
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-## Basic apps to not die in the intent
+## Essentials
 
-    brew install iterm2
+    brew install ghostty
     brew install bitwarden
-    brew install antibody
-    
-## Homeshick
 
-Install Homeshick first (thanks Homesick!)
+## Homeshick
 
     brew install homeshick
     export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
     source "/opt/homebrew/opt/homeshick/homeshick.sh"
 
-Time to set up my ssh config
+Set up SSH first:
 
     homeshick clone https://jordi9@...
-
-Fix file permissions
-
     sudo chmod 600 ~/.ssh/id_*
-
-Add keys to ssh-agent
-    
     eval "$(ssh-agent -s)"
-    ssh-add --apple-use-keychain foo_key
+    ssh-add --apple-use-keychain your_key
 
-Now it's time to clone this `dotfiles` as a Castle
+Then grab these dotfiles:
 
     homeshick clone git@github.com:jordi9/dotfiles.git
 
-This `dotfiles` at the same time is an antidote plugin.
+The dotfiles repo is also loaded as an Antidote plugin via `.zsh_plugins.txt`.
 
-## Optional plugins per laptop
+## Private plugins
 
-If you want to load more antibody plugins, but depend on the laptop (eg: work), create a file `~/.antibody-boost` to load more bundles.
+For machine-specific or work plugins, create `~/.zsh_plugins.local.txt`:
 
-    $ vim ~/.antibody-boost
-    eval $(antidote bundle $HOMESHICK_REPOS/my-secret-home)
+    $HOMESHICK_REPOS/my-private-dotfiles
+    git@github.com:company/zsh-tools
 
-## More Homes
+This gets merged with the main plugins file automatically.
 
-Time to setup more homes. For example, private scripts or configs with licenses
+## More Castles
 
-    homesick clone git@github.com:jordi9/private-dotfiles-example.git
-    homesick link private-dotfiles-example
+Private configs, license keys, work stuff:
 
-# One time scripts
+    homeshick clone git@github.com:jordi9/private-dotfiles-example.git
+    homeshick link private-dotfiles-example
 
-All of them located in `init` folder:
+# One-time setup
 
-    init/brew.sh
-    init/cash.sk
-    init/macos.zsh
-    init/sdkman.zsh
+Scripts in `init/` for fresh machines:
 
-# Setup 
+    init/brew.sh      # CLI tools (bat, git, jq, kubectl, etc.)
+    init/cask.sh      # GUI apps
+    init/macos.zsh    # macOS preferences
+    init/sdkman.zsh   # Java version management
 
-* iTerm2: Load preferences from `conf` folder
+Review before running—these aren't idempotent.
 
+# Post-install
 
-## Manytricks settings
+**Moom/Manytricks**: If settings don't load, try `killall cfprefsd`. Some hotkeys based
+on [Rectangle](https://github.com/rxhanson/Rectangle).
 
-If they're not picked up, run:
+# Day-to-day
 
-    killall cfprefsd
+```bash
+homecnf   # jump to dotfiles repo
+reload    # reload zsh config
+```
 
-Some Moom hotkeys inspired by [Rectangle](https://github.com/rxhanson/Rectangle)](https://github.com/rxhanson/Rectangle)
-
-# Inspiration
-
-* https://github.com/maximbaz/dotfiles
-* https://github.com/paulirish/dotfiles
-* https://github.com/sharat87/lawn/blob/master/shell/zsh
+After editing, `reload` picks up changes. For new Antidote plugins, just restart your shell.
