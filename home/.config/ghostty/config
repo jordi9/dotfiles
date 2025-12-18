@@ -12,6 +12,8 @@ confirm-close-surface = false
 window-save-state = always
 clipboard-paste-protection = false
 
+shell-integration-features = no-title
+
 # Split pane visibility
 window-padding-x = 7
 window-padding-y = 7

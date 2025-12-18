@@ -15,5 +15,8 @@ if [[ ! " ${SPACESHIP_PROMPT_ORDER[@]} " =~ " gradle " ]]; then
   spaceship add gradle
 fi
 
+
+precmd() { echo -ne "\e]0;${PWD##*/}\a" }
+
 alias show-kube-context='SPACESHIP_KUBECTL_SHOW=true'
 alias hide-kube-context='SPACESHIP_KUBECTL_SHOW=false'
