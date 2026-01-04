@@ -7,6 +7,7 @@ font-size = 20
 
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
+#macos-option-as-alt = true
 
 copy-on-select = clipboard
 confirm-close-surface = false
@@ -24,3 +25,4 @@ unfocused-split-fill = #393552
 
 # Claude
 keybind = shift+enter=text:\x1b\r
+keybind = alt+t=text:\x1bt
