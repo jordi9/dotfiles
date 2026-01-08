@@ -19,6 +19,7 @@ Get Homebrew first (includes Command Line Tools):
 
 ## Essentials
 
+    brew install gh
     brew install ghostty
     brew install bitwarden
 
@@ -28,12 +29,10 @@ Get Homebrew first (includes Command Line Tools):
     export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
     source "/opt/homebrew/opt/homeshick/homeshick.sh"
 
-Set up SSH first:
+Set up SSH (one key per device):
 
-    homeshick clone https://jordi9@...
-    sudo chmod 600 ~/.ssh/id_*
-    eval "$(ssh-agent -s)"
-    ssh-add --apple-use-keychain your_key
+    brew install gh
+    gh auth login  # choose SSH, generates key & uploads to GitHub
 
 Then grab these dotfiles:
 
