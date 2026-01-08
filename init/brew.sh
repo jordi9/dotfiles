@@ -1,43 +1,48 @@
 #!/bin/sh
 IFS='
 '
-# Make sure we’re using the latest Homebrew
+# Make sure we're using the latest Homebrew
 brew update
-
-brew tap heroku/brew
 
 formulae="
 ack
+antidote
 bat
+bitwarden-cli
 btop
-gettext
+coreutils
+fd
+ffmpeg
+gh
 git
+git-cliff
+git-delta
 git-recent
 glow
 grep
-heroku
+helix
+helmfile
+homeshick
 htop
 jq
-kubectx
-kubernetes-cli
 k9s
+kubectx
 pv
+rclone
+ripgrep
 screen
 stern
+tailscale
 tree
 vim
 watch
 wget
+yazi
+zellij
+zoxide
 zsh
 "
 for f in $formulae; do
   echo ">> $f"
   brew install $f
 done
-
-# Audiophile
-#brew install sox --with-flac
-
-# Nerdy 
-# Advent calendar http://www.qemu-advent-calendar.org/
-#brew install qemu

@@ -26,16 +26,6 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write -globalDomain AppleScrollerPagingBehavior -bool true
 
 ###############################################################################
-# High Sierra dark mode for mojave                                            #
-###############################################################################
-
-# https://www.tekrevue.com/tip/only-dark-menu-bar-dock-mojave/
-# System Preferences > General and select Light for Appearance > Run:
-# defaults write -g NSRequiresAquaSystemAppearance -bool Yes
-# Logout. System Preferences > General and select Dark for Appearance
-# Back to normal: defaults delete -g NSRequiresAquaSystemAppearance"
-
-###############################################################################
 # Finder                                                                      #
 ###############################################################################
 
@@ -47,9 +37,6 @@ defaults write com.apple.finder ShowPathbar -bool true
 
 # Finder > Preferences > Show warning before changing an extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-# Finder: allow text selection in Quick Look
-defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false

@@ -1,2 +1,4 @@
-rbenv install 2.7.1
-rbenv global 2.7.1
+#!/bin/zsh
+
+rbenv install 3.3.6
+rbenv global 3.3.6

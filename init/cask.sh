@@ -2,14 +2,10 @@
 IFS='
 '
 
-brew tap homebrew/cask-fonts
-
 formulae="
 alfred
 arc
-bartender
 bettertouchtool
-flux
 ferdium
 font-consolas-for-powerline
 font-fira-mono-for-powerline
@@ -18,7 +14,7 @@ font-source-code-pro-for-powerline
 intellij-idea
 istat-menus
 karabiner-elements
-logitech-options
+logi-options-plus
 meetingbar
 moom
 roon
