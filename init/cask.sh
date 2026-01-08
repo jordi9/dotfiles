@@ -3,20 +3,20 @@ IFS='
 '
 
 formulae="
-alfred
-arc
-bettertouchtool
+bitwarden
 ferdium
-font-consolas-for-powerline
-font-fira-mono-for-powerline
-font-inconsolata-for-powerline
-font-source-code-pro-for-powerline
+font-fira-mono-nerd-font
+font-jetbrains-mono-nerd-font
+font-symbols-only-nerd-font
+ghostty
 intellij-idea
 istat-menus
 karabiner-elements
 logi-options-plus
 meetingbar
 moom
+orbstack
+raycast
 roon
 slack
 tidal
