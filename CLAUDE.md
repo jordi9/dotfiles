@@ -15,8 +15,7 @@ The dotfiles repository is itself an Antidote plugin loaded via `$HOMESHICK_REPO
 **Loading Order (home/.zshrc):**
 1. `~/.zsh/antidote.zsh` - Initializes Antidote and loads plugins from `.zsh_plugins.txt`
 2. `~/.zsh/prompt.zsh` - Configures Spaceship prompt with custom segments
-3. `~/.zsh/claude.zsh` - Sets up Claude Code CLI path
-4. `~/.zsh/sdkman.zsh` - Initializes SDKMAN for Java version management
+3. `~/.zsh/tools.zsh` - Sets up CLI tools (Claude Code PATH, zoxide, SDKMAN)
 
 **Plugin Loading (home/.zsh/antidote.zsh):**
 - Uses high-performance static loading: generates `.zsh_plugins.zsh` from `.zsh_plugins.txt`
@@ -32,7 +31,6 @@ Files are organized in `home/` directory and symlinked to `~` via Homeshick. The
 - **Dotfiles**: `home/.*` (e.g., `.zshrc`, `.gitconfig`, `.vimrc`)
 - **XDG Config**: `home/.config/` (e.g., `bat/`, `karabiner/`)
 - **ZSH Config**: `home/.zsh/` (modular zsh configuration)
-- **Claude Config**: `home/.claude/` (Claude Code settings and commands)
 - **iTerm2 Config**: `conf/com.googlecode.iterm2.plist`
 - **Init Scripts**: `init/` (one-time setup scripts)
 - **Themes**: `themes/` (legacy zsh themes, not actively used)
@@ -118,20 +116,6 @@ user/repo kind:defer
 
 The `.zsh_plugins.zsh` file will auto-regenerate on next shell start.
 
-### Adding Claude Code Commands
-
-Create markdown files in `home/.claude/commands/` with frontmatter:
-```markdown
----
-allowed-tools: Bash(git:*)
-description: Brief description
----
-
-Command prompt here
-```
-
-See `home/.claude/commands/gci.md` for a complete example.
-
 ### Modifying Prompt
 
 Edit `home/.zsh/prompt.zsh` to configure Spaceship prompt segments. Current configuration:
@@ -149,6 +133,7 @@ Located in `init/`, these are run once during initial machine setup:
 
 - `init/brew.sh` - Install Homebrew formulae (ack, bat, git, jq, kubectl, etc.)
 - `init/cask.sh` - Install Homebrew casks (GUI applications)
+- `init/npm.sh` - Install global npm packages (Claude Code, claude-powerline)
 - `init/macos.zsh` - macOS system preferences configuration
 - `init/sdkman.zsh` - Install SDKMAN for Java version management
 
