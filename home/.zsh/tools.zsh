@@ -29,10 +29,8 @@ ssh() {
   saved_bg="${saved_bg##*;}"
 
   # Set title and background for SSH session
-  printf '\e]0;@%s\a' "$*"  # Set terminal title
   printf '\e]11;#242e2c\a'  # Subtle lighter teal
   TERM=xterm-256color command ssh "$@"
-  printf '\e]0;%s\a' "${HOST:-Terminal}"  # Restore title
   printf '\e]11;%s\a' "$saved_bg"  # Restore background
 }
 

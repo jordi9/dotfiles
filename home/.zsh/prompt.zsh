@@ -18,8 +18,7 @@ fi
 
 precmd() {
   if [[ -n "$SSH_CONNECTION" ]]; then
-    # In SSH session: show directory and hostname
-    echo -ne "\e]0;${PWD##*/} - SSH: ${HOST}\a"
+    echo -ne "\e]0;${PWD##*/} @${HOST}\a"
   else
     # Local session: just show directory
     echo -ne "\e]0;${PWD##*/}\a"
