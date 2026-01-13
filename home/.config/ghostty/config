@@ -7,7 +7,7 @@ font-size = 20
 
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
-#macos-option-as-alt = true
+#macos-option-as-alt = left
 
 copy-on-select = clipboard
 confirm-close-surface = false
