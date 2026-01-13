@@ -18,6 +18,7 @@ fi
 
 precmd() {
   if [[ -n "$SSH_CONNECTION" ]]; then
+    export SPACESHIP_PROMPT_PREFIXES_SHOW=true
     echo -ne "\e]0;${PWD##*/} @${HOST}\a"
   else
     # Local session: just show directory
