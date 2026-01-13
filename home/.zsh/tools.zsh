@@ -29,9 +29,9 @@ ssh() {
   saved_bg="${saved_bg##*;}"
 
   # Set title and background for SSH session
-  printf '\e]11;#242e2c\a'  # Subtle lighter teal
+#  printf '\e]11;#242e2c\a'  # Subtle lighter teal
   TERM=xterm-256color command ssh "$@"
-  printf '\e]11;%s\a' "$saved_bg"  # Restore background
+#  printf '\e]11;%s\a' "$saved_bg"  # Restore background
 }
 
 # SDKMAN (must be last)
