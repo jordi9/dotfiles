@@ -16,7 +16,15 @@ if [[ ! " ${SPACESHIP_PROMPT_ORDER[@]} " =~ " gradle " ]]; then
 fi
 
 
-precmd() { echo -ne "\e]0;${PWD##*/}\a" }
+precmd() {
+  if [[ -n "$SSH_CONNECTION" ]]; then
+    # In SSH session: show directory and hostname
+    echo -ne "\e]0;${PWD##*/} - SSH: ${HOST}\a"
+  else
+    # Local session: just show directory
+    echo -ne "\e]0;${PWD##*/}\a"
+  fi
+}
 
 alias show-kube-context='SPACESHIP_KUBECTL_SHOW=true'
 alias hide-kube-context='SPACESHIP_KUBECTL_SHOW=false'

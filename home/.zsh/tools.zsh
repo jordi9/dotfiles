@@ -18,7 +18,7 @@ compdef _zoxide_complete_enhanced z
 
 # Handles echo issues with Ghostty/Tailscale and changes the background
 ssh() {
-  local saved_bg
+  local saved_bg saved_title
   # Query current background (response: ^[]11;rgb:1a1a/1b1b/2626)
   exec {tty}<>/dev/tty
   printf '\e]11;?\e\\' >&$tty
@@ -28,9 +28,12 @@ ssh() {
   # Extract just the color part (rgb:xxxx/xxxx/xxxx)
   saved_bg="${saved_bg##*;}"
 
-  printf '\e]11;#1e2326\a'  # Everforest
+  # Set title and background for SSH session
+  printf '\e]0;SSH: %s\a' "$*"  # Set terminal title
+  printf '\e]11;#242e2c\a'  # Subtle lighter teal
   TERM=xterm-256color command ssh "$@"
-  printf '\e]11;%s\a' "$saved_bg"  # Restore
+  printf '\e]0;%s\a' "${HOST:-Terminal}"  # Restore title
+  printf '\e]11;%s\a' "$saved_bg"  # Restore background
 }
 
 # SDKMAN (must be last)
