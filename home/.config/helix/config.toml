@@ -3,7 +3,7 @@ theme = "rose_pine_moon" # or "onedark", "dracula"
 [editor]
 line-number = "relative"   # Absolute line number for current, relative for others
 mouse = false              # Force yourself to use keyboard!
-bufferline = "multiple"    # Show open buffers (tabs) at the top
+bufferline = "always"    # Show open buffers (tabs) at the top
 
 [editor.cursor-shape]
 insert = "bar"
@@ -16,3 +16,4 @@ hidden = false             # Show hidden files (like .gitignore) by default
 [keys.normal]
 Z = { Z = ":write-quit", Q = ":quit!" }
 Q = ":quit!"  # Shift+Q to quit immediately
+space = { x = ":buffer-close" }
