@@ -27,6 +27,10 @@ unfocused-split-fill = #393552
 keybind = shift+enter=text:\x1b\r
 keybind = alt+t=text:\x1bt
 
+# Tab navigation
+keybind = ctrl+alt+left=previous_tab
+keybind = ctrl+alt+right=next_tab
+
 # Line-by-line scrolling
 keybind = cmd+up=scroll_page_lines:-1
 keybind = cmd+down=scroll_page_lines:1
