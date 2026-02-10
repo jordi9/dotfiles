@@ -1,2 +1,14 @@
 [mgr]
 show_hidden = true
+
+[opener]
+glow = [
+    # 'block = true' is crucial: it hides Yazi so Glow can take over the terminal screen
+    { run = 'glow -p "$@"', block = true, desc = "View with Glow", for = "unix" },
+]
+
+[open]
+#prepend_rules = [
+#    { name = "*.md", use = "glow" }
+#]
+
