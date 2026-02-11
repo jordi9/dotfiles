@@ -1,6 +1,10 @@
 [mgr]
 show_hidden = true
 
+[preview]
+max_width = 1920
+max_height = 1920
+
 [opener]
 glow = [
     # 'block = true' is crucial: it hides Yazi so Glow can take over the terminal screen
@@ -11,4 +15,5 @@ glow = [
 #prepend_rules = [
 #    { name = "*.md", use = "glow" }
 #]
+
 

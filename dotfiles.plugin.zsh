@@ -5,6 +5,7 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+
 # Aliases
 #########
 alias homecnf="cd ~/.homesick/repos/dotfiles"
@@ -203,6 +204,26 @@ function mkfile {
   mkdir -p -- "$1" && touch -- "$1"/"$2" 
 }
 
+
+# SD Card import (Sony cameras: PRIVATE/M4ROOT/CLIP/)
+function sdimport {
+  local dest="${1:?Usage: sdimport <destination>}"
+  local clip_dir="/Volumes/J9V/PRIVATE/M4ROOT/CLIP"
+
+  if [[ ! -d "$clip_dir" ]]; then
+    echo "SD card not found at $clip_dir — is it mounted?" >&2
+    return 1
+  fi
+
+  local count=$(find "$clip_dir" -type f \( -iname '*.mp4' -o -iname '*.mxf' \) | wc -l | tr -d ' ')
+  echo "Found $count video files → $dest"
+
+  mkdir -p "$dest"
+  rsync -ah --progress --include='*.MP4' --include='*.MXF' --exclude='*' --exclude='._*' "$clip_dir/" "$dest/"
+  echo "✓ Import complete"
+}
+
+alias sdeject="diskutil eject /Volumes/J9V"
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
