@@ -13,6 +13,7 @@ btop
 coreutils
 fd
 ffmpeg
+file-formula
 gh
 git
 git-cliff
