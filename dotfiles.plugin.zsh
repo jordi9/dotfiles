@@ -215,11 +215,11 @@ function sdimport {
     return 1
   fi
 
-  local count=$(find "$clip_dir" -type f \( -iname '*.mp4' -o -iname '*.mxf' \) | wc -l | tr -d ' ')
+  local count=$(find "$clip_dir" -type f \( -iname '*.mp4' -o -iname '*.mxf' \) -not -name '._*' | wc -l | tr -d ' ')
   echo "Found $count video files → $dest"
 
   mkdir -p "$dest"
-  rsync -ah --progress --include='*.MP4' --include='*.MXF' --exclude='*' --exclude='._*' "$clip_dir/" "$dest/"
+  rsync -ah --progress --exclude='._*' --include='*.MP4' --include='*.MXF' --exclude='*' "$clip_dir/" "$dest/"
   echo "✓ Import complete"
 }
 
