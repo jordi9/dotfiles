@@ -206,6 +206,7 @@ function mkfile {
 
 
 # SD Card import (Sony cameras: PRIVATE/M4ROOT/CLIP/)
+# Renames files to <timestamp>_<original> (e.g. 2025-01-15_14-30_C0001.MP4)
 function sdimport {
   local dest="${1:?Usage: sdimport <destination>}"
   local clip_dir="/Volumes/J9V/PRIVATE/M4ROOT/CLIP"
@@ -215,12 +216,32 @@ function sdimport {
     return 1
   fi
 
-  local count=$(find "$clip_dir" -type f \( -iname '*.mp4' -o -iname '*.mxf' \) -not -name '._*' | wc -l | tr -d ' ')
-  echo "Found $count video files → $dest"
+  local files=("$clip_dir"/*.(MP4|MXF|mp4|mxf)(N))
+  files=(${files:#**/._*})
 
+  if [[ ${#files[@]} -eq 0 ]]; then
+    echo "No video files found in $clip_dir" >&2
+    return 1
+  fi
+
+  echo "Found ${#files[@]} video files → $dest"
   mkdir -p "$dest"
-  rsync -ah --progress --exclude='._*' --include='*.MP4' --include='*.MXF' --exclude='*' "$clip_dir/" "$dest/"
-  echo "✓ Import complete"
+
+  local copied=0
+  for f in "${files[@]}"; do
+    local name="${f:t}"
+    local ts=$(stat -f '%Sm' -t '%Y-%m-%d_%H-%M' "$f")
+    local newname="${ts}_${name}"
+
+    if [[ -f "$dest/$newname" ]]; then
+      echo "⏭ Skipping $newname (already exists)"
+    else
+      rsync -ah --progress "$f" "$dest/$newname"
+      ((copied++))
+    fi
+  done
+
+  echo "✓ Import complete ($copied files copied)"
 }
 
 alias sdeject="diskutil eject /Volumes/J9V"
