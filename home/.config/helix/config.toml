@@ -4,6 +4,7 @@ theme = "rose_pine_moon" # or "onedark", "dracula"
 line-number = "relative"   # Absolute line number for current, relative for others
 mouse = false              # Force yourself to use keyboard!
 bufferline = "always"    # Show open buffers (tabs) at the top
+auto-save.after-delay.enable = true
 
 [editor.cursor-shape]
 insert = "bar"
