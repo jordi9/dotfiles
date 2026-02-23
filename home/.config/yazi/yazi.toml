@@ -10,8 +10,6 @@ glow = [
     { run = 'glow -p "$@"', block = true, desc = "View with Glow", for = "unix" },
 ]
 play = [
-    { run = 'open "$@"', orphan = true, for = "macos" },
+    { run = 'mpv --force-window "$@"', orphan = true, desc = "Play", for = "unix" },
 ]
-
-
 
