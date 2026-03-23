@@ -1,5 +1,6 @@
 # AeroSpace config
 # See: https://nikitabobko.github.io/AeroSpace/guide
+# inspired by https://github.com/simonsmith/dotfiles/blob/master/dots/aerospace.toml
 
 config-version = 2
 
