@@ -115,3 +115,8 @@ on-mode-changed = []
 [[on-window-detected]]
 if.app-id = 'org.ferdium.ferdium-app'
 run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
+run = 'layout floating'
+
