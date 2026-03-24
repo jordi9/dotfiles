@@ -88,14 +88,13 @@ on-mode-changed = []
 
     # Layout
     t = 'layout tiles horizontal vertical'
-    s = 'layout accordion horizontal vertical'
-    f = ['fullscreen', 'mode main']
-    shift-f = ['layout floating tiling', 'mode main']
+    a = 'layout accordion horizontal vertical'
+    f = ['layout floating tiling', 'mode main']
     e = 'balance-sizes'
 
     # Resize
-    minus = 'resize smart -50'
-    equal = 'resize smart +50'
+    o = 'resize smart -50'
+    p = 'resize smart +50'
 
     # Join
     shift-h = 'join-with left'
