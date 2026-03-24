@@ -6,10 +6,14 @@ config-version = 2
 
 start-at-login = true
 
+#after-startup-command = [
+#  'exec-and-forget borders active_color=0xffdedede inactive_color=0x00494d64 width=6'
+#]
+
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-accordion-padding = 140
+accordion-padding = 300
 
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
@@ -17,7 +21,7 @@ default-root-container-orientation = 'auto'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
 
-persistent-workspaces = ["1", "2", "3", "4", "5","6", "7", "8", "9", "0", "Z"]
+persistent-workspaces = ["1", "2", "3", "4", "5","6", "7", "8", "9","M", "Z"]
 on-mode-changed = []
 
 [key-mapping]
@@ -26,10 +30,10 @@ on-mode-changed = []
 [gaps]
     inner.horizontal = 7
     inner.vertical =   7
-    outer.left =       0
-    outer.bottom =     0
-    outer.top =        0
-    outer.right =      0
+    outer.left =       3
+    outer.bottom =     3
+    outer.top =        3
+    outer.right =      3
 
 [workspace-to-monitor-force-assignment]
     Z = 'secondary'
@@ -54,13 +58,13 @@ on-mode-changed = []
     ctrl-alt-shift-7 = 'workspace 7'
     ctrl-alt-shift-8 = 'workspace 8'
     ctrl-alt-shift-9 = 'workspace 9'
-    ctrl-alt-shift-0 = 'workspace 0'
     ctrl-alt-shift-z = 'workspace Z'
 
     ctrl-alt-shift-enter = 'fullscreen'
 
     # Quick workspace toggle
     alt-tab = 'workspace-back-and-forth'
+    ctrl-alt-shift-tab = 'focus dfs-next --boundaries-action wrap-around-the-workspace'
 
     # Enter manage mode (Meh + W)
     ctrl-alt-shift-w = 'mode manage'
@@ -85,7 +89,6 @@ on-mode-changed = []
     7 = ['move-node-to-workspace 7', 'mode main']
     8 = ['move-node-to-workspace 8', 'mode main']
     9 = ['move-node-to-workspace 9', 'mode main']
-    0 = ['move-node-to-workspace 0', 'mode main']
     z = ['move-node-to-workspace Z', 'mode main']
 
     # Layout
@@ -116,9 +119,25 @@ on-mode-changed = []
 
 [[on-window-detected]]
 if.app-id = 'org.ferdium.ferdium-app'
-run = 'move-node-to-workspace 0'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.vivaldi.Vivaldi.app.coenapkplkmdancohemdleoikaafakdm'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'com.roon.Roon'
+run = 'move-node-to-workspace Z'
 
