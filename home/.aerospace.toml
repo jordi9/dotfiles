@@ -130,6 +130,10 @@ if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.vivaldi.Vivaldi.app.coenapkplkmdancohemdleoikaafakdm'
 run = 'move-node-to-workspace 5'
 
