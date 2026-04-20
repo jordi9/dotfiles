@@ -13,7 +13,7 @@ start-at-login = true
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-accordion-padding = 300
+accordion-padding = 30
 
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
@@ -28,8 +28,8 @@ on-mode-changed = []
     preset = 'qwerty'
 
 [gaps]
-    inner.horizontal = 7
-    inner.vertical =   7
+    inner.horizontal = 3
+    inner.vertical =   3
     outer.left =       3
     outer.bottom =     3
     outer.top =        3
@@ -62,8 +62,9 @@ on-mode-changed = []
 
     ctrl-alt-shift-enter = 'fullscreen'
 
-    # Quick workspace toggle
-    alt-tab = 'workspace-back-and-forth'
+    # Quick toggles
+    alt-tab = 'focus-back-and-forth'
+    ctrl-tab = 'workspace-back-and-forth'
     ctrl-alt-shift-tab = 'focus dfs-next --boundaries-action wrap-around-the-workspace'
 
     # Enter manage mode (Meh + W)
@@ -136,6 +137,10 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome.beta'
 run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'com.vivaldi.Vivaldi.app.coenapkplkmdancohemdleoikaafakdm'

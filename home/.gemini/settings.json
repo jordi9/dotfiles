@@ -28,10 +28,6 @@
       "showColor": true
     },
     "autoAccept": true,
-    "sandbox": false,
-    "allowed": [
-      "run_shell_command(git)",
-      "run_shell_command(gradlew)"
-    ]
+    "sandbox": false
   }
 }
