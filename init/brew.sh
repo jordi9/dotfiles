@@ -11,6 +11,7 @@ bat
 bitwarden-cli
 btop
 coreutils
+eza
 fd
 ffmpeg
 file-formula

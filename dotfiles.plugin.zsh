@@ -69,7 +69,9 @@ zle -N auto-cd-accept
 bindkey '^M' auto-cd-accept
 
 alias lsa='ls -lah'
-alias l='ls -lah'
+alias l="eza -l --icons --git -a"
+alias lt="eza --tree --level=2 --long --icons --git"
+alias ltree="eza --tree --level=2 --icons --git"
 alias ll='ls -lh'
 alias la='ls -lAh'
 

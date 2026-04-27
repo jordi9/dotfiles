@@ -144,15 +144,23 @@ run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace 6'
+run = 'move-node-to-workspace 9'
+
+[[on-window-detected]]
+if.app-id = 'com.TickTick.task.mac'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.vivaldi.Vivaldi.app.coenapkplkmdancohemdleoikaafakdm'
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'com.roon.Roon'
