@@ -20,6 +20,7 @@ alias ge="gradle-or-gradlew-quiet"
 alias gw="./gradlew"
 alias gen="gradle"
 alias mvn="mvn"
+alias p="pnpm"
 
 alias fucking="sudo"
 alias s="ssh"
