@@ -43,10 +43,10 @@ on-mode-changed = []
 [mode.main.binding]
 
     # Focus windows (Meh + HJKL)
-    ctrl-alt-shift-h = 'focus left'
-    ctrl-alt-shift-j = 'focus down'
-    ctrl-alt-shift-k = 'focus up'
-    ctrl-alt-shift-l = 'focus right'
+    ctrl-alt-shift-h = 'focus left --boundaries-action wrap-around-the-workspace'
+    ctrl-alt-shift-j = 'focus down --boundaries-action wrap-around-the-workspace'
+    ctrl-alt-shift-k = 'focus up --boundaries-action wrap-around-the-workspace'
+    ctrl-alt-shift-l = 'focus right --boundaries-action wrap-around-the-workspace'
 
     # Switch workspace (Meh + number)
     ctrl-alt-shift-1 = 'workspace 1'
