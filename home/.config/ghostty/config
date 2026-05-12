@@ -34,3 +34,8 @@ keybind = ctrl+alt+right=next_tab
 # Line-by-line scrolling
 keybind = cmd+up=scroll_page_lines:-1
 keybind = cmd+down=scroll_page_lines:1
+
+# Quake-style drop-down terminal
+keybind = cmd+shift+k=toggle_quick_terminal
+quick-terminal-position = center
+quick-terminal-autohide = true

@@ -60,12 +60,16 @@ on-mode-changed = []
     ctrl-alt-shift-9 = 'workspace 9'
     ctrl-alt-shift-z = 'workspace Z'
 
+    # Cycle workspaces (Meh + ← / →)
+    ctrl-alt-shift-left = 'workspace --wrap-around prev'
+    ctrl-alt-shift-right = 'workspace --wrap-around next'
+
     ctrl-alt-shift-enter = 'fullscreen'
 
     # Quick toggles
-    alt-tab = 'focus-back-and-forth'
+    ctrl-alt-shift-tab = 'focus-back-and-forth'
     ctrl-tab = 'workspace-back-and-forth'
-    ctrl-alt-shift-tab = 'focus dfs-next --boundaries-action wrap-around-the-workspace'
+    alt-tab = 'focus dfs-next --boundaries-action wrap-around-the-workspace'
 
     # Enter manage mode (Meh + W)
     ctrl-alt-shift-w = 'mode manage'
