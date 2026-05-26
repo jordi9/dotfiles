@@ -22,7 +22,6 @@ slack
 tidal
 visual-studio-code
 witch
-xld
 zoom
 "
 
