@@ -1,6 +1,10 @@
 # Claude Code
 export PATH="$HOME/.local/bin:$PATH"
 
+# pnpm globals
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME/bin:$PATH"
+
 # opencode
 export PATH="HOME/.opencode/bin:$PATH"
 
