@@ -29,23 +29,10 @@ function _zoxide_complete_enhanced() {
 }
 compdef _zoxide_complete_enhanced z
 
-# Handles echo issues with Ghostty/Tailscale and changes the background
+# Work around remote echo/input issues when SSHing from Ghostty (e.g. over Tailscale)
+# by avoiding TERM=ghostty on hosts without matching terminfo, while preserving truecolor.
 ssh() {
-  local saved_bg saved_title
-  # Query current background (response: ^[]11;rgb:1a1a/1b1b/2626)
-  exec {tty}<>/dev/tty
-  printf '\e]11;?\e\\' >&$tty
-  read -rs -d '\\' saved_bg <&$tty
-  exec {tty}>&-
-
-  # Extract just the color part (rgb:xxxx/xxxx/xxxx)
-  saved_bg="${saved_bg##*;}"
-
-  # Keep TERM conservative for remote terminfo compatibility (eg. Ghostty over SSH),
-  # and advertise truecolor separately for Helix/Zellij.
-#  printf '\e]11;#242e2c\a'  # Subtle lighter teal
   TERM=xterm-256color COLORTERM="${COLORTERM:-truecolor}" command ssh -o SendEnv=COLORTERM "$@"
-#  printf '\e]11;%s\a' "$saved_bg"  # Restore background
 }
 
 # SDKMAN (must be last)
