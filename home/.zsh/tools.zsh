@@ -10,6 +10,13 @@ export PATH="/opt/homebrew/opt/file-formula/bin:$PATH"
 # Zoxide
 eval "$(zoxide init zsh)"
 
+# Helix/Zellij need COLORTERM=truecolor for correct colors.
+# OpenSSH does not always forward COLORTERM, and our ssh wrapper below forces
+# TERM=xterm-256color for compatibility, so restore the truecolor hint on SSH.
+if [[ -n "$SSH_CONNECTION" && -z "$COLORTERM" && "$TERM" == *-256color ]]; then
+  export COLORTERM=truecolor
+fi
+
 # Enhanced zoxide completion: always use interactive picker
 function _zoxide_complete_enhanced() {
   [[ "${#words[@]}" -eq "${CURRENT}" ]] || return 0
@@ -34,9 +41,10 @@ ssh() {
   # Extract just the color part (rgb:xxxx/xxxx/xxxx)
   saved_bg="${saved_bg##*;}"
 
-  # Set title and background for SSH session
+  # Keep TERM conservative for remote terminfo compatibility (eg. Ghostty over SSH),
+  # and advertise truecolor separately for Helix/Zellij.
 #  printf '\e]11;#242e2c\a'  # Subtle lighter teal
-  TERM=xterm-256color command ssh "$@"
+  TERM=xterm-256color COLORTERM="${COLORTERM:-truecolor}" command ssh -o SendEnv=COLORTERM "$@"
 #  printf '\e]11;%s\a' "$saved_bg"  # Restore background
 }
 
