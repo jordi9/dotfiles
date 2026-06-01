@@ -1,0 +1,44 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "1962818"
+hash = "26db011a778f261d730d4f5f8bf24b3f"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "c5d4b48"
+hash = "e6e98d12b1648d1894c2b560d85eeaa7"
+
+[[plugin.deps]]
+use = "llanosrocas/githead"
+rev = "317d09f"
+hash = "41dc37a724b2afd21da4f1ea6c1182d8"
+
+[[plugin.deps]]
+use = "imsi32/yatline-githead"
+rev = "929e52c"
+hash = "8282baf02fcd6aac00ccad2276775358"
+
+[[plugin.deps]]
+use = "VigneshR387/yatline-rosepine"
+rev = "fffea89"
+hash = "5d6e1b0e0cbc8be481d98e45176a8fe5"
+
+[[plugin.deps]]
+use = "wekauwau/yatline-tokyo-night"
+rev = "b4a6310"
+hash = "215729a555fe5286f1eb35520963d08"
+
+[[flavor.deps]]
+use = "Mintass/rose-pine-moon"
+rev = "94385fe"
+hash = "edbe0dfb5db8ff37281dba62adc7e750"
+
+[[flavor.deps]]
+use = "BennyOe/tokyo-night"
+rev = "8e6296f"
+hash = "d9da921c3bd37ba32ee27a8a7a40461f"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "9511cb0"
+hash = "67f2240fd9c98f21714527a24cd672f8"
