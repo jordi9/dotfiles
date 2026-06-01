@@ -67,6 +67,12 @@ Scripts in `init/` for fresh machines:
 
 Review before running—these aren't idempotent.
 
+## yazi
+
+Need to install flavours and plugins, in `.config/yazi`:
+
+    ya pkg install
+
 # Post-install
 
 **Moom/Manytricks**: If settings don't load, try `killall cfprefsd`. Some hotkeys based
