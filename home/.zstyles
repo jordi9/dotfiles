@@ -1,3 +1,5 @@
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 zstyle ':completion:*' menu select
+zstyle ':zshzoo:magic-enter' command 'l'
+zstyle ':zshzoo:magic-enter' jj-command 'jj st'
 zstyle ':zshzoo:magic-enter' git-command 'gst -sb .'

@@ -76,6 +76,23 @@ alias ltree="eza --tree --level=2 --icons --git"
 alias ll='ls -lh'
 alias la='ls -lAh'
 
+# Magic Enter
+#############
+# Empty Enter runs `l` by default, `jj st` in jj repos, and git status in git repos.
+function magic-enter-cmd {
+  local cmd
+
+  if command jj root --quiet &>/dev/null; then
+    zstyle -s ':zshzoo:magic-enter' jj-command 'cmd' || cmd='jj st'
+  elif command git rev-parse --is-inside-work-tree &>/dev/null; then
+    zstyle -s ':zshzoo:magic-enter' git-command 'cmd' || cmd='git status -sb .'
+  else
+    zstyle -s ':zshzoo:magic-enter' command 'cmd' || cmd='l'
+  fi
+
+  print -r -- "$cmd"
+}
+
 # Git
 #####
 alias gf="git fetch"

@@ -11,6 +11,7 @@ bat
 bitwarden-cli
 btop
 coreutils
+direnv
 eza
 fd
 ffmpeg
@@ -26,6 +27,7 @@ helix
 helmfile
 homeshick
 htop
+jj
 jq
 k9s
 kubectx

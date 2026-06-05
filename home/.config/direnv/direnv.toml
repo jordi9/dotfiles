@@ -1,0 +1,4 @@
+[global]
+# Keep direnv quiet during normal directory changes, while still showing errors.
+log_filter = "^$"
+hide_env_diff = true

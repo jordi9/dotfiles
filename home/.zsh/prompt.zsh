@@ -12,6 +12,13 @@ export SPACESHIP_KUBECTL_VERSION_SHOW=false
 export SPACESHIP_DOCKER_SHOW=false
 export SPACESHIP_PACKAGE_SHOW=false
 
+# Show Jujutsu repositories with spaceship-jj. To hide git in a jj repo, use direnv:
+#   echo 'export SPACESHIP_GIT_SHOW=false' > .envrc && direnv allow
+# Guard prevents duplicate segments when re-sourcing ~/.zshrc.
+if spaceship::defined spaceship_jj && [[ ! " ${SPACESHIP_PROMPT_ORDER[@]} " =~ " jj " ]]; then
+  spaceship add --before git jj
+fi
+
 # Only add gradle segment if not already present (prevents duplication on re-sourcing)
 if [[ ! " ${SPACESHIP_PROMPT_ORDER[@]} " =~ " gradle " ]]; then
   spaceship add gradle

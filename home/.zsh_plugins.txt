@@ -1,6 +1,7 @@
 # Inspiration: https://github.com/getantidote/zdotdir
 
 spaceship-prompt/spaceship-prompt
+lucean/spaceship-jj
 
 mattmc3/zman
 peterhurford/up.zsh
@@ -15,7 +16,6 @@ belak/zsh-utils path:history
 belak/zsh-utils path:utility
 belak/zsh-utils path:editor
 
-Tarrasch/zsh-autoenv
 paulirish/git-open
 
 $HOME/.docker kind:fpath path:completions
