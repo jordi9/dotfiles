@@ -37,5 +37,5 @@ keybind = cmd+down=scroll_page_lines:1
 
 # Quake-style drop-down terminal
 keybind = global:cmd+shift+k=toggle_quick_terminal
-quick-terminal-position = center
+quick-terminal-position = top
 quick-terminal-autohide = true
