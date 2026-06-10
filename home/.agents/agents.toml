@@ -5,10 +5,6 @@ agents = []
 allow_all = true
 
 [[skills]]
-name = "dotagents"
-source = "getsentry/dotagents"
-
-[[skills]]
 name = "write-a-skill"
 source = "mattpocock/skills"
 
@@ -19,3 +15,7 @@ source = "git@github.com:jordi9/skills"
 [[skills]]
 name = "handoff"
 source = "mattpocock/skills"
+
+[[skills]]
+name = "dotagents"
+source = "git@github.com:jordi9/skills"
