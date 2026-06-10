@@ -1,0 +1,21 @@
+version = 1
+agents = []
+
+[trust]
+allow_all = true
+
+[[skills]]
+name = "dotagents"
+source = "getsentry/dotagents"
+
+[[skills]]
+name = "write-a-skill"
+source = "mattpocock/skills"
+
+[[skills]]
+name = "git-committer"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "handoff"
+source = "mattpocock/skills"
