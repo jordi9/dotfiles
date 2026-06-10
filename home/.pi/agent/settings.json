@@ -1,0 +1,32 @@
+{
+  "lastChangelogVersion": "0.79.1",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "xhigh",
+  "theme": "amp-nebula-moon",
+  "enabledModels": [
+    "openai-codex/gpt-5.5",
+    "minimax/MiniMax-M3"
+  ],
+  "packages": [
+    "npm:pi-codex-goal",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-web-access",
+    {
+      "source": "~/dev/pi-amp-themes",
+      "extensions": [
+        "+extensions/amp-editor.ts",
+        "+extensions/amp-startup.ts",
+        "+extensions/amp-user-message.ts",
+        "+node_modules/pi-tool-display/index.ts"
+      ]
+    },
+    {
+      "source": "git:github.com/championswimmer/pi-context-usage",
+      "skills": []
+    },
+    "npm:pi-tool-stats",
+    "npm:@firstpick/pi-extension-stats"
+  ],
+  "hideThinkingBlock": true
+}

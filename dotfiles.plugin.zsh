@@ -35,6 +35,7 @@ alias bluetooth-restart='blueutil -p 0 && sleep 1 && blueutil -p 1'
 alias d-nuke='d-stop-all && d system prune --volumes --force'
 
 alias skills='p dlx skills'
+alias dotagents='p dlx @sentry/dotagents'
 
 function as {
   aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
