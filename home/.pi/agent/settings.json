@@ -26,7 +26,8 @@
       "skills": []
     },
     "npm:pi-tool-stats",
-    "npm:@firstpick/pi-extension-stats"
+    "npm:@firstpick/pi-extension-stats",
+    "npm:@tintinweb/pi-subagents"
   ],
   "hideThinkingBlock": true
 }

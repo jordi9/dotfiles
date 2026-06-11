@@ -19,3 +19,7 @@ source = "mattpocock/skills"
 [[skills]]
 name = "dotagents"
 source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "now"
+source = "git@github.com:jordi9/skills"
