@@ -3,7 +3,10 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # pnpm globals
 export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME/bin:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # opencode
 export PATH="HOME/.opencode/bin:$PATH"
