@@ -2,6 +2,14 @@
 command = "ltex-ls"
 
 [[language]]
+name = "git-commit"
+file-types = [
+  { glob = "COMMIT_EDITMSG" },
+  { glob = "MERGE_MSG" },
+  { glob = "*.jjdescription" },
+]
+
+[[language]]
 name = "markdown"
 soft-wrap.enable = true
 language-servers = ["marksman", "ltex-ls"]
