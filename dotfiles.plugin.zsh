@@ -11,9 +11,7 @@ export LC_ALL=en_US.UTF-8
 alias homecnf="cd ~/.homesick/repos/dotfiles"
 alias cnf="vim ~/.homesick/repos/dotfiles/me.plugin.zsh"
 alias zcnf="vim ~/.zshrc"
-alias acnf="vim ~/.zsh/antigenrc.zsh"
 alias reload='source ~/.zshrc && echo "✓ Config reloaded"'
-alias redis-start="cd ~/.redis && redis-server ~/.redis/redis.conf"
 # Avoid gradle or gradlew from oh-my-zsh gradle plugin
 alias gradle="gradle"
 alias ge="gradle-or-gradlew-quiet"
@@ -36,6 +34,9 @@ alias d-nuke='d-stop-all && d system prune --volumes --force'
 
 alias skills='p dlx skills'
 alias dotagents='p dlx @sentry/dotagents'
+
+alias jst='jj st'
+alias jgp='jj git push'
 
 function as {
   aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'

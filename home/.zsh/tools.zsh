@@ -9,7 +9,7 @@ case ":$PATH:" in
 esac
 
 # opencode
-export PATH="HOME/.opencode/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
 
 # Homebrew file(1) over macOS v5.41 — fixes MIME detection for Sony XAVC MP4s
 export PATH="/opt/homebrew/opt/file-formula/bin:$PATH"

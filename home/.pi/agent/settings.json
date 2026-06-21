@@ -1,9 +1,9 @@
 {
-  "lastChangelogVersion": "0.79.7",
+  "lastChangelogVersion": "0.79.8",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "xhigh",
-  "theme": "amp-nebula-moon",
+  "theme": "amp-dark",
   "enabledModels": [
     "openai-codex/gpt-5.5",
     "minimax/MiniMax-M3"
@@ -11,14 +11,20 @@
   "packages": [
     "npm:pi-codex-goal",
     "npm:@juicesharp/rpiv-ask-user-question",
-    "npm:pi-web-access",
+    {
+      "source": "npm:pi-web-access",
+      "skills": [
+        "-skills/librarian/SKILL.md"
+      ]
+    },
     {
       "source": "~/dev/pi-amp-themes",
       "extensions": [
         "+extensions/amp-editor.ts",
         "+extensions/amp-startup.ts",
         "+extensions/amp-user-message.ts",
-        "+node_modules/pi-tool-display/index.ts"
+        "+node_modules/pi-tool-display/index.ts",
+        "+extensions/amp-assistant-markdown.ts"
       ]
     },
     {
@@ -28,7 +34,20 @@
     "npm:pi-tool-stats",
     "npm:@firstpick/pi-extension-stats",
     "npm:@tintinweb/pi-subagents",
-    "git:github.com/DietrichGebert/ponytail"
+    {
+      "source": "git:github.com/DietrichGebert/ponytail",
+      "extensions": [
+        "-pi-extension/index.js"
+      ],
+      "skills": [
+        "-skills/ponytail/SKILL.md",
+        "-skills/ponytail-audit/SKILL.md",
+        "-skills/ponytail-debt/SKILL.md",
+        "-skills/ponytail-gain/SKILL.md",
+        "-skills/ponytail-help/SKILL.md",
+        "-skills/ponytail-review/SKILL.md"
+      ]
+    }
   ],
   "hideThinkingBlock": true
 }
