@@ -12,8 +12,19 @@ default-command = "log"
 [template-aliases]
 "format_short_signature(signature)" = "format_short_signature_oneline(signature)"
 
+[revsets]
+bookmark-advance-to = 'closest_pushable(@)'
+
+[revset-aliases]
+# Closest revision that is mutable, described and either non-empty or a merge
+'closest_pushable(to)' = '''
+  heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))
+'''
+
 [aliases]
 gp = ['git', 'push']
+
+ba = ['bookmark', 'advance']
 
 w  = ['workspace']
 wt = ['workspace', 'root', '--name']
