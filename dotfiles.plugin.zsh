@@ -12,6 +12,24 @@ alias homecnf="cd ~/.homesick/repos/dotfiles"
 alias cnf="vim ~/.homesick/repos/dotfiles/me.plugin.zsh"
 alias zcnf="vim ~/.zshrc"
 alias reload='source ~/.zshrc && echo "✓ Config reloaded"'
+
+function refresh-completions {
+  local zcompdump
+
+  if zstyle -T ':zsh-utils:plugins:completion' use-xdg-basedirs; then
+    zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/compdump"
+    mkdir -p -- "${zcompdump:h}"
+  else
+    zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+  fi
+
+  rm -f -- "$zcompdump" "${zcompdump}.zwc"
+  autoload -Uz compinit
+  compinit -i -d "$zcompdump"
+  rehash
+  echo "✓ Completions refreshed"
+}
+
 # Avoid gradle or gradlew from oh-my-zsh gradle plugin
 alias gradle="gradle"
 alias ge="gradle-or-gradlew-quiet"
