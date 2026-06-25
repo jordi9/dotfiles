@@ -1,5 +1,4 @@
 .idea
-home/.vim/.netrwhist
 .vscode
-.claude/settings.local.json
-
+.gitignore
+.envrc

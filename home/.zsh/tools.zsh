@@ -1,13 +1,6 @@
 # Claude Code
 export PATH="$HOME/.local/bin:$PATH"
 
-# pnpm globals
-export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
 
@@ -45,3 +38,17 @@ ssh() {
 # SDKMAN (must be last)
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# pnpm
+export PNPM_HOME="/Users/jordi9/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+
+# bun
+[ -s "/Users/jordi9/.bun/_bun" ] && source "/Users/jordi9/.bun/_bun"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
