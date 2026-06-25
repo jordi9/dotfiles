@@ -30,5 +30,6 @@ w  = ['workspace']
 wt = ['workspace', 'root', '--name']
 wl = ['workspace', 'list']
 wf = ['workspace', 'forget']
-wd = ['util', 'exec', '--', 'bash', '-c', 'jj wf $0 && rm -rf $(jj wt default).$0']
+# Forget a non-default workspace and delete its actual root directory.
+wd = ['util', 'exec', '--', 'zsh', '-ic', 'jj-workspace-delete "$@"', 'jj-wd']
 

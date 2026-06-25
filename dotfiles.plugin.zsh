@@ -53,6 +53,37 @@ alias d-nuke='d-stop-all && d system prune --volumes --force'
 alias skills='p dlx skills'
 alias dotagents='p dlx @sentry/dotagents'
 
+function jj-workspace-delete {
+  local workspace root physical_root
+
+  if (( $# != 1 )); then
+    echo "Usage: jj wd <workspace>" >&2
+    return 2
+  fi
+
+  workspace="$1"
+  if [[ "$workspace" == "-h" || "$workspace" == "--help" ]]; then
+    echo "Usage: jj wd <workspace>" >&2
+    return 0
+  fi
+
+  if [[ "$workspace" == "default" ]]; then
+    echo "Refusing to delete default workspace" >&2
+    return 1
+  fi
+
+  root="$(jj workspace root --name "$workspace")" || return $?
+  physical_root="$(cd "$root" && pwd -P)" || return $?
+
+  if [[ -z "$physical_root" || "$physical_root" == "/" || "$physical_root" == "$HOME" || ! -e "$physical_root/.jj" ]]; then
+    echo "Refusing to delete suspicious workspace root: $physical_root" >&2
+    return 1
+  fi
+
+  jj workspace forget -- "$workspace" || return $?
+  rm -rf -- "$physical_root"
+  echo "✓ Deleted workspace '$workspace' at $physical_root"
+}
 
 function jjws {
   local selection workspace workspace_root
