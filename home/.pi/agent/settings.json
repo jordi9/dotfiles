@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.79.8",
+  "lastChangelogVersion": "0.80.2",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "xhigh",
@@ -47,7 +47,25 @@
         "-skills/ponytail-help/SKILL.md",
         "-skills/ponytail-review/SKILL.md"
       ]
-    }
+    },
+    {
+      "source": "npm:pi-impeccable",
+      "extensions": [
+        "-extensions/impeccable.ts"
+      ]
+    },
+    "~/dev/pi-impeccable",
+    "npm:@ff-labs/pi-fff",
+    {
+      "source": "npm:pi-ghostty-notifier",
+      "extensions": [
+        "-extensions/index.ts"
+      ]
+    },
+    "../../dev/chloe"
   ],
-  "hideThinkingBlock": true
+  "hideThinkingBlock": true,
+  "terminal": {
+    "showTerminalProgress": false
+  }
 }

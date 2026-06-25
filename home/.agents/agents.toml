@@ -55,3 +55,15 @@ source = "mattpocock/skills"
 [[skills]]
 name = "to-increments"
 source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "describe-changes"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "jj9"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "grilling"
+source = "mattpocock/skills"
