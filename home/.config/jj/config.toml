@@ -1,0 +1,23 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Jordi Gerona"
+email = "jordi@donky.org"
+
+[ui]
+pager = ['delta', 'delta', '--pager', 'less -FRX']
+diff-editor = ":builtin"
+default-command = "log"
+
+[template-aliases]
+"format_short_signature(signature)" = "format_short_signature_oneline(signature)"
+
+[aliases]
+gp = ['git', 'push']
+
+w  = ['workspace']
+wt = ['workspace', 'root', '--name']
+wl = ['workspace', 'list']
+wf = ['workspace', 'forget']
+wd = ['util', 'exec', '--', 'bash', '-c', 'jj wf $0 && rm -rf $(jj wt default).$0']
+

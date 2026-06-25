@@ -35,8 +35,20 @@ alias d-nuke='d-stop-all && d system prune --volumes --force'
 alias skills='p dlx skills'
 alias dotagents='p dlx @sentry/dotagents'
 
-alias jst='jj st'
-alias jgp='jj git push'
+
+function jjws {
+  local selection workspace workspace_root
+
+  selection="$(jj --color=always workspace list | fzf --ansi --height 40%)"
+  [[ -n "$selection" ]] || return 0
+
+  workspace="${selection%%:*}"
+  [[ -n "$workspace" ]] || return 0
+
+  workspace_root="$(jj workspace root --name "$workspace")" || return $?
+  [[ -n "$workspace_root" ]] || return 0
+  builtin cd -- "$workspace_root"
+}
 
 function as {
   aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
