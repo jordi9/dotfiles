@@ -53,6 +53,9 @@ alias d-nuke='d-stop-all && d system prune --volumes --force'
 alias skills='p dlx skills'
 alias dotagents='p dlx @sentry/dotagents'
 
+alias hud='hunk diff'
+alias hus='hunk show'
+
 function jj-workspace-delete {
   local workspace root physical_root
 

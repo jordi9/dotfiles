@@ -34,6 +34,7 @@
     "npm:pi-tool-stats",
     "npm:@firstpick/pi-extension-stats",
     "npm:@tintinweb/pi-subagents",
+    "npm:@sinamtz/pi-minimax-provider",
     {
       "source": "git:github.com/DietrichGebert/ponytail",
       "extensions": [
@@ -56,6 +57,7 @@
     },
     "~/dev/pi-impeccable",
     "npm:@ff-labs/pi-fff",
+    "npm:pi-playwright",
     {
       "source": "npm:pi-ghostty-notifier",
       "extensions": [

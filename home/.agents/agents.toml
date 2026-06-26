@@ -67,3 +67,7 @@ source = "git@github.com:jordi9/skills"
 [[skills]]
 name = "grilling"
 source = "mattpocock/skills"
+
+[[skills]]
+name = "hunk-review"
+source = "modem-dev/hunk"
