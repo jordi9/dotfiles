@@ -9,10 +9,10 @@
     "minimax/MiniMax-M3"
   ],
   "packages": [
-    "npm:pi-codex-goal",
-    "npm:@juicesharp/rpiv-ask-user-question",
+    "pnpm:pi-codex-goal",
+    "pnpm:@juicesharp/rpiv-ask-user-question",
     {
-      "source": "npm:pi-web-access",
+      "source": "pnpm:pi-web-access",
       "skills": [
         "-skills/librarian/SKILL.md"
       ]
@@ -31,10 +31,10 @@
       "source": "git:github.com/championswimmer/pi-context-usage",
       "skills": []
     },
-    "npm:pi-tool-stats",
-    "npm:@firstpick/pi-extension-stats",
-    "npm:@tintinweb/pi-subagents",
-    "npm:@sinamtz/pi-minimax-provider",
+    "pnpm:pi-tool-stats",
+    "pnpm:@firstpick/pi-extension-stats",
+    "pnpm:@tintinweb/pi-subagents",
+    "pnpm:@sinamtz/pi-minimax-provider",
     {
       "source": "git:github.com/DietrichGebert/ponytail",
       "extensions": [
@@ -50,16 +50,16 @@
       ]
     },
     {
-      "source": "npm:pi-impeccable",
+      "source": "pnpm:pi-impeccable",
       "extensions": [
         "-extensions/impeccable.ts"
       ]
     },
     "~/dev/pi-impeccable",
-    "npm:@ff-labs/pi-fff",
-    "npm:pi-playwright",
+    "pnpm:@ff-labs/pi-fff",
+    "pnpm:pi-playwright",
     {
-      "source": "npm:pi-ghostty-notifier",
+      "source": "pnpm:pi-ghostty-notifier",
       "extensions": [
         "-extensions/index.ts"
       ]

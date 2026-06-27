@@ -24,7 +24,6 @@ pnpm config set global-bin-dir "$PNPM_HOME/bin"
 
 packages="
 @earendil-works/pi-coding-agent
-@google/gemini-cli
 @playwright/mcp
 @sentry/warden
 chloe
