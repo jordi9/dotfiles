@@ -13,7 +13,7 @@ export SPACESHIP_DOCKER_SHOW=false
 export SPACESHIP_PACKAGE_SHOW=false
 
 # Calm Jujutsu prompt: state icon + muted truncated description/change id.
-export SPACESHIP_JJ_PREFIX=""
+export SPACESHIP_JJ_PREFIX="on "
 export SPACESHIP_JJ_SUFFIX=" "
 export SPACESHIP_JJ_CLEAN_SYMBOL="󰂕 "
 export SPACESHIP_JJ_DIRTY_SYMBOL="󰂔 "
@@ -55,11 +55,28 @@ spaceship_jj() {
     "$jj_content"
 }
 
-# Show Jujutsu repositories with spaceship-jj. To hide git in a jj repo, use direnv:
-#   echo 'export SPACESHIP_GIT_SHOW=false' > .envrc && direnv allow
+# Show Jujutsu repositories with spaceship-jj.
 # Guard prevents duplicate segments when re-sourcing ~/.zshrc.
 if spaceship::defined spaceship_jj && [[ ! " ${SPACESHIP_PROMPT_ORDER[@]} " =~ " jj " ]]; then
   spaceship add --before git jj
+fi
+
+# In jj/git-colocated repos, show the jj section and suppress Spaceship's git section
+# globally instead of adding per-repo .envrc files.
+export SPACESHIP_GIT_HIDE_IN_JJ="${SPACESHIP_GIT_HIDE_IN_JJ:-true}"
+
+_dotfiles_in_jj_repo() {
+  spaceship::exists jj || return 1
+  jj root --quiet >/dev/null 2>&1
+}
+
+if (( $+functions[spaceship_git] && ! $+functions[_dotfiles_spaceship_git] )); then
+  functions[_dotfiles_spaceship_git]=$functions[spaceship_git]
+
+  spaceship_git() {
+    [[ $SPACESHIP_GIT_HIDE_IN_JJ == true ]] && _dotfiles_in_jj_repo && return
+    _dotfiles_spaceship_git "$@"
+  }
 fi
 
 # Only add gradle segment if not already present (prevents duplication on re-sourcing)
