@@ -72,7 +72,9 @@
     },
     "npm:@ogulcancelik/pi-herdr",
     "../../dev/pi-workspace",
-    "npm:@juicesharp/rpiv-ask-user-question"
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "../../dev/pi-now",
+    "npm:pi-playwright"
   ],
   "hideThinkingBlock": true,
   "terminal": {

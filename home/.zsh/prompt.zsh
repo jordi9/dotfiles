@@ -85,16 +85,19 @@ if [[ ! " ${SPACESHIP_PROMPT_ORDER[@]} " =~ " gradle " ]]; then
 fi
 
 
-precmd() {
+autoload -Uz add-zsh-hook
+
+_dotfiles_precmd() {
   if [[ -n "$SSH_CONNECTION" ]]; then
     export SPACESHIP_PROMPT_PREFIXES_SHOW=true
-    # Temporarily disabled: manual terminal title updates.
-    # echo -ne "\e]0;${PWD##*/} @${HOST}\a"
+    print -Pn "\e]0;%n@%m:%2~\a"
   else
-    # Local session title update temporarily disabled.
-    # echo -ne "\e]0;${PWD##*/}\a"
+    print -Pn "\e]0;%2~\a"
   fi
 }
+
+add-zsh-hook -d precmd _dotfiles_precmd 2>/dev/null
+add-zsh-hook precmd _dotfiles_precmd
 
 alias show-kube-context='SPACESHIP_KUBECTL_SHOW=true'
 alias hide-kube-context='SPACESHIP_KUBECTL_SHOW=false'
