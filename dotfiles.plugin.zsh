@@ -56,18 +56,194 @@ alias dotagents='p dlx @sentry/dotagents'
 alias hud='hunk diff'
 alias hus='hunk show'
 
-function jj-workspace-delete {
-  local workspace root physical_root
+function jj-workspace-add {
+  emulate -L zsh
 
-  if (( $# != 1 )); then
-    echo "Usage: jj wd <workspace>" >&2
+  local requested_name from workspace_rows repo_root repo_name workspace_path workspace_name
+  local existing_name existing_root source_workspace_name default_root repo_prefix
+  local -a revision_args passthrough_args
+  local custom_revision=0
+
+  while (( $# > 0 )); do
+    case "$1" in
+      -h|--help)
+        echo "Usage: jj wa [OPTIONS] [workspace]" >&2
+        echo "" >&2
+        echo "Creates a sibling workspace at <current-root>.<workspace>." >&2
+        echo "The jj workspace name is <workspace>, or <current-workspace>.<workspace> when nested." >&2
+        echo "" >&2
+        echo "Options:" >&2
+        echo "  -r, --revision <REVSET>  Parent revision for the new workspace (default: @)" >&2
+        echo "  -f, --from <REVSET>      Alias for --revision" >&2
+        echo "  -m, --message <MESSAGE>  Description for the new workspace commit" >&2
+        echo "      --sparse-patterns <MODE>" >&2
+        return 0
+        ;;
+      -r|--revision|-f|--from)
+        if (( $# < 2 )); then
+          echo "jj wa: $1 requires a value" >&2
+          return 2
+        fi
+        if (( ! custom_revision )); then
+          revision_args=()
+          custom_revision=1
+        fi
+        revision_args+=(-r "$2")
+        shift 2
+        ;;
+      --revision=*|--from=*)
+        if (( ! custom_revision )); then
+          revision_args=()
+          custom_revision=1
+        fi
+        from="${1#*=}"
+        if [[ -z "$from" ]]; then
+          echo "jj wa: ${1%%=*} requires a value" >&2
+          return 2
+        fi
+        revision_args+=(-r "$from")
+        shift
+        ;;
+      -m|--message|--sparse-patterns)
+        if (( $# < 2 )); then
+          echo "jj wa: $1 requires a value" >&2
+          return 2
+        fi
+        passthrough_args+=("$1" "$2")
+        shift 2
+        ;;
+      --message=*|--sparse-patterns=*)
+        passthrough_args+=("$1")
+        shift
+        ;;
+      --name|--name=*)
+        echo "jj wa: --name is managed by the helper; pass the workspace leaf name instead" >&2
+        return 2
+        ;;
+      --)
+        shift
+        break
+        ;;
+      -*)
+        passthrough_args+=("$1")
+        shift
+        ;;
+      *)
+        if [[ -n "$requested_name" ]]; then
+          echo "Usage: jj wa [OPTIONS] [workspace]" >&2
+          return 2
+        fi
+        requested_name="$1"
+        shift
+        ;;
+    esac
+  done
+
+  if (( $# > 0 )); then
+    if (( $# > 1 )) || [[ -n "$requested_name" ]]; then
+      echo "Usage: jj wa [OPTIONS] [workspace]" >&2
+      return 2
+    fi
+    requested_name="$1"
+  fi
+
+  if [[ -z "$requested_name" ]]; then
+    if [[ ! -t 0 ]]; then
+      echo "Usage: jj wa [OPTIONS] <workspace>" >&2
+      echo "stdin is not a terminal, so interactive input is unavailable" >&2
+      return 2
+    fi
+    read "requested_name?Workspace name: " || return 1
+  fi
+
+  if [[ ! "$requested_name" =~ '^[A-Za-z0-9][A-Za-z0-9._-]*$' ]]; then
+    echo "jj wa: workspace name may contain only letters, numbers, dots, underscores, and hyphens, and must start with a letter or number" >&2
     return 2
   fi
 
-  workspace="$1"
-  if [[ "$workspace" == "-h" || "$workspace" == "--help" ]]; then
-    echo "Usage: jj wd <workspace>" >&2
-    return 0
+  if (( ! custom_revision )); then
+    revision_args=(-r @)
+  fi
+
+  repo_root="$(command jj --ignore-working-copy --no-pager workspace root)" || return $?
+  repo_name="${repo_root:t}"
+  workspace_path="${repo_root:h}/${repo_name}.${requested_name}"
+
+  workspace_rows="$(command jj --ignore-working-copy --no-pager workspace list -T 'name ++ "\t" ++ root ++ "\n"')" || return $?
+  while IFS=$'\t' read -r existing_name existing_root; do
+    [[ -n "$existing_name" ]] || continue
+    if [[ "$existing_name" == "default" ]]; then
+      default_root="$existing_root"
+    fi
+    if [[ "$existing_root" == "$repo_root" ]]; then
+      source_workspace_name="$existing_name"
+    fi
+  done <<< "$workspace_rows"
+
+  workspace_name="$requested_name"
+  if [[ -n "$source_workspace_name" && "$source_workspace_name" != "default" ]]; then
+    if [[ -n "$default_root" ]]; then
+      repo_prefix="${default_root:t}."
+    fi
+    if [[ -n "$repo_prefix" && "$source_workspace_name" == "$repo_prefix"* ]]; then
+      source_workspace_name="${source_workspace_name#$repo_prefix}"
+    fi
+    workspace_name="${source_workspace_name}.${requested_name}"
+  fi
+
+  while IFS=$'\t' read -r existing_name existing_root; do
+    if [[ "$existing_name" == "$workspace_name" ]]; then
+      echo "jj wa: jj workspace already exists: $workspace_name" >&2
+      return 1
+    fi
+  done <<< "$workspace_rows"
+
+  if [[ -e "$workspace_path" ]]; then
+    echo "jj wa: workspace path already exists: $workspace_path" >&2
+    return 1
+  fi
+
+  echo "Creating jj workspace '$workspace_name' at $workspace_path"
+  command jj workspace add "${revision_args[@]}" "${passthrough_args[@]}" --name "$workspace_name" "$workspace_path" || return $?
+  echo "✓ Created jj workspace '$workspace_name' at $workspace_path"
+}
+
+function jj-workspace-delete {
+  local workspace workspaces root physical_root
+
+  if (( $# > 1 )); then
+    echo "Usage: jj wd [workspace]" >&2
+    return 2
+  fi
+
+  if (( $# == 0 )); then
+    if ! command -v fzf >/dev/null 2>&1; then
+      echo "Usage: jj wd <workspace>" >&2
+      echo "fzf is not installed, so interactive selection is unavailable" >&2
+      return 2
+    fi
+
+    workspaces="$(command jj --ignore-working-copy --no-pager workspace list -T 'name ++ "\n"')" || return $?
+    workspaces="$(printf '%s\n' "$workspaces" | grep -vxF default || true)"
+    if [[ -z "$workspaces" ]]; then
+      echo "No non-default workspaces to delete" >&2
+      return 1
+    fi
+
+    workspace="$(
+      printf '%s\n' "$workspaces" |
+        fzf --height 40% \
+          --prompt='jj wd> ' \
+          --header='Select workspace to delete; Esc cancels' \
+          --preview='jj --ignore-working-copy --no-pager workspace root --name {} 2>/dev/null'
+    )" || return 0
+    [[ -n "$workspace" ]] || return 0
+  else
+    workspace="$1"
+    if [[ "$workspace" == "-h" || "$workspace" == "--help" ]]; then
+      echo "Usage: jj wd [workspace]" >&2
+      return 0
+    fi
   fi
 
   if [[ "$workspace" == "default" ]]; then
@@ -75,7 +251,7 @@ function jj-workspace-delete {
     return 1
   fi
 
-  root="$(jj workspace root --name "$workspace")" || return $?
+  root="$(command jj workspace root --name "$workspace")" || return $?
   physical_root="$(cd "$root" && pwd -P)" || return $?
 
   if [[ -z "$physical_root" || "$physical_root" == "/" || "$physical_root" == "$HOME" || ! -e "$physical_root/.jj" ]]; then
@@ -83,23 +259,62 @@ function jj-workspace-delete {
     return 1
   fi
 
-  jj workspace forget -- "$workspace" || return $?
+  command jj workspace forget -- "$workspace" || return $?
   rm -rf -- "$physical_root"
   echo "✓ Deleted workspace '$workspace' at $physical_root"
 }
 
-function jjws {
+function jj-workspace-switch {
+  emulate -L zsh
+
   local selection workspace workspace_root
 
-  selection="$(jj --color=always workspace list | fzf --ansi --height 40%)"
-  [[ -n "$selection" ]] || return 0
+  if (( $# > 1 )); then
+    echo "Usage: jj ws [workspace]" >&2
+    return 2
+  fi
 
-  workspace="${selection%%:*}"
+  if (( $# == 1 )); then
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+      echo "Usage: jj ws [workspace]" >&2
+      return 0
+    fi
+    workspace="$1"
+  else
+    if ! command -v fzf >/dev/null 2>&1; then
+      echo "Usage: jj ws <workspace>" >&2
+      echo "fzf is not installed, so interactive selection is unavailable" >&2
+      return 2
+    fi
+
+    selection="$(
+      command jj --color=always workspace list |
+        fzf --ansi --height 40% \
+          --delimiter=':' \
+          --prompt='jj ws> ' \
+          --header='Select workspace to switch to; Esc cancels' \
+          --preview='jj --ignore-working-copy --no-pager workspace root --name {1} 2>/dev/null'
+    )" || return 0
+    [[ -n "$selection" ]] || return 0
+
+    workspace="${selection%%:*}"
+  fi
+
   [[ -n "$workspace" ]] || return 0
-
-  workspace_root="$(jj workspace root --name "$workspace")" || return $?
+  workspace_root="$(command jj workspace root --name "$workspace")" || return $?
   [[ -n "$workspace_root" ]] || return 0
   builtin cd -- "$workspace_root"
+}
+
+# Intercept `jj ws` as a zsh function so switching can cd the current shell.
+# All other jj invocations go to the real jj binary.
+function jj {
+  if [[ "$1" == "ws" ]]; then
+    shift
+    jj-workspace-switch "$@"
+  else
+    command jj "$@"
+  fi
 }
 
 function as {
