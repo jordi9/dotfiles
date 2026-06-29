@@ -30,6 +30,8 @@ w  = ['workspace']
 wt = ['workspace', 'root', '--name']
 wl = ['workspace', 'list']
 wf = ['workspace', 'forget']
+# Create a sibling workspace path <current-root>.<name> with a managed jj workspace name.
+wa = ['util', 'exec', '--', 'zsh', '-ic', 'jj-workspace-add "$@"', 'jj-wa']
 # Forget a non-default workspace and delete its actual root directory.
 wd = ['util', 'exec', '--', 'zsh', '-ic', 'jj-workspace-delete "$@"', 'jj-wd']
 

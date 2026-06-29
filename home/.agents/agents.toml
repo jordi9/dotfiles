@@ -71,3 +71,7 @@ source = "mattpocock/skills"
 [[skills]]
 name = "hunk-review"
 source = "modem-dev/hunk"
+
+[[skills]]
+name = "herdr"
+source = "ogulcancelik/herdr"

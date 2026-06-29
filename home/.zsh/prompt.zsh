@@ -88,10 +88,11 @@ fi
 precmd() {
   if [[ -n "$SSH_CONNECTION" ]]; then
     export SPACESHIP_PROMPT_PREFIXES_SHOW=true
-    echo -ne "\e]0;${PWD##*/} @${HOST}\a"
+    # Temporarily disabled: manual terminal title updates.
+    # echo -ne "\e]0;${PWD##*/} @${HOST}\a"
   else
-    # Local session: just show directory
-    echo -ne "\e]0;${PWD##*/}\a"
+    # Local session title update temporarily disabled.
+    # echo -ne "\e]0;${PWD##*/}\a"
   fi
 }
 

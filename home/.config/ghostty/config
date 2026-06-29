@@ -23,9 +23,12 @@ window-padding-balance = true
 unfocused-split-opacity = 0.6
 unfocused-split-fill = #393552
 
-# Claude
-keybind = shift+enter=text:\x1b\r
+# Multiline input for Herdr/pi/Claude-style prompts
+keybind = shift+enter=text:\n
 keybind = alt+t=text:\x1bt
+
+# Herdr zen macro: zoom current pane, then toggle sidebar.
+keybind = ctrl+alt+super+shift+enter=text:\x02z\x02b
 
 # Tab navigation
 keybind = ctrl+alt+left=previous_tab

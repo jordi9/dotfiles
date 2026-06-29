@@ -64,7 +64,15 @@
         "-extensions/index.ts"
       ]
     },
-    "../../dev/chloe"
+    {
+      "source": "../../dev/chloe",
+      "extensions": [
+        "+src/extension.ts"
+      ]
+    },
+    "npm:@ogulcancelik/pi-herdr",
+    "../../dev/pi-workspace",
+    "npm:@juicesharp/rpiv-ask-user-question"
   ],
   "hideThinkingBlock": true,
   "terminal": {
