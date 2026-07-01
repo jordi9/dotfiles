@@ -7,6 +7,7 @@ brew update
 formulae="
 ack
 antidote
+atuin
 bat
 bitwarden-cli
 btop

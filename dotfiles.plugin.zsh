@@ -464,9 +464,17 @@ function gh-setup-ssh {
   ssh-add --apple-use-keychain ~/.ssh/id_github_com
 }
 
+# Native zsh history fallback. Atuin is sourced later when installed, but keep
+# plain zsh history useful on machines that do not have Atuin yet.
+HISTSIZE=100000
+SAVEHIST=100000
+setopt SHARE_HISTORY
+
 # zsh-history-substring-search configuration
-bindkey '\eOA' history-substring-search-up # or '^[[A'
-bindkey '\eOB' history-substring-search-down # or '^[[B'
+bindkey '\e[A' history-substring-search-up
+bindkey '\e[B' history-substring-search-down
+bindkey '\eOA' history-substring-search-up
+bindkey '\eOB' history-substring-search-down
 export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
 # Gradle

@@ -1,0 +1,30 @@
+# Atuin shell history configuration.
+# Ctrl-R searches everything; Up searches the current git workspace/directory,
+# which keeps recent context-specific commands easy to find.
+search_mode = "fuzzy"
+filter_mode = "global"
+workspaces = true
+filter_mode_shell_up_key_binding = "workspace"
+search_mode_shell_up_key_binding = "prefix"
+
+# Keep the UI lightweight inside normal terminal panes.
+style = "compact"
+inline_height = 20
+inline_height_shell_up_key_binding = 12
+
+# Enter executes the selected command; Tab inserts it for editing.
+enter_accept = true
+
+# Freeze live timers in the UI so relative times stay stable while searching.
+prefers_reduced_motion = true
+
+# Hide the footer/help row; it includes the Atuin version/update notice.
+show_help = false
+
+[theme]
+name = "dotfiles-cool"
+
+[ui]
+# Keep relative time visible, but with prefers_reduced_motion above Atuin won't
+# live-update the timers while the search UI is open.
+columns = ["duration", "time", "command"]

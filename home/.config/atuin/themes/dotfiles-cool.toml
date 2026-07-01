@@ -1,0 +1,15 @@
+[theme]
+name = "dotfiles-cool"
+parent = "default"
+
+[colors]
+# Catppuccin-ish, cool-toned accents. Avoid red for the selected row / failed
+# command emphasis because it reads like an error while browsing history.
+Important = "#89b4fa"   # blue
+Title = "#cba6f7"       # mauve
+Guidance = "#89dceb"    # sky
+Annotation = "#6c7086"  # overlay0
+Muted = "#6c7086"       # overlay0
+AlertInfo = "#a6e3a1"   # green
+AlertWarn = "#f9e2af"   # yellow
+AlertError = "#fab387"  # peach, not red
