@@ -5,14 +5,13 @@
   "defaultThinkingLevel": "xhigh",
   "theme": "amp-dark",
   "enabledModels": [
-    "openai-codex/gpt-5.5",
-    "minimax/MiniMax-M3"
+    "openai-codex/gpt-5.5"
   ],
   "packages": [
-    "pnpm:pi-codex-goal",
-    "pnpm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-codex-goal",
+    "npm:@juicesharp/rpiv-ask-user-question",
     {
-      "source": "pnpm:pi-web-access",
+      "source": "npm:pi-web-access",
       "skills": [
         "-skills/librarian/SKILL.md"
       ]
@@ -31,40 +30,11 @@
       "source": "git:github.com/championswimmer/pi-context-usage",
       "skills": []
     },
-    "pnpm:pi-tool-stats",
-    "pnpm:@firstpick/pi-extension-stats",
-    "pnpm:@tintinweb/pi-subagents",
-    "pnpm:@sinamtz/pi-minimax-provider",
-    {
-      "source": "git:github.com/DietrichGebert/ponytail",
-      "extensions": [
-        "-pi-extension/index.js"
-      ],
-      "skills": [
-        "-skills/ponytail/SKILL.md",
-        "-skills/ponytail-audit/SKILL.md",
-        "-skills/ponytail-debt/SKILL.md",
-        "-skills/ponytail-gain/SKILL.md",
-        "-skills/ponytail-help/SKILL.md",
-        "-skills/ponytail-review/SKILL.md"
-      ]
-    },
-    {
-      "source": "pnpm:pi-impeccable",
-      "extensions": [
-        "-extensions/impeccable.ts"
-      ]
-    },
+  
     "~/dev/pi-impeccable",
-    "pnpm:@ff-labs/pi-fff",
-    "pnpm:pi-playwright",
-    {
-      "source": "pnpm:pi-ghostty-notifier",
-      "extensions": [
-        "-extensions/index.ts"
-      ]
-    },
-    {
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-playwright",
+   {
       "source": "../../dev/chloe",
       "extensions": [
         "+src/extension.ts"
@@ -72,9 +42,7 @@
     },
     "npm:@ogulcancelik/pi-herdr",
     "../../dev/pi-workspace",
-    "npm:@juicesharp/rpiv-ask-user-question",
     "../../dev/pi-now",
-    "npm:pi-playwright",
     "npm:@gotgenes/pi-subagents"
   ],
   "hideThinkingBlock": true,
