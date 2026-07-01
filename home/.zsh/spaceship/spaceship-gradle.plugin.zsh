@@ -14,6 +14,7 @@ SPACESHIP_GRADLE_PREFIX="${SPACESHIP_GRADLE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PR
 SPACESHIP_GRADLE_SUFFIX="${SPACESHIP_GRADLE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_GRADLE_SYMBOL="${SPACESHIP_GRADLE_SYMBOL="⬡ "}"
 SPACESHIP_GRADLE_DEFAULT_VERSION="${SPACESHIP_GRADLE_DEFAULT_VERSION=""}"
+SPACESHIP_GRADLE_EXECUTE_WRAPPER="${SPACESHIP_GRADLE_EXECUTE_WRAPPER=false}"
 SPACESHIP_GRADLE_COLOR="${SPACESHIP_GRADLE_COLOR="green"}"
 
 # ------------------------------------------------------------------------------
@@ -30,6 +31,19 @@ spaceship::gradle::find_root_project() {
   done
 
   print "$root"
+}
+
+spaceship::gradle::wrapper_version() {
+  local gradle_root_dir="$1" wrapper_properties distribution_url gradle_version
+
+  wrapper_properties="$gradle_root_dir/gradle/wrapper/gradle-wrapper.properties"
+  [[ -r "$wrapper_properties" ]] || return 1
+
+  distribution_url=$(awk -F= '/^[[:space:]]*distributionUrl[[:space:]]*=/ { sub(/^[^=]*=/, ""); print; exit }' "$wrapper_properties")
+  gradle_version=$(printf '%s\n' "$distribution_url" | sed -nE 's#.*gradle-([0-9][0-9A-Za-z._-]*)-(bin|all)\.zip.*#v\1#p')
+
+  [[ -n "$gradle_version" ]] || return 1
+  print "$gradle_version"
 }
 
 spaceship::gradle::version() {
@@ -59,13 +73,17 @@ spaceship_gradle() {
   local gradle_version
 
   if [[ -f "$gradle_root_dir/gradlew" ]]; then
-    gradle_version=$(spaceship::gradle::version "$gradle_root_dir/gradlew")
+    gradle_version=$(spaceship::gradle::wrapper_version "$gradle_root_dir")
+    if [[ -z "$gradle_version" && "$SPACESHIP_GRADLE_EXECUTE_WRAPPER" == true ]]; then
+      gradle_version=$(spaceship::gradle::version "$gradle_root_dir/gradlew")
+    fi
   elif spaceship::exists gradle; then
     gradle_version=$(spaceship::gradle::version gradle)
   else
     return
   fi
 
+  [[ -n "$gradle_version" ]] || return
   [[ "$gradle_version" == "$SPACESHIP_GRADLE_DEFAULT_VERSION" ]] && return
 
   spaceship::section \

@@ -1,11 +1,19 @@
-# Claude Code
-export PATH="$HOME/.local/bin:$PATH"
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
 
 # opencode
-export PATH="$HOME/.opencode/bin:$PATH"
+case ":$PATH:" in
+  *":$HOME/.opencode/bin:"*) ;;
+  *) export PATH="$HOME/.opencode/bin:$PATH" ;;
+esac
 
 # Homebrew file(1) over macOS v5.41 — fixes MIME detection for Sony XAVC MP4s
-export PATH="/opt/homebrew/opt/file-formula/bin:$PATH"
+case ":$PATH:" in
+  *":/opt/homebrew/opt/file-formula/bin:"*) ;;
+  *) export PATH="/opt/homebrew/opt/file-formula/bin:$PATH" ;;
+esac
 
 # Zoxide
 eval "$(zoxide init zsh)"
@@ -35,7 +43,7 @@ ssh() {
   TERM=xterm-256color COLORTERM="${COLORTERM:-truecolor}" command ssh -o SendEnv=COLORTERM "$@"
 }
 
-# SDKMAN (must be last)
+# SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
@@ -47,8 +55,10 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-
 # bun
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+case ":$PATH:" in
+  *":$BUN_INSTALL/bin:"*) ;;
+  *) export PATH="$BUN_INSTALL/bin:$PATH" ;;
+esac

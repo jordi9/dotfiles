@@ -9,7 +9,7 @@ export LC_ALL=en_US.UTF-8
 # Aliases
 #########
 alias homecnf="cd ~/.homesick/repos/dotfiles"
-alias cnf="vim ~/.homesick/repos/dotfiles/me.plugin.zsh"
+alias cnf="vim ~/.homesick/repos/dotfiles/dotfiles.plugin.zsh"
 alias zcnf="vim ~/.zshrc"
 alias reload='source ~/.zshrc && echo "✓ Config reloaded"'
 
@@ -221,7 +221,9 @@ function jj-workspace-add {
 }
 
 function jj-workspace-delete {
-  local workspace workspaces root physical_root
+  emulate -L zsh
+
+  local workspace workspaces root physical_root current_root current_physical_root
 
   if (( $# > 1 )); then
     echo "Usage: jj wd [workspace]" >&2
@@ -271,8 +273,31 @@ function jj-workspace-delete {
     return 1
   fi
 
-  command jj workspace forget -- "$workspace" || return $?
-  rm -rf -- "$physical_root"
+  current_root="$(command jj --ignore-working-copy --no-pager workspace root 2>/dev/null)" || current_root=""
+  if [[ -n "$current_root" ]]; then
+    current_physical_root="$(cd "$current_root" && pwd -P)" || current_physical_root=""
+    if [[ "$physical_root" == "$current_physical_root" ]]; then
+      echo "Refusing to delete the current workspace; switch to another workspace first" >&2
+      return 1
+    fi
+  fi
+
+  if ! command rm -rf -- "$physical_root"; then
+    echo "jj wd: failed to remove $physical_root; workspace '$workspace' was not forgotten" >&2
+    return 1
+  fi
+
+  if [[ -e "$physical_root" ]]; then
+    echo "jj wd: failed to remove $physical_root completely; workspace '$workspace' was not forgotten" >&2
+    return 1
+  fi
+
+  if ! command jj workspace forget -- "$workspace"; then
+    echo "jj wd: removed $physical_root, but failed to forget jj workspace '$workspace'" >&2
+    echo "jj wd: run 'jj workspace forget -- \"$workspace\"' after resolving the error" >&2
+    return 1
+  fi
+
   echo "✓ Deleted workspace '$workspace' at $physical_root"
 }
 
