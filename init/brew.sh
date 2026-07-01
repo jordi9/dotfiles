@@ -10,6 +10,7 @@ antidote
 bat
 bitwarden-cli
 btop
+carapace
 coreutils
 direnv
 eza

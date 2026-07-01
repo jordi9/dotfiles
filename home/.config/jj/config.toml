@@ -5,7 +5,7 @@ name = "Jordi Gerona"
 email = "jordi@donky.org"
 
 [ui]
-pager = ['delta', 'delta', '--pager', 'less -FRX']
+pager = ['delta', '--pager', 'less -FRX']
 diff-editor = ":builtin"
 default-command = "log"
 

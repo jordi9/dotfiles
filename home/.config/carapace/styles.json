@@ -1,0 +1,32 @@
+{
+  "carapace": {
+    "Value": "#e0def4",
+    "Description": "dim #908caa",
+    "Usage": "dim #908caa",
+    "Error": "bold #eb6f92",
+    "FlagNoArg": "#c4a7e7",
+    "FlagArg": "#9ccfd8",
+    "FlagMultiArg": "#ea9a97",
+    "FlagOptArg": "#f6c177",
+    "KeywordPositive": "#9ccfd8",
+    "KeywordNegative": "#eb6f92",
+    "KeywordAmbiguous": "#f6c177",
+    "KeywordUnknown": "dim #908caa",
+    "Highlight1": "#c4a7e7",
+    "Highlight2": "#9ccfd8",
+    "Highlight3": "#f6c177",
+    "Highlight4": "#ea9a97",
+    "Highlight5": "#3e8fb0"
+  },
+  "git": {
+    "Branch": "#9ccfd8",
+    "Commit": "#f6c177",
+    "Tag": "#ebbcba"
+  },
+  "docker": {
+    "Container": "#9ccfd8",
+    "Image": "#f6c177",
+    "Network": "#c4a7e7",
+    "Volume": "#ea9a97"
+  }
+}

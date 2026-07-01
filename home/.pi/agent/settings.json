@@ -74,7 +74,8 @@
     "../../dev/pi-workspace",
     "npm:@juicesharp/rpiv-ask-user-question",
     "../../dev/pi-now",
-    "npm:pi-playwright"
+    "npm:pi-playwright",
+    "npm:@gotgenes/pi-subagents"
   ],
   "hideThinkingBlock": true,
   "terminal": {

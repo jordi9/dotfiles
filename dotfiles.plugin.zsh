@@ -24,8 +24,20 @@ function refresh-completions {
   fi
 
   rm -f -- "$zcompdump" "${zcompdump}.zwc"
+
+  # compinit does not reliably replace mappings already loaded in the current
+  # shell. Clear its state first so stale dump entries (for example Homebrew jj's
+  # old _clap_dynamic_completer_jj mapping) cannot be written back out.
+  unset _comps _services _patcomps _postpatcomps _compautos
+
   autoload -Uz compinit
   compinit -i -d "$zcompdump"
+
+  # Re-apply local completion styles and Carapace's dynamic compdefs after a
+  # manual refresh so the current shell matches a fresh shell.
+  [[ -r "${ZDOTDIR:-$HOME}/.zsh/completion.zsh" ]] && source "${ZDOTDIR:-$HOME}/.zsh/completion.zsh"
+  [[ -r "${ZDOTDIR:-$HOME}/.zsh/carapace.zsh" ]] && source "${ZDOTDIR:-$HOME}/.zsh/carapace.zsh"
+
   rehash
   echo "✓ Completions refreshed"
 }
