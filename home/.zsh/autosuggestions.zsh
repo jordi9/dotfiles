@@ -67,9 +67,17 @@ function _dotfiles_autosuggest_accept_word() {
 function _dotfiles_configure_autosuggestions() {
   # Wait until zsh-autosuggestions has initialized its default widget lists.
   (( ${+ZSH_AUTOSUGGEST_IGNORE_WIDGETS} )) || return 0
+  (( ${+ZSH_AUTOSUGGEST_CLEAR_WIDGETS} )) || return 0
 
   if [[ -z ${ZSH_AUTOSUGGEST_IGNORE_WIDGETS[(r)dotfiles-autosuggest-accept-word]} ]]; then
     ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=('dotfiles-autosuggest-accept-word')
+  fi
+
+  # Enter is bound to our auto-cd wrapper. Treat it like accept-line so a
+  # pending ghost suggestion is cleared instead of being repainted as if it had
+  # been executed.
+  if [[ -z ${ZSH_AUTOSUGGEST_CLEAR_WIDGETS[(r)auto-cd-accept]} ]]; then
+    ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=('auto-cd-accept')
   fi
 
   zle -N dotfiles-autosuggest-accept-word _dotfiles_autosuggest_accept_word
