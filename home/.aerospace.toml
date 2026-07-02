@@ -21,7 +21,7 @@ default-root-container-orientation = 'auto'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
 
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "D", "M", "Z"]
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "D", "M", "R", "Z"]
 on-mode-changed = []
 
 [key-mapping]
@@ -59,6 +59,7 @@ on-mode-changed = []
     ctrl-alt-shift-8 = 'workspace 8'
     ctrl-alt-shift-9 = 'workspace 9'
     ctrl-alt-shift-d = 'workspace D'
+    ctrl-alt-shift-r = 'workspace R'
     ctrl-alt-shift-z = 'workspace Z'
 
     # Cycle workspaces (Meh + ← / →)
