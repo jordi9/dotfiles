@@ -4,7 +4,7 @@
 search_mode = "fuzzy"
 filter_mode = "global"
 workspaces = true
-filter_mode_shell_up_key_binding = "workspace"
+filter_mode_shell_up_key_binding = "session-preload"
 search_mode_shell_up_key_binding = "prefix"
 
 # Keep the UI lightweight inside normal terminal panes.

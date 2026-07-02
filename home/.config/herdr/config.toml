@@ -225,7 +225,7 @@ next_workspace = "ctrl+alt+down"
 # accent = "cyan"
 
 # Background notification popup delivery
-pane_borders = false
+pane_borders = true
 pane_gaps = true
 agent_panel_sort = "priority"
 show_agent_labels_on_pane_borders = false
