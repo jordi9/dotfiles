@@ -97,6 +97,7 @@ on-mode-changed = []
     8 = ['move-node-to-workspace 8', 'mode main']
     9 = ['move-node-to-workspace 9', 'mode main']
     d = ['move-node-to-workspace D', 'mode main']
+    r = ['move-node-to-workspace R', 'mode main']
     z = ['move-node-to-workspace Z', 'mode main']
 
     # Layout
@@ -116,8 +117,8 @@ on-mode-changed = []
     shift-l = 'join-with right'
 
     # Reset / reload
-    r = ['flatten-workspace-tree', 'mode main']
-    shift-r = ['reload-config', 'mode main']
+    shift-r = ['flatten-workspace-tree', 'mode main']
+    ctrl-r = ['reload-config', 'mode main']
 
     # Move workspace to monitor
     tab = ['move-workspace-to-monitor --wrap-around next', 'mode main']
