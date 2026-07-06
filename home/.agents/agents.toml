@@ -75,3 +75,23 @@ source = "modem-dev/hunk"
 [[skills]]
 name = "herdr"
 source = "ogulcancelik/herdr"
+
+[[skills]]
+name = "backend-craft"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "frontend-craft"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "typescript-craft"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "review"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "morning-coffee"
+source = "git@github.com:jordi9/skills"
