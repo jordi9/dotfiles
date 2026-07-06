@@ -26,6 +26,7 @@ gp = ['git', 'push']
 gfr = ['util', 'exec', '--', 'sh', '-c', 'jj git fetch && jj rebase -o main']
 
 ba = ['bookmark', 'advance']
+bagp = ['util', 'exec', '--', 'sh', '-c', 'jj bookmark advance "$@" && jj git push', 'jj-bagp']
 
 w  = ['workspace']
 wt = ['workspace', 'root', '--name']
