@@ -23,6 +23,7 @@ bookmark-advance-to = 'closest_pushable(@)'
 
 [aliases]
 gp = ['git', 'push']
+gfr = ['util', 'exec', '--', 'sh', '-c', 'jj git fetch && jj rebase -o main']
 
 ba = ['bookmark', 'advance']
 
