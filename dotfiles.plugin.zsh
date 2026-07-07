@@ -343,6 +343,172 @@ function jj-workspace-switch {
   builtin cd -- "$workspace_root"
 }
 
+function _jj-open-web-url {
+  emulate -L zsh
+
+  local git_url="$1" protocol="https" git_protocol uri domain url_path
+
+  if [[ "$git_url" == *://* ]]; then
+    git_protocol="${git_url%%://*}"
+    uri="${git_url#*://}"
+    uri="${uri#*@}"
+    domain="${uri%%/*}"
+    url_path="${uri#*/}"
+
+    if [[ "$git_protocol" == "http" || "$git_protocol" == "https" ]]; then
+      protocol="$git_protocol"
+    else
+      domain="${domain%%:*}"
+    fi
+  elif [[ "$git_url" == *:* && "$git_url" != /* ]]; then
+    uri="${git_url##*@}"
+    domain="${uri%%:*}"
+    url_path="${uri#*:}"
+  else
+    echo "jj open: unsupported remote URL: $git_url" >&2
+    return 1
+  fi
+
+  url_path="${url_path#/}"
+  url_path="${url_path%/}"
+  url_path="${url_path%.git}"
+
+  if [[ -z "$domain" || -z "$url_path" || "$url_path" == "$uri" ]]; then
+    echo "jj open: unsupported remote URL: $git_url" >&2
+    return 1
+  fi
+
+  print -r -- "$protocol://$domain/$url_path"
+}
+
+function jj-open {
+  emulate -L zsh
+
+  local print_only=0 requested_remote remote_rows remote_name remote_url name url rest repo_url suffix
+  local -a suffix_parts opener
+
+  while (( $# > 0 )); do
+    case "$1" in
+      -h|--help)
+        echo "Usage: jj open [-p|--print] [remote] [--suffix path]" >&2
+        echo "" >&2
+        echo "Opens the web URL for a jj repo's Git remote (origin by default)." >&2
+        return 0
+        ;;
+      -p|--print)
+        print_only=1
+        shift
+        ;;
+      -s|--suffix)
+        if (( $# < 2 )); then
+          echo "jj open: $1 requires a value" >&2
+          return 2
+        fi
+        suffix_parts+=("$2")
+        shift 2
+        ;;
+      --suffix=*)
+        suffix_parts+=("${1#*=}")
+        shift
+        ;;
+      --)
+        shift
+        break
+        ;;
+      -*)
+        echo "jj open: unknown option: $1" >&2
+        return 2
+        ;;
+      *)
+        if [[ -n "$requested_remote" ]]; then
+          echo "Usage: jj open [-p|--print] [remote] [--suffix path]" >&2
+          return 2
+        fi
+        requested_remote="$1"
+        shift
+        ;;
+    esac
+  done
+
+  if (( $# > 0 )); then
+    suffix_parts+=("$@")
+  fi
+
+  if ! command jj root --quiet &>/dev/null; then
+    echo "jj open: not in a jj repository" >&2
+    return 1
+  fi
+
+  remote_rows="$(command jj --ignore-working-copy --no-pager --color never git remote list)" || return $?
+  if [[ -z "$remote_rows" ]]; then
+    echo "jj open: no Git remotes configured" >&2
+    return 1
+  fi
+
+  while read -r name url rest; do
+    [[ -n "$name" && -n "$url" ]] || continue
+
+    if [[ -n "$requested_remote" ]]; then
+      if [[ "$name" == "$requested_remote" ]]; then
+        remote_name="$name"
+        remote_url="$url"
+        break
+      fi
+    elif [[ "$name" == "origin" ]]; then
+      remote_name="$name"
+      remote_url="$url"
+      break
+    elif [[ -z "$remote_url" ]]; then
+      remote_name="$name"
+      remote_url="$url"
+    fi
+  done <<< "$remote_rows"
+
+  if [[ -z "$remote_url" ]]; then
+    if [[ -n "$requested_remote" ]]; then
+      echo "jj open: remote not found: $requested_remote" >&2
+    else
+      echo "jj open: no usable Git remotes configured" >&2
+    fi
+    return 1
+  fi
+
+  repo_url="$(_jj-open-web-url "$remote_url")" || return $?
+
+  for suffix in "${suffix_parts[@]}"; do
+    [[ -n "$suffix" ]] || continue
+    suffix="${suffix#/}"
+    repo_url="${repo_url%/}/$suffix"
+  done
+
+  if (( print_only )); then
+    print -r -- "$repo_url"
+    return 0
+  fi
+
+  if [[ -n "$BROWSER" ]]; then
+    if [[ -x "$BROWSER" ]] || command -v -- "$BROWSER" >/dev/null 2>&1; then
+      command "$BROWSER" "$repo_url"
+      return $?
+    fi
+  fi
+
+  case "$(uname -s)" in
+    Darwin) opener=(open) ;;
+    MINGW*|MSYS*) opener=(start) ;;
+    CYGWIN*) opener=(cygstart) ;;
+    *)
+      if uname -r | grep -qi Microsoft; then
+        opener=(/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile Start)
+      else
+        opener=(xdg-open)
+      fi
+      ;;
+  esac
+
+  command "${opener[@]}" "$repo_url"
+}
+
 # Intercept `jj ws` as a zsh function so switching can cd the current shell.
 # All other jj invocations go to the real jj binary.
 function jj {
