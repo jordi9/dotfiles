@@ -5,10 +5,6 @@ agents = []
 allow_all = true
 
 [[skills]]
-name = "git-committer"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
 name = "handoff"
 source = "mattpocock/skills"
 
@@ -49,10 +45,6 @@ name = "planning"
 source = "git@github.com:jordi9/skills"
 
 [[skills]]
-name = "writing-great-skills"
-source = "mattpocock/skills"
-
-[[skills]]
 name = "to-increments"
 source = "git@github.com:jordi9/skills"
 
@@ -66,6 +58,10 @@ source = "git@github.com:jordi9/skills"
 
 [[skills]]
 name = "grilling"
+source = "mattpocock/skills"
+
+[[skills]]
+name = "writing-great-skills"
 source = "mattpocock/skills"
 
 [[skills]]
@@ -89,9 +85,5 @@ name = "typescript-craft"
 source = "git@github.com:jordi9/skills"
 
 [[skills]]
-name = "review"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
-name = "morning-coffee"
+name = "code-review"
 source = "git@github.com:jordi9/skills"

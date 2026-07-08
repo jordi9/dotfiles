@@ -50,11 +50,13 @@
       ]
     },
     "npm:@ogulcancelik/pi-herdr",
-    "npm:@gotgenes/pi-subagents"
+    "npm:@gotgenes/pi-subagents",
+    "npm:@plannotator/pi-extension"
   ],
   "hideThinkingBlock": true,
   "terminal": {
     "showTerminalProgress": false
   },
-  "quietStartup": true
+  "quietStartup": true,
+  "mojoToolPills": true
 }
