@@ -65,6 +65,7 @@ alias d-nuke='d-stop-all && d system prune --volumes --force'
 alias skills='p dlx skills'
 alias dotagents='p dlx @sentry/dotagents'
 
+alias hu='hunk'
 alias hud='hunk diff'
 alias hus='hunk show'
 
