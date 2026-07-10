@@ -16,3 +16,6 @@ hidden = false             # Show hidden files (like .gitignore) by default
 
 [keys.normal]
 space = { x = ":buffer-close", c = ":set-language git-commit", z = ":write-quit", q = ":quit!" }
+
+[keys.normal.z]
+w = ":toggle soft-wrap.enable"

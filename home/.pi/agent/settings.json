@@ -30,7 +30,7 @@
     },
     "~/dev/pi-dac/packages/pi-signal",
     "~/dev/pi-dac/packages/pi-now",
-    "~/dev/pi-dac/packages/pi-workspace",
+    "~/dev/pi-dac/packages/pi-jj",
     "npm:pi-codex-goal",
     "npm:@juicesharp/rpiv-ask-user-question",
     {
