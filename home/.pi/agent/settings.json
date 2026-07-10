@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.5",
+  "lastChangelogVersion": "0.80.6",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "xhigh",
@@ -54,7 +54,8 @@
     },
     "npm:@ogulcancelik/pi-herdr",
     "npm:@gotgenes/pi-subagents",
-    "npm:@plannotator/pi-extension"
+    "npm:@plannotator/pi-extension",
+    "npm:pi-codex-image-gen"
   ],
   "hideThinkingBlock": true,
   "terminal": {
