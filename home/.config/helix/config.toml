@@ -15,6 +15,4 @@ select = "underline"
 hidden = false             # Show hidden files (like .gitignore) by default
 
 [keys.normal]
-Z = { Z = ":write-quit", Q = ":quit!" }
-Q = ":quit!"  # Shift+Q to quit immediately
-space = { x = ":buffer-close" }
+space = { x = ":buffer-close", c = ":set-language git-commit", z = ":write-quit", q = ":quit!" }
