@@ -21,6 +21,10 @@ bookmark-advance-to = 'closest_pushable(@)'
   heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))
 '''
 
+[remotes.origin]
+# Track main automatically when importing an existing Git repository.
+auto-track-bookmarks = "main"
+
 [aliases]
 open = ['util', 'exec', '--', 'zsh', '-ic', 'jj-open "$@"', 'jj-open']
 
