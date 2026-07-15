@@ -1,0 +1,12 @@
+{
+  "diffOptions": {
+    "fontSize": "16px",
+    "overflow": "wrap"
+  },
+  "displayName": "j9",
+  "prompts": {
+    "review": {
+      "denied": "Treat each comment above as a direct user message about the referenced code. Respond according to its wording and intent: answer questions, provide guidance, discuss, or make requested changes as appropriate. Do not independently review the rest of the diff or add unrelated findings."
+    }
+  }
+}

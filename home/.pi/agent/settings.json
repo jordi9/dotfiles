@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.6",
+  "lastChangelogVersion": "0.80.7",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "xhigh",
@@ -28,7 +28,12 @@
         "+node_modules/pi-tool-display/index.ts"
       ]
     },
-    "~/dev/pi-dac/packages/pi-signal",
+    {
+      "source": "~/dev/pi-dac/packages/pi-signal",
+      "extensions": [
+        "+src/index.ts"
+      ]
+    },
     "~/dev/pi-dac/packages/pi-now",
     "~/dev/pi-dac/packages/pi-jj",
     "npm:pi-codex-goal",
@@ -53,9 +58,15 @@
       ]
     },
     "npm:@ogulcancelik/pi-herdr",
-    "npm:@gotgenes/pi-subagents",
+    {
+      "source": "npm:@gotgenes/pi-subagents",
+      "extensions": [
+        "-src/index.ts"
+      ]
+    },
     "npm:@plannotator/pi-extension",
-    "npm:pi-codex-image-gen"
+    "npm:pi-codex-image-gen",
+    "npm:@ogulcancelik/pi-codex-subagents@0.1.1"
   ],
   "hideThinkingBlock": true,
   "terminal": {

@@ -33,10 +33,6 @@ name = "tdd"
 source = "git@github.com:jordi9/skills"
 
 [[skills]]
-name = "linear-cli"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
 name = "to-stories"
 source = "git@github.com:jordi9/skills"
 
@@ -69,10 +65,6 @@ name = "hunk-review"
 source = "modem-dev/hunk"
 
 [[skills]]
-name = "herdr"
-source = "ogulcancelik/herdr"
-
-[[skills]]
 name = "backend-craft"
 source = "git@github.com:jordi9/skills"
 
@@ -87,3 +79,8 @@ source = "git@github.com:jordi9/skills"
 [[skills]]
 name = "code-review"
 source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "chloe"
+source = "git:file:///Users/jordi9/dev/skills"
+ref = "chloe-skill"
