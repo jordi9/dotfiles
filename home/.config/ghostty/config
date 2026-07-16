@@ -30,9 +30,8 @@ keybind = alt+t=text:\x1bt
 # Herdr zen macro: zoom current pane, then toggle sidebar.
 keybind = ctrl+alt+super+shift+enter=text:\x02z\x02b
 
-# Tab navigation
-keybind = ctrl+alt+left=previous_tab
-keybind = ctrl+alt+right=next_tab
+# Clear the visible screen (send Ctrl+L, including inside Zellij)
+keybind = cmd+k=text:\x0c
 
 # Line-by-line scrolling
 keybind = cmd+up=scroll_page_lines:-1
