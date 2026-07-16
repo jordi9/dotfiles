@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.80.7",
+  "lastChangelogVersion": "0.80.10",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
-  "defaultThinkingLevel": "xhigh",
+  "defaultThinkingLevel": "medium",
   "theme": "mojo-dark",
   "enabledModels": [
     "openai-codex/gpt-5.6-sol",
@@ -66,7 +66,8 @@
     },
     "npm:@plannotator/pi-extension",
     "npm:pi-codex-image-gen",
-    "npm:@ogulcancelik/pi-codex-subagents@0.1.1"
+    "npm:@ogulcancelik/pi-codex-subagents@0.1.1",
+    "../../dev/pi-dac/packages/pi-dac-mode"
   ],
   "hideThinkingBlock": true,
   "terminal": {
