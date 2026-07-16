@@ -1,0 +1,83 @@
+// Keep Zellij's built-in tab bar and replace only the footer with a minimal
+// Tokyo Night zjstatus bar.
+layout {
+    pane size=1 borderless=true {
+        plugin location="file:/Users/jordi9/.config/zellij/plugins/zjstatus.wasm" {
+            color_bg      "#1a1b26"
+            color_surface "#24283b"
+            color_fg      "#c0caf5"
+            color_muted   "#565f89"
+            color_blue    "#7aa2f7"
+            color_purple  "#bb9af7"
+            color_red     "#f7768e"
+
+            format_left   "#[fg=$surface,bg=$bg]#[fg=$fg,bg=$surface,bold]  {session} #[fg=$surface,bg=$bg]  {tabs}"
+            format_center ""
+            format_right  "{swap_layout}"
+            format_space  "#[bg=$bg]"
+            format_hide_on_overlength "true"
+            format_precedence "lrc"
+
+            border_enabled "false"
+
+            tab_normal            "#[fg=$muted,bg=$bg] {index} {name}{fullscreen_indicator}{sync_indicator}{floating_indicator} "
+            tab_normal_fullscreen "#[fg=$muted,bg=$bg] {index} {name}{fullscreen_indicator} "
+            tab_normal_sync       "#[fg=$muted,bg=$bg] {index} {name}{sync_indicator} "
+            tab_active            "#[fg=$blue,bg=$bg]#[fg=$bg,bg=$blue,bold] {index} {name}{fullscreen_indicator}{sync_indicator}{floating_indicator} #[fg=$blue,bg=$bg]"
+            tab_active_fullscreen "#[fg=$blue,bg=$bg]#[fg=$bg,bg=$blue,bold] {index} {name}{fullscreen_indicator} #[fg=$blue,bg=$bg]"
+            tab_active_sync       "#[fg=$blue,bg=$bg]#[fg=$bg,bg=$blue,bold] {index} {name}{sync_indicator} #[fg=$blue,bg=$bg]"
+            tab_rename            "#[fg=$purple,bg=$bg]#[fg=$bg,bg=$purple,bold] {index} {name} #[fg=$purple,bg=$bg]"
+            tab_separator         "#[bg=$bg] "
+
+            tab_sync_indicator       " 󰓦"
+            tab_fullscreen_indicator " 󰊓"
+            tab_floating_indicator   " 󰹙"
+            tab_display_count "9"
+            tab_truncate_start_format "#[fg=$muted,bg=$bg] … +{count} "
+            tab_truncate_end_format   "#[fg=$muted,bg=$bg] +{count} … "
+
+            swap_layout_format        "#[fg=$muted,bg=$bg] 󰘶 #[fg=$fg,bg=$bg,bold]{name} "
+            swap_layout_hide_if_empty "true"
+        }
+    }
+
+    pane
+
+    pane size=1 borderless=true {
+        plugin location="file:/Users/jordi9/.config/zellij/plugins/zjstatus.wasm" {
+            color_bg      "#1a1b26"
+            color_surface "#24283b"
+            color_fg      "#c0caf5"
+            color_muted   "#565f89"
+            color_blue    "#7aa2f7"
+            color_cyan    "#2ac3de"
+            color_purple  "#bb9af7"
+            color_orange  "#ff9e64"
+            color_yellow  "#e0af68"
+            color_red     "#f7768e"
+
+            format_left   "{mode}"
+            format_center ""
+            format_right  ""
+            format_space  "#[bg=$bg]"
+            format_hide_on_overlength "true"
+            format_precedence "lrc"
+
+            border_enabled "false"
+
+            mode_normal        "#[fg=$blue,bg=$bg]#[fg=$bg,bg=$blue,bold] NORMAL #[fg=$blue,bg=$bg]#[fg=$muted,bg=$bg]  ^g #[fg=$fg]Lock  #[fg=$muted]^p #[fg=$fg]Pane  #[fg=$muted]^t #[fg=$fg]Tab  #[fg=$muted]^n #[fg=$fg]Resize  #[fg=$muted]^h #[fg=$fg]Move  #[fg=$muted]^s #[fg=$fg]Scroll  #[fg=$muted]^o #[fg=$fg]Session  #[fg=$muted]^q #[fg=$fg]Quit"
+            mode_locked        "#[fg=$red,bg=$bg]#[fg=$bg,bg=$red,bold] LOCKED #[fg=$red,bg=$bg]#[fg=$muted,bg=$bg]  ^g #[fg=$fg]Unlock"
+            mode_pane          "#[fg=$cyan,bg=$bg]#[fg=$bg,bg=$cyan,bold] PANE #[fg=$cyan,bg=$bg]#[fg=$muted,bg=$bg]  h/j/k/l #[fg=$fg]Focus  #[fg=$muted]n #[fg=$fg]New  #[fg=$muted]d/r #[fg=$fg]Split  #[fg=$muted]e #[fg=$fg]Embed/Float  #[fg=$muted]w #[fg=$fg]Floating  #[fg=$muted]i #[fg=$fg]Pin  #[fg=$muted]c #[fg=$fg]Rename  #[fg=$muted]f #[fg=$fg]Fullscreen  #[fg=$muted]x #[fg=$fg]Close"
+            mode_tab           "#[fg=$purple,bg=$bg]#[fg=$bg,bg=$purple,bold] TAB #[fg=$purple,bg=$bg]#[fg=$muted,bg=$bg]  h/l #[fg=$fg]Switch  #[fg=$muted]n #[fg=$fg]New  #[fg=$muted]r #[fg=$fg]Rename  #[fg=$muted]x #[fg=$fg]Close"
+            mode_resize        "#[fg=$yellow,bg=$bg]#[fg=$bg,bg=$yellow,bold] RESIZE #[fg=$yellow,bg=$bg]#[fg=$muted,bg=$bg]  h/j/k/l #[fg=$fg]Grow  #[fg=$muted]H/J/K/L #[fg=$fg]Shrink  #[fg=$muted]+/- #[fg=$fg]All"
+            mode_move          "#[fg=$yellow,bg=$bg]#[fg=$bg,bg=$yellow,bold] MOVE #[fg=$yellow,bg=$bg]#[fg=$muted,bg=$bg]  h/j/k/l #[fg=$fg]Move  #[fg=$muted]p #[fg=$fg]Back"
+            mode_scroll        "#[fg=$orange,bg=$bg]#[fg=$bg,bg=$orange,bold] SCROLL #[fg=$orange,bg=$bg]#[fg=$muted,bg=$bg]  j/k #[fg=$fg]Scroll  #[fg=$muted]d/u #[fg=$fg]Half-page  #[fg=$muted]s #[fg=$fg]Search  #[fg=$muted]e #[fg=$fg]Edit"
+            mode_enter_search  "#[fg=$orange,bg=$bg]#[fg=$bg,bg=$orange,bold] SEARCH #[fg=$orange,bg=$bg]#[fg=$muted,bg=$bg]  Type a query  #[fg=$muted]Enter #[fg=$fg]Find  #[fg=$muted]Esc #[fg=$fg]Back"
+            mode_search        "#[fg=$orange,bg=$bg]#[fg=$bg,bg=$orange,bold] SEARCH #[fg=$orange,bg=$bg]#[fg=$muted,bg=$bg]  n/p #[fg=$fg]Match  #[fg=$muted]c #[fg=$fg]Case  #[fg=$muted]w #[fg=$fg]Wrap  #[fg=$muted]o #[fg=$fg]Word"
+            mode_rename_tab    "#[fg=$purple,bg=$bg]#[fg=$bg,bg=$purple,bold] RENAME TAB #[fg=$purple,bg=$bg]#[fg=$muted,bg=$bg]  Enter #[fg=$fg]Save  #[fg=$muted]Esc #[fg=$fg]Cancel"
+            mode_rename_pane   "#[fg=$purple,bg=$bg]#[fg=$bg,bg=$purple,bold] RENAME PANE #[fg=$purple,bg=$bg]#[fg=$muted,bg=$bg]  Enter #[fg=$fg]Save  #[fg=$muted]Esc #[fg=$fg]Cancel"
+            mode_session       "#[fg=$purple,bg=$bg]#[fg=$bg,bg=$purple,bold] SESSION #[fg=$purple,bg=$bg]#[fg=$muted,bg=$bg]  w #[fg=$fg]Sessions  #[fg=$muted]c #[fg=$fg]Config  #[fg=$muted]p #[fg=$fg]Plugins  #[fg=$muted]d #[fg=$fg]Detach"
+            mode_prompt        "#[fg=$purple,bg=$bg]#[fg=$bg,bg=$purple,bold] PROMPT #[fg=$purple,bg=$bg]"
+        }
+    }
+}
