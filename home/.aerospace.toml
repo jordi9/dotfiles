@@ -42,11 +42,15 @@ on-mode-changed = []
 # Meh (Ctrl+Shift+Option) is triggered via Caps Lock in Karabiner
 [mode.main.binding]
 
-    # Focus windows (Meh + HJKL)
+    # Focus windows (Meh + HJKL or arrows)
     ctrl-alt-shift-h = 'focus left --boundaries-action wrap-around-the-workspace'
     ctrl-alt-shift-j = 'focus down --boundaries-action wrap-around-the-workspace'
     ctrl-alt-shift-k = 'focus up --boundaries-action wrap-around-the-workspace'
     ctrl-alt-shift-l = 'focus right --boundaries-action wrap-around-the-workspace'
+    ctrl-alt-shift-left = 'focus left --boundaries-action wrap-around-the-workspace'
+    ctrl-alt-shift-down = 'focus down --boundaries-action wrap-around-the-workspace'
+    ctrl-alt-shift-up = 'focus up --boundaries-action wrap-around-the-workspace'
+    ctrl-alt-shift-right = 'focus right --boundaries-action wrap-around-the-workspace'
 
     # Switch workspace (Meh + number)
     ctrl-alt-shift-1 = 'workspace 1'
@@ -62,9 +66,9 @@ on-mode-changed = []
     ctrl-alt-shift-r = 'workspace R'
     ctrl-alt-shift-z = 'workspace Z'
 
-    # Cycle workspaces (Meh + ← / →)
-    ctrl-alt-shift-left = 'workspace --wrap-around prev'
-    ctrl-alt-shift-right = 'workspace --wrap-around next'
+    # Cycle workspaces (Hyper + ← / →)
+    ctrl-alt-cmd-shift-left = 'workspace --wrap-around prev'
+    ctrl-alt-cmd-shift-right = 'workspace --wrap-around next'
 
     ctrl-alt-shift-enter = 'fullscreen'
 
