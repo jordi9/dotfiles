@@ -82,5 +82,16 @@ source = "git@github.com:jordi9/skills"
 
 [[skills]]
 name = "chloe"
-source = "git:file:///Users/jordi9/dev/skills"
-ref = "chloe-skill"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "structural-review"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "security-review"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "story-review"
+source = "git@github.com:jordi9/skills"
