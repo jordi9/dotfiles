@@ -61,12 +61,12 @@ auto_switch = false
 # possible and adds Hyper-key direct pane shortcuts for macOS reliability.
 prefix = "ctrl+b"
 
-# Pane focus: Hyper+hjkl/arrows plus Ctrl-b hjkl.
+# Pane focus: Ctrl+Option+arrows, Hyper+hjkl/arrows, or Ctrl-b hjkl.
 # Hyper here means Ctrl+Alt+Super+Shift.
-focus_pane_left = ["prefix+h", "ctrl+alt+super+shift+h", "ctrl+alt+super+shift+left", "ctrl+shift+left"]
-focus_pane_down = ["prefix+j", "ctrl+alt+super+shift+j", "ctrl+alt+super+shift+down", "ctrl+shift+down"]
-focus_pane_up = ["prefix+k", "ctrl+alt+super+shift+k", "ctrl+alt+super+shift+up", "ctrl+shift+up"]
-focus_pane_right = ["prefix+l", "ctrl+alt+super+shift+l", "ctrl+alt+super+shift+right", "ctrl+shift+right"]
+focus_pane_left = ["prefix+h", "ctrl+alt+left", "ctrl+alt+super+shift+h", "ctrl+alt+super+shift+left"]
+focus_pane_down = ["prefix+j", "ctrl+alt+down", "ctrl+alt+super+shift+j", "ctrl+alt+super+shift+down"]
+focus_pane_up = ["prefix+k", "ctrl+alt+up", "ctrl+alt+super+shift+k", "ctrl+alt+super+shift+up"]
+focus_pane_right = ["prefix+l", "ctrl+alt+right", "ctrl+alt+super+shift+l", "ctrl+alt+super+shift+right"]
 
 # Pane actions: Ctrl-b x/z match Zellij tmux mode; Ctrl-b f matches Zellij pane
 # mode fullscreen. Hyper+n creates a vertical split; Hyper+d creates a horizontal split.
@@ -86,8 +86,8 @@ close_tab = "prefix+shift+x"
 switch_workspace = "ctrl+shift+1..9"
 workspace_picker = ["prefix+w", "ctrl+alt+super+shift+w"]
 new_workspace = ["prefix+shift+n", "ctrl+alt+super+shift+s"]
-previous_workspace = "ctrl+alt+up"
-next_workspace = "ctrl+alt+down"
+previous_workspace = "ctrl+shift+up"
+next_workspace = "ctrl+shift+down"
 
 # Prefix key to enter prefix mode (default: "ctrl+b")
 # Examples: "ctrl+b", "f12", "esc", "-"
