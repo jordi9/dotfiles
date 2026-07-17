@@ -27,6 +27,7 @@ auto-track-bookmarks = "main"
 
 [aliases]
 open = ['util', 'exec', '--', 'zsh', '-ic', 'jj-open "$@"', 'jj-open']
+ld = ['log', '-r', '@', '--no-graph', '-T', 'builtin_log_compact_full_description']
 
 gp = ['git', 'push']
 gf = ['git', 'fetch']
