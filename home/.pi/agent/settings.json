@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.80.10",
+  "lastChangelogVersion": "0.81.1",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "xhigh",
   "theme": "mojo-dark",
   "enabledModels": [
     "openai-codex/gpt-5.6-sol",
@@ -18,20 +18,11 @@
       ]
     },
     "~/dev/pi-dac/packages/pi-mojo",
-    {
-      "source": "~/dev/pi-dac/packages/pi-mojo-cutest",
-      "extensions": [
-        "+extensions/mojo-assistant-markdown.ts",
-        "+extensions/mojo-playwright-bash.ts",
-        "+extensions/mojo-skill-read.ts",
-        "+extensions/mojo-user-message.ts",
-        "+node_modules/pi-tool-display/index.ts"
-      ]
-    },
+    "~/dev/pi-dac/packages/pi-mojo-cutest",
     {
       "source": "~/dev/pi-dac/packages/pi-signal",
       "extensions": [
-        "+src/index.ts"
+        "+src/extension.ts"
       ]
     },
     "~/dev/pi-dac/packages/pi-now",
@@ -49,7 +40,12 @@
       "skills": []
     },
     "~/dev/pi-impeccable",
-    "npm:@ff-labs/pi-fff",
+    {
+      "source": "npm:@ff-labs/pi-fff",
+      "extensions": [
+        "-src/index.ts"
+      ]
+    },
     "npm:pi-playwright",
     {
       "source": "~/dev/chloe",
@@ -58,15 +54,14 @@
       ]
     },
     "npm:@ogulcancelik/pi-herdr",
-    {
-      "source": "npm:@gotgenes/pi-subagents",
-      "extensions": [
-        "-src/index.ts"
-      ]
-    },
     "npm:@plannotator/pi-extension",
     "npm:pi-codex-image-gen",
-    "npm:@ogulcancelik/pi-codex-subagents@0.1.1",
+    {
+      "source": "npm:@ogulcancelik/pi-codex-subagents@0.1.1",
+      "extensions": [
+        "-index.ts"
+      ]
+    },
     "../../dev/pi-dac/packages/pi-dac-mode"
   ],
   "hideThinkingBlock": true,

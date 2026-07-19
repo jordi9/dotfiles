@@ -1,9 +1,10 @@
 #theme = TokyoNight 
 theme = Rose Pine Moon
 
-font-family = "FiraMono Nerd Font"
+#font-family = "FiraMono Nerd Font"
 #font-family = "JetBrainsMono Nerd Font"
-font-size = 20
+font-family = "MonoLisaCode Trial"
+font-size = 19
 
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden

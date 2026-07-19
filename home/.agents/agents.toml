@@ -95,3 +95,11 @@ source = "git@github.com:jordi9/skills"
 [[skills]]
 name = "story-review"
 source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "bro"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "tldraw-offline"
+source = "path:skills/tldraw-offline"

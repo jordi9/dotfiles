@@ -145,6 +145,7 @@ keybinds clear-defaults=true {
         bind "Ctrl Alt down" { MoveFocus "down"; }
         bind "Ctrl Alt up" { MoveFocus "up"; }
         bind "Ctrl Alt right" { MoveFocusOrTab "right"; }
+        bind "Ctrl Alt enter" { ToggleFocusFullscreen; }
         bind "Ctrl Shift +" { Resize "Increase"; }
         bind "Ctrl Shift ," { PreviousSwapLayout; }
         bind "Ctrl Shift -" { Resize "Decrease"; }

@@ -73,7 +73,7 @@ focus_pane_right = ["prefix+l", "ctrl+alt+right", "ctrl+alt+super+shift+l", "ctr
 split_vertical = ["prefix+v", "prefix+%", "ctrl+alt+super+shift+n"]
 split_horizontal = ["prefix+minus", "prefix+\"", "ctrl+alt+super+shift+d"]
 close_pane = ["prefix+x", "ctrl+alt+super+shift+x"]
-zoom = ["prefix+z", "prefix+f", "ctrl+alt+super+shift+f"]
+zoom = ["prefix+z", "prefix+f", "ctrl+alt+super+shift+f", "ctrl+alt+enter"]
 toggle_sidebar = ["prefix+b", "ctrl+alt+super+shift+b"]
 
 # Tabs: Zellij tmux-mode/tab-mode inspired defaults.
