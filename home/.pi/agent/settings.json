@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.81.1",
+  "lastChangelogVersion": "0.82.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "medium",
@@ -57,7 +57,7 @@
     "npm:@plannotator/pi-extension",
     "npm:pi-codex-image-gen",
     {
-      "source": "npm:@ogulcancelik/pi-codex-subagents@0.1.1",
+      "source": "npm:@ogulcancelik/pi-codex-subagents",
       "extensions": [
         "-index.ts"
       ]

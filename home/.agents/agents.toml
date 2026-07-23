@@ -5,19 +5,7 @@ agents = []
 allow_all = true
 
 [[skills]]
-name = "handoff"
-source = "mattpocock/skills"
-
-[[skills]]
 name = "dotagents"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
-name = "now"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
-name = "setup-yaam"
 source = "git@github.com:jordi9/skills"
 
 [[skills]]
@@ -30,22 +18,6 @@ source = "git@github.com:jordi9/skills"
 
 [[skills]]
 name = "tdd"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
-name = "to-stories"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
-name = "planning"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
-name = "to-increments"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
-name = "describe-changes"
 source = "git@github.com:jordi9/skills"
 
 [[skills]]
@@ -93,13 +65,33 @@ name = "security-review"
 source = "git@github.com:jordi9/skills"
 
 [[skills]]
-name = "story-review"
-source = "git@github.com:jordi9/skills"
-
-[[skills]]
 name = "bro"
 source = "git@github.com:jordi9/skills"
 
 [[skills]]
 name = "herdr"
 source = "ogulcancelik/herdr"
+
+[[skills]]
+name = "check-pi-extensions-changelog"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "create-stickies"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "publish-stickies"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "pull-sticky"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "setup-stickies"
+source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "build-sticky"
+source = "git@github.com:jordi9/skills"

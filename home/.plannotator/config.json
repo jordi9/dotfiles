@@ -1,7 +1,8 @@
 {
   "diffOptions": {
     "fontSize": "16px",
-    "overflow": "wrap"
+    "overflow": "wrap",
+    "diffStyle": "split"
   },
   "displayName": "j9",
   "prompts": {

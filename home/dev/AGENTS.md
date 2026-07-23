@@ -16,6 +16,7 @@ Other projects under `~/dev` should also follow this file's instructions.
 
 ## Guidance for agents
 
+- Prefer jujutsu (jj9 skill) over git for vcs operations
 - Treat each listed path as a separate project/repository.
 - Do not assume dependencies, scripts, or git history are shared between the listed repositories.
 - Before changing files inside a project, check whether that project has its own `AGENTS.md` and follow it.
