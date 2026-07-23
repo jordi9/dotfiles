@@ -99,3 +99,7 @@ source = "git@github.com:jordi9/skills"
 [[skills]]
 name = "bro"
 source = "git@github.com:jordi9/skills"
+
+[[skills]]
+name = "herdr"
+source = "ogulcancelik/herdr"
