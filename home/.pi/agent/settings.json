@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.82.0",
+  "lastChangelogVersion": "0.82.1",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "medium",
@@ -68,6 +68,5 @@
   "terminal": {
     "showTerminalProgress": false
   },
-  "quietStartup": true,
-  "mojoToolPills": true
+  "quietStartup": true
 }

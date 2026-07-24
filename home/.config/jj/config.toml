@@ -16,6 +16,8 @@ default-command = "log"
 bookmark-advance-to = 'closest_pushable(@)'
 
 [revset-aliases]
+'top()' = 'latest(~empty())'
+
 # Closest revision that is mutable, described and either non-empty or a merge
 'closest_pushable(to)' = '''
   heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))
