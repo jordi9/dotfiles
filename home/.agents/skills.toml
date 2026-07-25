@@ -1,0 +1,22 @@
+version = 1
+
+[[sources]]
+#  repo = "git@github.com:jordi9/skills"
+  path = "~/dev/skills"
+  skills = ["backend-craft", "bro", "build-sticky", "charter", "check-pi-extensions-changelog", "chloe", "code-review", "create-stickies", "frontend-craft", "jj9", "publish-stickies", "pull-sticky", "security-review", "setup-stickies", "structural-review", "tdd", "typescript-craft"]
+
+[[sources]]
+  repo = "mattpocock/skills"
+  skills = ["grilling", "writing-great-skills"]
+
+[[sources]]
+  repo = "modem-dev/hunk"
+  skills = ["hunk-review"]
+
+[[sources]]
+  repo = "ogulcancelik/herdr"
+  skills = ["herdr"]
+
+[[sources]]
+  repo = "dietrichgebert/ponytail"
+  skills = ["!ponytail-audit", "!ponytail-review"]
