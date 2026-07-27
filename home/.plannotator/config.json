@@ -2,7 +2,8 @@
   "diffOptions": {
     "fontSize": "16px",
     "overflow": "wrap",
-    "diffStyle": "split"
+    "diffStyle": "split",
+    "fontFamily": "JetBrains Mono"
   },
   "displayName": "j9",
   "prompts": {

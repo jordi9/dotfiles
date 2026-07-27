@@ -8,23 +8,29 @@ This is a personal dotfiles repository managed with **Homeshick** (a bash implem
 
 ## Key Architecture Components
 
-### Plugin System Architecture
+### Zsh and Plugin Architecture
 
-The dotfiles repository is itself an Antidote plugin loaded via `$HOMESHICK_REPOS/dotfiles` in `.zsh_plugins.txt`. This dual nature (both a Homeshick castle and an Antidote plugin) is the core architectural pattern.
+Homeshick owns the personal zsh configuration linked from `home/.zsh/`.
+Antidote owns external plugins: public plugins are declared in
+`home/.zsh_plugins.txt`, while optional private plugins are declared in
+`~/.zsh_plugins.local.txt`. This repository is not loaded as an Antidote plugin.
 
-**Loading Order (home/.zshrc):**
-1. `~/.zsh/antidote.zsh` - Initializes Antidote and loads plugins from `.zsh_plugins.txt`
-2. `~/.zsh/prompt.zsh` - Configures Spaceship prompt with custom segments
-3. `~/.zsh/tools.zsh` - Sets up CLI tools (Claude Code PATH, zoxide, SDKMAN)
+**Loading Order (`home/.zshrc`):**
+1. `~/.zsh/antidote.zsh` initializes Antidote and loads only public plugins from `~/.zsh_plugins.txt`.
+2. Personal concern modules load in dependency-safe order: `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and `commands.zsh`.
+3. `~/.zsh/private-plugins.zsh` loads optional private Antidote plugins and then the legacy `~/.antidote-boost`. Private definitions therefore retain precedence over personal definitions.
+4. `environment.zsh` configures PATH, terminal/SSH behavior, and SDK runtimes.
+5. `completion.zsh`, `autosuggestions.zsh`, and `keybindings.zsh` load before `integrations.zsh` initializes Carapace, Atuin, direnv, and zoxide; `prompt.zsh` loads last.
 
-**Plugin Loading (home/.zsh/antidote.zsh):**
-- Uses high-performance static loading: generates `.zsh_plugins.zsh` from `.zsh_plugins.txt`
-- Regenerates only when `.zsh_plugins.txt` or `.zsh_plugins.local.txt` is modified (timestamp check)
-- Supports optional private plugins via `~/.zsh_plugins.local.txt` (merged with main plugins file)
+**Plugin Loading:**
+- `home/.zsh/antidote.zsh` uses high-performance static loading for public plugins, regenerating `~/.zsh_plugins.zsh` only when `~/.zsh_plugins.txt` is newer.
+- `home/.zsh/private-plugins.zsh` independently generates `~/.zsh_plugins.local.zsh` when `~/.zsh_plugins.local.txt` exists and is newer, then sources it after personal config.
+- A stale local generated file is not sourced when the local manifest is absent.
+- Generated `~/.zsh_plugins.zsh` and `~/.zsh_plugins.local.zsh` files are runtime artifacts; do not edit them as tracked source files.
 
 ### Homeshick Integration
 
-Files are organized in `home/` directory and symlinked to `~` via Homeshick. The `.homesick_subdir` file indicates this is a Homeshick castle with subdirectory support.
+Files are organized in the `home/` directory and symlinked to `~` via Homeshick. This includes every personal `home/.zsh/*.zsh` module. The `.homesick_subdir` file indicates this is a Homeshick castle with subdirectory support.
 
 ### Configuration Files Location
 
@@ -40,10 +46,8 @@ Files are organized in `home/` directory and symlinked to `~` via Homeshick. The
 ### Dotfiles Management
 
 ```bash
-# Navigate to dotfiles repository
-homecnf  # alias for cd ~/.homesick/repos/dotfiles
-
-# Reload zsh configuration
+# Navigate to or reload the dotfiles configuration
+dot      # cd ~/.homesick/repos/dotfiles
 reload   # alias for source ~/.zshrc
 
 # Link dotfiles after changes
@@ -63,7 +67,7 @@ homeshick status
 ge <task>           # Uses gradlew-quiet > gradlew > gradle
 gen <task>          # Direct gradle alias
 
-# Git shortcuts (from dotfiles.plugin.zsh and .gitconfig)
+# Git shortcuts (from home/.zsh/git.zsh and .gitconfig)
 g st                # git status
 g ci                # git commit
 g lg                # pretty log graph
@@ -97,13 +101,21 @@ When working in different directories, the appropriate git identity is automatic
 
 ### Adding New Aliases or Functions
 
-Edit `dotfiles.plugin.zsh` (the main plugin file loaded by Antidote). This file contains:
-- Environment variables and exports
-- Aliases for common tools
-- Custom functions (gradle helpers, git utilities, etc.)
-- Key bindings for zsh-history-substring-search
+Add personal definitions to the Homeshick-owned concern module under `home/.zsh/`:
 
-After editing, run `reload` to apply changes.
+- `core.zsh` - Locale, config/reload helpers, completion refresh, native history
+- `jj.zsh` - jj workspace/open/wrapper logic
+- `navigation.zsh` - Directory aliases, ZLE function implementations, Magic Enter command
+- `git.zsh` - Git aliases and functions
+- `commands.zsh` - General shortcuts plus Aerospace, Gradle, IDE, macOS/Linux/media/Yazi commands
+- `environment.zsh` - PATH, terminal/SSH behavior, SDKMAN, Bun, and pnpm
+- `integrations.zsh` - Carapace, Atuin, direnv, and zoxide shell hooks
+- `keybindings.zsh` - ZLE widget registration and key bindings
+
+Keep definitions in the narrowest existing concern instead of adding a new
+Antidote plugin entry for this repository. After editing, run `reload` to apply
+changes. If a new module file is added, run `homeshick link dotfiles` before it
+can be sourced from `~/.zshrc`.
 
 ### Adding New Antidote Plugins
 
@@ -120,7 +132,7 @@ The `.zsh_plugins.zsh` file will auto-regenerate on next shell start.
 
 Edit `home/.zsh/prompt.zsh` to configure Spaceship prompt segments. Current configuration:
 - Time shown, battery/docker/package hidden
-- Custom Gradle segment from `~/.zsh/spaceship/spaceship-gradle.plugin.zsh`
+- Custom Gradle segment defined directly in `home/.zsh/prompt.zsh`
 - Kubernetes context toggleable via `show-kube-context` / `hide-kube-context`
 
 ### iTerm2 Preferences
@@ -144,12 +156,12 @@ These scripts are not idempotent and should be reviewed before running.
 ### Private Configuration Support
 
 The dotfiles support loading private/company-specific configuration via:
-- `~/.zsh_plugins.local.txt` - Additional Antidote plugins (merged with `.zsh_plugins.txt`)
+- `~/.zsh_plugins.local.txt` - Additional external Antidote plugins, generated and loaded independently after personal modules
 - Private Homeshick castles - Clone additional repos and link them
 
 To add private plugins, create `~/.zsh_plugins.local.txt` with entries in the same format as `.zsh_plugins.txt`:
 ```
-$HOMESHICK_REPOS/dotfiles-private
+$HOMESHICK_REPOS/company-zsh-tools
 git@github.com:company/zsh-tools
 ```
 

@@ -6,7 +6,7 @@
 
 set -e
 
-# Script-local setup only; persistent shell PATH lives in home/.zsh/tools.zsh.
+# Script-local setup only; persistent shell PATH lives in home/.zsh/environment.zsh.
 export PNPM_HOME="${PNPM_HOME:-$HOME/Library/pnpm}"
 export PATH="$PNPM_HOME/bin:$PATH"
 mkdir -p "$PNPM_HOME/bin"

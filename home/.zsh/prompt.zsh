@@ -1,7 +1,5 @@
-setopt correct
-
-source ~/.zsh/spaceship/spaceship-gradle.plugin.zsh
-
+# General Spaceship settings
+############################
 export SPACESHIP_PROMPT_PREFIXES_SHOW=false
 export SPACESHIP_USER_SHOW=false
 
@@ -12,7 +10,87 @@ export SPACESHIP_KUBECTL_VERSION_SHOW=false
 export SPACESHIP_DOCKER_SHOW=false
 export SPACESHIP_PACKAGE_SHOW=false
 
-# Calm Jujutsu prompt: state icon + muted truncated description/change id.
+# Gradle section
+################
+SPACESHIP_GRADLE_SHOW="${SPACESHIP_GRADLE_SHOW=true}"
+SPACESHIP_GRADLE_ASYNC="${SPACESHIP_GRADLE_ASYNC=true}"
+SPACESHIP_GRADLE_PREFIX="${SPACESHIP_GRADLE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_GRADLE_SUFFIX="${SPACESHIP_GRADLE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_GRADLE_SYMBOL="${SPACESHIP_GRADLE_SYMBOL="⬡ "}"
+SPACESHIP_GRADLE_DEFAULT_VERSION="${SPACESHIP_GRADLE_DEFAULT_VERSION=""}"
+SPACESHIP_GRADLE_EXECUTE_WRAPPER="${SPACESHIP_GRADLE_EXECUTE_WRAPPER=false}"
+SPACESHIP_GRADLE_COLOR="${SPACESHIP_GRADLE_COLOR="green"}"
+
+spaceship::gradle::find_root_project() {
+  local root="$1"
+
+  while [ "$root" ] && \
+        [ ! -f "$root/settings.gradle" ] && \
+        [ ! -f "$root/settings.gradle.kts" ]; do
+    root="${root%/*}"
+  done
+
+  print "$root"
+}
+
+spaceship::gradle::wrapper_version() {
+  local gradle_root_dir="$1" wrapper_properties distribution_url gradle_version
+
+  wrapper_properties="$gradle_root_dir/gradle/wrapper/gradle-wrapper.properties"
+  [[ -r "$wrapper_properties" ]] || return 1
+
+  distribution_url=$(awk -F= '/^[[:space:]]*distributionUrl[[:space:]]*=/ { sub(/^[^=]*=/, ""); print; exit }' "$wrapper_properties")
+  gradle_version=$(printf '%s\n' "$distribution_url" | sed -nE 's#.*gradle-([0-9][0-9A-Za-z._-]*)-(bin|all)\.zip.*#v\1#p')
+
+  [[ -n "$gradle_version" ]] || return 1
+  print "$gradle_version"
+}
+
+spaceship::gradle::version() {
+  local gradle_exe="$1" gradle_version_output gradle_version
+
+  gradle_version_output=$("$gradle_exe" --version)
+  gradle_version=$(echo "$gradle_version_output" | awk '{ if ($1 ~ /^Gradle/) { print "v" $2 } }')
+
+  print "$gradle_version"
+}
+
+spaceship_gradle() {
+  [[ $SPACESHIP_GRADLE_SHOW == false ]] && return
+
+  local gradle_root_dir
+
+  gradle_root_dir=$(spaceship::gradle::find_root_project "$(pwd -P)")
+
+  # Show Gradle status only for applicable folders.
+  [[ -n "$gradle_root_dir" ]] &>/dev/null || return
+
+  local gradle_version
+
+  if [[ -f "$gradle_root_dir/gradlew" ]]; then
+    gradle_version=$(spaceship::gradle::wrapper_version "$gradle_root_dir")
+    if [[ -z "$gradle_version" && "$SPACESHIP_GRADLE_EXECUTE_WRAPPER" == true ]]; then
+      gradle_version=$(spaceship::gradle::version "$gradle_root_dir/gradlew")
+    fi
+  elif spaceship::exists gradle; then
+    gradle_version=$(spaceship::gradle::version gradle)
+  else
+    return
+  fi
+
+  [[ -n "$gradle_version" ]] || return
+  [[ "$gradle_version" == "$SPACESHIP_GRADLE_DEFAULT_VERSION" ]] && return
+
+  spaceship::section \
+    --color "$SPACESHIP_GRADLE_COLOR" \
+    --prefix "$SPACESHIP_GRADLE_PREFIX" \
+    --symbol "$SPACESHIP_GRADLE_SYMBOL" \
+    --suffix "$SPACESHIP_GRADLE_SUFFIX" \
+    "${gradle_version}"
+}
+
+# Jujutsu section
+##################
 export SPACESHIP_JJ_PREFIX="on "
 export SPACESHIP_JJ_SUFFIX=" "
 export SPACESHIP_JJ_CLEAN_SYMBOL="󰂕 "
@@ -24,8 +102,8 @@ export SPACESHIP_JJ_DESC_MAX_LENGTH=32
 # Spaceship renders sections in bold by default; reset intensity inside the jj section.
 SPACESHIP_JJ_NORMAL_INTENSITY=$'%{\e[22m%}'
 
-# Override spaceship-jj to show only a calm clean/dirty icon and the change description,
-# falling back to the current change id when the description is empty.
+# Show only a calm clean/dirty icon and the change description, falling back to
+# the current change ID when the description is empty.
 spaceship_jj() {
   [[ $SPACESHIP_JJ_SHOW == false ]] && return
 
@@ -55,14 +133,7 @@ spaceship_jj() {
     "$jj_content"
 }
 
-# Show Jujutsu repositories with spaceship-jj.
-# Guard prevents duplicate segments when re-sourcing ~/.zshrc.
-if spaceship::defined spaceship_jj && [[ ! " ${SPACESHIP_PROMPT_ORDER[@]} " =~ " jj " ]]; then
-  spaceship add --before git jj
-fi
-
-# In jj/git-colocated repos, show the jj section and suppress Spaceship's git section
-# globally instead of adding per-repo .envrc files.
+# Hide Spaceship's Git section in jj/git-colocated repositories.
 export SPACESHIP_GIT_HIDE_IN_JJ="${SPACESHIP_GIT_HIDE_IN_JJ:-true}"
 
 _dotfiles_in_jj_repo() {
@@ -79,12 +150,19 @@ if (( $+functions[spaceship_git] && ! $+functions[_dotfiles_spaceship_git] )); t
   }
 fi
 
-# Only add gradle segment if not already present (prevents duplication on re-sourcing)
+# Section order
+###############
+# Guards prevent duplicate sections when re-sourcing ~/.zshrc.
+if spaceship::defined spaceship_jj && [[ ! " ${SPACESHIP_PROMPT_ORDER[@]} " =~ " jj " ]]; then
+  spaceship add --before git jj
+fi
+
 if [[ ! " ${SPACESHIP_PROMPT_ORDER[@]} " =~ " gradle " ]]; then
   spaceship add gradle
 fi
 
-
+# Prompt lifecycle
+##################
 autoload -Uz add-zsh-hook
 
 _dotfiles_precmd() {
@@ -99,5 +177,7 @@ _dotfiles_precmd() {
 add-zsh-hook -d precmd _dotfiles_precmd 2>/dev/null
 add-zsh-hook precmd _dotfiles_precmd
 
+# Runtime toggles
+#################
 alias show-kube-context='SPACESHIP_KUBECTL_SHOW=true'
 alias hide-kube-context='SPACESHIP_KUBECTL_SHOW=false'
