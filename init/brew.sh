@@ -25,6 +25,7 @@ git-cliff
 git-delta
 git-recent
 glow
+go
 grep
 helix
 helmfile
@@ -49,6 +50,7 @@ ripgrep
 rsync
 screen
 sevenzip
+shellcheck
 stern
 tailscale
 tree

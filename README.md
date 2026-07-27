@@ -96,10 +96,12 @@ Scripts in `init/` for fresh machines:
 
     init/brew.sh      # CLI tools (bat, git, jq, kubectl, etc.)
     init/cask.sh      # GUI apps
+    init/go.sh        # Go paths and caches (avoids ~/go)
     init/macos.zsh    # macOS preferences
     init/sdkman.zsh   # Java version management
 
-Review before running—these aren't idempotent.
+Run `init/brew.sh` before `init/go.sh`. Review scripts before running—some
+aren't idempotent.
 
 ## yazi
 
