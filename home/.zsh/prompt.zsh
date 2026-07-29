@@ -190,14 +190,16 @@ fi
 
 # Keep project runtime versions on the right side of the prompt.
 SPACESHIP_PROMPT_ORDER=(${SPACESHIP_PROMPT_ORDER:#node})
+SPACESHIP_PROMPT_ORDER=(${SPACESHIP_PROMPT_ORDER:#golang})
 SPACESHIP_PROMPT_ORDER=(${SPACESHIP_PROMPT_ORDER:#java})
 SPACESHIP_PROMPT_ORDER=(${SPACESHIP_PROMPT_ORDER:#gradle})
 
 # Guards prevent duplicate sections when re-sourcing ~/.zshrc.
 SPACESHIP_RPROMPT_ORDER=(${SPACESHIP_RPROMPT_ORDER:#node})
+SPACESHIP_RPROMPT_ORDER=(${SPACESHIP_RPROMPT_ORDER:#golang})
 SPACESHIP_RPROMPT_ORDER=(${SPACESHIP_RPROMPT_ORDER:#java})
 SPACESHIP_RPROMPT_ORDER=(${SPACESHIP_RPROMPT_ORDER:#gradle})
-SPACESHIP_RPROMPT_ORDER+=(node java gradle)
+SPACESHIP_RPROMPT_ORDER+=(node golang java gradle)
 
 # Spaceship renders all sections in bold; normalize only the right prompt.
 # Re-wrap after Antidote reloads Spaceship, but never wrap our wrapper recursively.
