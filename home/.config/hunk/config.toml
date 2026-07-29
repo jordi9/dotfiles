@@ -3,7 +3,7 @@
 
 # Catppuccin's dark variant; other built-ins include:
 # catppuccin-latte, catppuccin-frappe, and catppuccin-macchiato.
-theme = "catppuccin-mocha"
+theme = "tokyo-night"
 
 watch = true
 exclude_untracked = false

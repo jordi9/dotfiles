@@ -1,0 +1,8 @@
+// Runtime distraction-free layout: retain terminal panes while removing UI plugins.
+layout {
+    pane stacked=true {
+        pane name="server"
+        pane name="diff"
+        pane
+    }
+}

@@ -11,6 +11,26 @@ keybinds clear-defaults=true {
         bind "down" { MoveFocus "down"; }
         bind "up" { MoveFocus "up"; }
         bind "right" { MoveFocus "right"; }
+        bind "b" {
+            OverrideLayout {
+                layout "clean"
+                retain_existing_terminal_panes true
+                retain_existing_plugin_panes false
+                apply_only_to_active_tab true
+            }
+            TogglePaneFrames
+            SwitchToMode "normal"
+        }
+        bind "B" {
+            OverrideLayout {
+                layout "default"
+                retain_existing_terminal_panes true
+                retain_existing_plugin_panes false
+                apply_only_to_active_tab true
+            }
+            TogglePaneFrames
+            SwitchToMode "normal"
+        }
         bind "c" { SwitchToMode "renamepane"; PaneNameInput 0; }
         bind "d" { NewPane "down"; SwitchToMode "normal"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "normal"; }

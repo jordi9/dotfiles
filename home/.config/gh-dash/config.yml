@@ -1,5 +1,7 @@
 prSections:
-    # Smart filtering makes this repo-scoped when gh-dash starts inside a repo.
+    # Smart filtering makes these repo-scoped when gh-dash starts inside a repo.
+    - title: Open in Repo
+      filters: is:open
     - title: My PRs
       filters: is:open author:@me
     - title: Needs My Review
@@ -84,6 +86,11 @@ defaults:
     refetchIntervalMinutes: 30
 keybindings:
     prs:
+        - key: O
+          name: review with jj
+          command: >
+              jj git fetch --remote origin --branch "{{.HeadRefName}}" &&
+              jj new "{{.HeadRefName}}@origin"
         - key: D
           builtin: diff
           name: default diff
