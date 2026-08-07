@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.83.0",
+  "lastChangelogVersion": "0.84.1",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "medium",
@@ -46,7 +46,12 @@
         "-src/index.ts"
       ]
     },
-    "npm:pi-playwright",
+    {
+      "source": "npm:pi-playwright",
+      "skills": [
+        "-skills/playwright-browser/SKILL.md"
+      ]
+    },
     {
       "source": "~/dev/chloe",
       "extensions": [
@@ -62,11 +67,14 @@
         "-index.ts"
       ]
     },
-    "../../dev/pi-dac/packages/pi-dac-mode"
+    "../../dev/pi-dac/packages/pi-dac-mode",
+    "npm:pi-agent-browser-native"
   ],
   "hideThinkingBlock": true,
   "terminal": {
     "showTerminalProgress": false
   },
-  "quietStartup": true
+  "quietStartup": true,
+  "tuiMode": "fullscreen",
+  "outputPad": 1
 }

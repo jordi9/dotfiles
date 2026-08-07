@@ -1,3 +1,6 @@
+# Agent Browser
+export AGENT_BROWSER_SCREENSHOT_DIR=".browser-screenshots"
+
 # User-local tool paths.
 case ":$PATH:" in
   *":$HOME/.local/bin:"*) ;;
