@@ -1,3 +1,9 @@
+# Ghostty only injects shell integration into the initially launched shell.
+# Restore it when Atuin's PTY proxy starts a replacement zsh.
+if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
+  source "$GHOSTTY_RESOURCES_DIR/shell-integration/zsh/ghostty-integration"
+fi
+
 # Carapace: multi-shell completion engine.
 # Run after completion setup so compinit/compdef are available.
 function _dotfiles_configure_carapace {

@@ -8,9 +8,9 @@ filter_mode_shell_up_key_binding = "session-preload"
 search_mode_shell_up_key_binding = "prefix"
 
 # Keep the UI lightweight inside normal terminal panes.
-style = "compact"
-inline_height = 20
-inline_height_shell_up_key_binding = 12
+#style = "compact"
+inline_height = 40
+#inline_height_shell_up_key_binding = 12
 
 # Enter executes the selected command; Tab inserts it for editing.
 enter_accept = true
@@ -35,3 +35,6 @@ enabled = true
 [daemon]
 enabled = true
 autostart = true
+
+[pty_proxy]
+enabled = true

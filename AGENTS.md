@@ -16,11 +16,12 @@ Antidote owns external plugins: public plugins are declared in
 `~/.zsh_plugins.local.txt`. This repository is not loaded as an Antidote plugin.
 
 **Loading Order (`home/.zshrc`):**
-1. `~/.zsh/antidote.zsh` initializes Antidote and loads only public plugins from `~/.zsh_plugins.txt`.
-2. Personal concern modules load in dependency-safe order: `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and `commands.zsh`.
-3. `~/.zsh/private-plugins.zsh` loads optional private Antidote plugins and then the legacy `~/.antidote-boost`. Private definitions therefore retain precedence over personal definitions.
-4. `environment.zsh` configures PATH, terminal/SSH behavior, and SDK runtimes.
-5. `completion.zsh`, `autosuggestions.zsh`, and `keybindings.zsh` load before `integrations.zsh` initializes Carapace, Atuin, direnv, and zoxide; `prompt.zsh` loads last.
+1. `atuin-proxy.zsh` starts Atuin's PTY proxy before other configuration.
+2. `~/.zsh/antidote.zsh` initializes Antidote and loads only public plugins from `~/.zsh_plugins.txt`.
+3. Personal concern modules load in dependency-safe order: `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and `commands.zsh`.
+4. `~/.zsh/private-plugins.zsh` loads optional private Antidote plugins and then the legacy `~/.antidote-boost`. Private definitions therefore retain precedence over personal definitions.
+5. `environment.zsh` configures PATH, terminal/SSH behavior, and SDK runtimes.
+6. `completion.zsh`, `autosuggestions.zsh`, and `keybindings.zsh` load before `integrations.zsh` restores Ghostty shell integration and initializes Carapace, Atuin, direnv, and zoxide; `prompt.zsh` loads last.
 
 **Plugin Loading:**
 - `home/.zsh/antidote.zsh` uses high-performance static loading for public plugins, regenerating `~/.zsh_plugins.zsh` only when `~/.zsh_plugins.txt` is newer.
