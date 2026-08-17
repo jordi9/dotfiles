@@ -67,8 +67,8 @@
         "-index.ts"
       ]
     },
-    "../../dev/pi-dac/packages/pi-dac-mode",
-    "npm:pi-agent-browser-native"
+    "~/dev/pi-dac/packages/pi-dac-mode",
+    "~/dev/pi-dac/packages/pi-elegia"
   ],
   "hideThinkingBlock": true,
   "terminal": {

@@ -24,7 +24,7 @@ _dotfiles_configure_carapace
 # Atuin's Ctrl-R and Up bindings win when installed, while native history stays
 # as fallback.
 if command -v atuin >/dev/null 2>&1; then
-  eval "$(atuin init zsh --disable-ai)"
+  eval "$(atuin init zsh)"
 fi
 
 # Apply .envrc changes before rendering the prompt.

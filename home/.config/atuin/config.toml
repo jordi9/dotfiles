@@ -1,7 +1,7 @@
 # Atuin shell history configuration.
 # Ctrl-R searches everything; Up searches the current git workspace/directory,
 # which keeps recent context-specific commands easy to find.
-search_mode = "fuzzy"
+search_mode = "daemon-fuzzy"
 filter_mode = "global"
 workspaces = true
 filter_mode_shell_up_key_binding = "session-preload"
@@ -28,3 +28,10 @@ name = "dotfiles-cool"
 # Keep relative time visible, but with prefers_reduced_motion above Atuin won't
 # live-update the timers while the search UI is open.
 columns = ["duration", "time", "command"]
+
+[ai]
+enabled = true
+
+[daemon]
+enabled = true
+autostart = true
