@@ -1,0 +1,18 @@
+# Global fallback versions. Projects can override these in their own mise.toml.
+[settings.go]
+set_gobin = false
+
+[tools]
+bun = "1"
+go = "1.26"
+gradle = "9"
+java = "corretto-25"
+node = "26"
+pnpm = "11"
+ruby = "3.4"
+
+[env]
+GOBIN = "{{ env.HOME }}/.local/bin"
+GOCACHE = "{{ env.HOME }}/.cache/go-build"
+GOMODCACHE = "{{ env.HOME }}/.cache/go-mod"
+GOPATH = "{{ env.HOME }}/.local/share/go"

@@ -4,6 +4,11 @@ if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
   source "$GHOSTTY_RESOURCES_DIR/shell-integration/zsh/ghostty-integration"
 fi
 
+# mise: project-aware runtime and tool versions.
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
+
 # Carapace: multi-shell completion engine.
 # Run after completion setup so compinit/compdef are available.
 function _dotfiles_configure_carapace {

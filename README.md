@@ -1,125 +1,159 @@
-dotfiles
-========
+# dotfiles
 
-Personal dotfiles managed with [Homeshick](https://github.com/andsens/homeshick)
-and external zsh plugins managed with [Antidote](https://getantidote.github.io/).
-Homeshick links the personal configuration in `home/`, including the modules in
-`home/.zsh/`; Antidote loads public and optional private third-party plugins.
+Personal macOS configuration managed with
+[Homeshick](https://github.com/andsens/homeshick). Homeshick links files from
+`home/` into `~`. [Antidote](https://getantidote.github.io/) installs external
+Zsh plugins.
 
-Inspiration
-from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), [getantidote/zdotdir](https://github.com/getantidote/zdotdir), [maximbaz/dotfiles](https://github.com/maximbaz/dotfiles),
-and [paulirish/dotfiles](https://github.com/paulirish/dotfiles).
+## Install
 
-# Installation
+### Bootstrap Homebrew and GitHub access
 
-## Homebrew
+Install Homebrew and add it to the current shell:
 
-Get Homebrew first (includes Command Line Tools):
-
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-## Essentials
-
-    brew install gh
-    brew install ghostty
-    brew install bitwarden
-
-## Homeshick
-
-    brew install homeshick
-    export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
-    source "/opt/homebrew/opt/homeshick/homeshick.sh"
-
-Set up SSH (one key per device):
-
-    brew install gh
-    gh auth login  # choose SSH, generates key & uploads to GitHub
-
-Then grab these dotfiles:
-
-    homeshick clone git@github.com:jordi9/dotfiles.git
-
-Run `homeshick link dotfiles` after adding files so the new modules are linked
-into `~/.zsh/`.
-
-## Zsh architecture
-
-`home/.zshrc` loads the shell configuration in this order:
-
-1. Public Antidote plugins from `~/.zsh_plugins.txt`.
-2. Personal modules: `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and
-   `commands.zsh`.
-3. Optional private Antidote plugins (and the legacy `~/.antidote-boost`) via
-   `private-plugins.zsh`, after personal config so private definitions win.
-4. `environment.zsh` configures PATH, terminal behavior, and SDK runtimes.
-5. Completion, autosuggestions, and keybindings load before `integrations.zsh`
-   initializes Carapace, Atuin, direnv, and zoxide; the prompt loads last.
-
-Add personal aliases and functions to the module that owns their concern:
-
-- `core.zsh`: locale, config/reload helpers, completion refresh, native history
-- `jj.zsh`: jj workspace/open/wrapper behavior
-- `navigation.zsh`: directory aliases, ZLE implementations, Magic Enter command
-- `git.zsh`: Git aliases and functions
-- `commands.zsh`: general shortcuts plus Aerospace, Gradle, IDE, OS, media, and Yazi commands
-- `environment.zsh`: PATH, terminal/SSH behavior, SDKMAN, Bun, and pnpm
-- `integrations.zsh`: Carapace, Atuin, direnv, and zoxide shell hooks
-- `keybindings.zsh`: ZLE widget registration and key bindings
-
-Homeshick owns these personal modules. Add public external plugins to
-`home/.zsh_plugins.txt`; Antidote generates `~/.zsh_plugins.zsh` at shell
-startup when the manifest is newer. The generated file is not a source file
-and should not be edited manually.
-
-## Private plugins
-
-For machine-specific or work plugins, create `~/.zsh_plugins.local.txt`:
-
-    $HOMESHICK_REPOS/my-private-dotfiles
-    git@github.com:company/zsh-tools
-
-`private-plugins.zsh` generates and sources `~/.zsh_plugins.local.zsh`
-independently when the local manifest exists. It loads after the personal
-modules, allowing private plugin definitions to override them. The generated
-file is ignored when the local manifest is absent.
-
-## More Castles
-
-Private configs, license keys, work stuff:
-
-    homeshick clone git@github.com:jordi9/private-dotfiles-example.git
-    homeshick link private-dotfiles-example
-
-# One-time setup
-
-Scripts in `init/` for fresh machines:
-
-    init/brew.sh      # CLI tools (bat, git, jq, kubectl, etc.)
-    init/cask.sh      # GUI apps
-    init/go.sh        # Go paths and caches (avoids ~/go)
-    init/macos.zsh    # macOS preferences
-    init/sdkman.zsh   # Java version management
-
-Run `init/brew.sh` before `init/go.sh`. Review scripts before running—some
-aren't idempotent.
-
-## yazi
-
-Need to install flavours and plugins, in `.config/yazi`:
-
-    ya pkg install
-
-# Post-install
-
-**Moom/Manytricks**: If settings don't load, try `killall cfprefsd`. Some hotkeys based
-on [Rectangle](https://github.com/rxhanson/Rectangle).
-
-# Day-to-day
-
-```bash
-dot       # jump to the dotfiles repo
-reload    # reload zsh config
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-After editing, `reload` picks up personal configuration changes. Restart the
-shell after changing an Antidote manifest so its static plugin file is updated.
+Install the tools needed to clone this repository. Ghostty and Bitwarden are
+installed early for convenience. The Brewfile installs them again harmlessly.
+
+```sh
+brew install gh homeshick
+brew install --cask ghostty bitwarden
+gh auth login  # choose SSH to create and upload this Mac's key
+```
+
+Load Homeshick, clone the repository, and link it into `~`:
+
+```sh
+export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
+source "$HOMESHICK_DIR/homeshick.sh"
+homeshick clone git@github.com:jordi9/dotfiles.git
+cd ~/.homesick/repos/dotfiles
+homeshick link dotfiles
+```
+
+### Install packages and runtimes
+
+The Brewfile lists all Homebrew formulae, applications, and fonts. Mise installs
+the fallback runtime versions from `~/.config/mise/config.toml`. A project can
+override them with its own `mise.toml`.
+
+```sh
+./init/brew.sh
+./init/mise.sh
+```
+
+Clone the source packages used by the pnpm globals and Pi settings:
+
+```sh
+mkdir -p ~/dev
+jj git clone git@github.com:jordi9/chloe.git ~/dev/chloe
+jj git clone git@github.com:jordi9/pi-dac.git ~/dev/pi-dac
+jj git clone git@github.com:jordi9/pi-impeccable.git ~/dev/pi-impeccable
+```
+
+Finish the setup:
+
+```sh
+./init/pnpm.sh
+./init/zellij.sh
+ya pkg install
+./init/doctor.sh
+exec zsh
+```
+
+`init/pnpm.sh` builds the local packages before linking their commands.
+`init/zellij.sh` verifies the pinned zjstatus download before replacing the
+plugin. `init/doctor.sh` reads the resulting setup and returns nonzero only for
+missing requirements.
+
+### Restore local configuration
+
+Restore private castles, application preferences, and licenses from the private
+runbook. MonoLisa requires a separate license and is not in the Brewfile. Its
+absence produces a doctor warning.
+
+Inspect the macOS preferences without changing them:
+
+```sh
+./init/macos.zsh
+```
+
+Apply the reviewed values with:
+
+```sh
+./init/macos.zsh --apply --wipe-dock
+```
+
+That command backs up the Dock preferences before erasing pinned applications.
+Grant Accessibility, Screen Recording, and login-item permissions in System
+Settings.
+
+## Zsh layout
+
+`home/.zshrc` loads configuration in this order:
+
+1. Atuin's PTY proxy.
+2. Public Antidote plugins from `~/.zsh_plugins.txt`.
+3. Personal modules: `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and
+   `commands.zsh`.
+4. Optional private plugins through `private-plugins.zsh`.
+5. Environment, completion, autosuggestions, keybindings, and integrations.
+6. The prompt.
+
+Put personal shell changes in the module that owns the concern:
+
+- `core.zsh`: locale, reload helpers, completion refresh, and native history
+- `jj.zsh`: jj workspace and wrapper behavior
+- `navigation.zsh`: directory helpers and ZLE navigation widgets
+- `git.zsh`: Git aliases and functions
+- `commands.zsh`: general command shortcuts
+- `environment.zsh`: PATH, terminal behavior, mise shims, and pnpm globals
+- `integrations.zsh`: mise, Carapace, Atuin, direnv, and zoxide hooks
+- `keybindings.zsh`: widget registration and key bindings
+
+Add public plugins to `home/.zsh_plugins.txt`. Antidote regenerates
+`~/.zsh_plugins.zsh` when the manifest changes. The generated file is not
+tracked.
+
+For machine-specific plugins, create `~/.zsh_plugins.local.txt`. Each line can
+name a local checkout or remote repository:
+
+```text
+$HOMESHICK_REPOS/my-private-dotfiles
+git@github.com:company/zsh-tools
+```
+
+`private-plugins.zsh` generates `~/.zsh_plugins.local.zsh` and loads it after the
+personal modules, so private definitions win. When the manifest is absent, the
+loader ignores any stale generated file.
+
+Private configuration and licenses belong in separate castles. Keep their names
+and setup instructions in the private runbook:
+
+```sh
+homeshick clone <private-castle-url>
+homeshick link <castle-name>
+```
+
+## Daily use
+
+```sh
+dot       # cd ~/.homesick/repos/dotfiles
+reload    # source ~/.zshrc
+```
+
+Run `homeshick link dotfiles` after adding a tracked file. Use `reload` for shell
+module changes. Restart the shell after changing an Antidote manifest.
+
+If imported Moom or Manytricks settings do not appear, run `killall cfprefsd`.
+Some hotkeys follow [Rectangle](https://github.com/rxhanson/Rectangle).
+
+This setup borrows ideas from
+[mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles),
+[getantidote/zdotdir](https://github.com/getantidote/zdotdir),
+[maximbaz/dotfiles](https://github.com/maximbaz/dotfiles), and
+[paulirish/dotfiles](https://github.com/paulirish/dotfiles).

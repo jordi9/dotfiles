@@ -1,68 +1,9 @@
 #!/bin/sh
-IFS='
-'
-# Make sure we're using the latest Homebrew
-brew update
+# Install the Homebrew formulae and casks declared in the repository Brewfile.
 
-formulae="
-ack
-antidote
-atuin
-bat
-bitwarden-cli
-btop
-carapace
-coreutils
-direnv
-eza
-fd
-ffmpeg
-ffmpegthumbnailer
-file-formula
-gh
-git
-git-cliff
-git-delta
-git-recent
-glow
-go
-grep
-helix
-helmfile
-homeshick
-htop
-imagemagick
-jj
-jq
-k9s
-ktlint
-kubectx
-kubernetes-cli
-ltex-ls
-media-info
-mpv
-pandoc
-poppler
-pv
-rclone
-resvg
-ripgrep
-rsync
-screen
-sevenzip
-shellcheck
-stern
-tailscale
-tree
-vim
-watch
-wget
-yazi
-zellij
-zoxide
-zsh
-"
-for f in $formulae; do
-  echo ">> $f"
-  brew install $f
-done
+set -eu
+
+CDPATH=''
+export CDPATH
+repo_root=$(cd -- "$(dirname -- "$0")/.." && pwd)
+exec brew bundle install --no-upgrade --file="$repo_root/Brewfile"

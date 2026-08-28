@@ -86,8 +86,6 @@ alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add 
 alias do-not-disturb="defaults write com.apple.dock no-bouncing -bool TRUE && reload-dock"
 alias disturb="defaults write com.apple.dock no-bouncing -bool FALSE && reload-dock"
 
-alias bluetooth-restart='blueutil -p 0 && sleep 1 && blueutil -p 1'
-
 # Linux
 #######
 

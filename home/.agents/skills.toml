@@ -1,13 +1,12 @@
 version = 1
 
 [[sources]]
-#  repo = "git@github.com:jordi9/skills"
   path = "~/dev/skills"
-  skills = ["backend-craft", "bro", "build-sticky", "charter", "check-pi-extensions-changelog", "chloe", "code-review", "create-stickies", "frontend-craft", "jj9", "publish-stickies", "pull-sticky", "security-review", "setup-stickies", "structural-review", "tdd", "typescript-craft"]
+  skills = ["backend-craft", "bro", "build-sticky", "charter", "check-pi-extensions-changelog", "chloe", "code-review", "create-stickies", "frontend-craft", "jj9", "publish-stickies", "pull-sticky", "security-review", "setup-stickies", "structural-review", "tdd", "testing-craft", "typescript-craft"]
 
 [[sources]]
   repo = "mattpocock/skills"
-  skills = ["grilling", "writing-great-skills"]
+  skills = ["grilling", "writing-for-agents"]
 
 [[sources]]
   repo = "modem-dev/hunk"
@@ -20,3 +19,11 @@ version = 1
 [[sources]]
   repo = "dietrichgebert/ponytail"
   skills = ["!ponytail-audit", "!ponytail-review"]
+
+[[sources]]
+  repo = "humanlayer/skills"
+  skills = ["show-me"]
+
+[[sources]]
+  repo = "cursor/plugins"
+  skills = ["!unslop"]

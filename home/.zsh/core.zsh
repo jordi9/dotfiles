@@ -5,6 +5,12 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Homeshick's shell wrapper enables commands that must affect the current shell,
+# such as `homeshick cd`.
+export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
+export HOMESHICK_REPOS="$HOME/.homesick/repos"
+source "$HOMESHICK_DIR/homeshick.sh"
+
 # Offer corrections for mistyped commands.
 setopt correct
 

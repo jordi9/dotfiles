@@ -14,5 +14,6 @@
   "reviewAnalysis": {
     "semanticDiff": true,
     "callFlow": false
-  }
+  },
+  "favicon": "totman"
 }

@@ -32,21 +32,13 @@ ssh() {
   TERM=xterm-256color COLORTERM="${COLORTERM:-truecolor}" command ssh -o SendEnv=COLORTERM "$@"
 }
 
-# SDKMAN
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# mise shims keep managed tools available to login shells and GUI applications.
+# Interactive zsh activation lives in integrations.zsh.
+path=("$HOME/.local/share/mise/shims" $path)
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
-case ":$PATH:" in
-  *":$BUN_INSTALL/bin:"*) ;;
-  *) export PATH="$BUN_INSTALL/bin:$PATH" ;;
-esac
-
-# pnpm
+# Global packages installed by mise-managed pnpm.
 export PNPM_HOME="$HOME/Library/pnpm"
-path=("$PNPM_HOME/bin" "$PNPM_HOME" $path)
+path=("$PNPM_HOME/bin" $path)
+
 typeset -U path
 export PATH
-# pnpm end
