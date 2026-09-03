@@ -48,6 +48,7 @@ private manifest is absent and loads private definitions after personal modules.
 
 - `Brewfile` is the Homebrew package list.
 - `init/brew.sh` runs `brew bundle install --no-upgrade`.
+- `init/cleanup-legacy.sh` checks for SDKMAN, standalone Bun, and persisted Go values by default; removal requires `--apply` and preserves active caches.
 - `home/.config/mise/config.toml` owns global runtime versions and Go paths.
 - `init/mise.sh` creates Go directories and installs configured runtimes.
 - `init/pnpm.sh` installs standalone JavaScript commands. Pi manages packages and
@@ -69,8 +70,8 @@ Use the checks that match the change:
 
 ```sh
 # POSIX setup scripts
-sh -n init/brew.sh init/doctor.sh init/mise.sh init/pnpm.sh init/zellij.sh
-shellcheck init/brew.sh init/doctor.sh init/mise.sh init/pnpm.sh init/zellij.sh
+sh -n init/brew.sh init/cleanup-legacy.sh init/doctor.sh init/mise.sh init/pnpm.sh init/zellij.sh
+shellcheck init/brew.sh init/cleanup-legacy.sh init/doctor.sh init/mise.sh init/pnpm.sh init/zellij.sh
 
 # Zsh configuration
 for file in home/.zprofile home/.zshrc home/.zsh/*.zsh init/macos.zsh; do

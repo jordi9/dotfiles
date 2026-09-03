@@ -70,6 +70,25 @@ exec zsh
 plugin. `init/doctor.sh` reads the resulting setup and returns nonzero only for
 missing requirements.
 
+### Clean up an existing Mac
+
+After mise and the doctor pass, inspect runtime managers replaced by mise:
+
+```sh
+./init/cleanup-legacy.sh
+```
+
+Apply the cleanup with:
+
+```sh
+./init/cleanup-legacy.sh --apply
+./init/doctor.sh
+exec zsh
+```
+
+The script removes SDKMAN, standalone Bun, and Go values persisted by the old
+setup. It leaves npm, pnpm, and Gradle caches alone.
+
 ### Restore local configuration
 
 Restore private castles, application preferences, and licenses from the private
