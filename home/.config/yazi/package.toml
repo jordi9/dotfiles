@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "1962818"
-hash = "26db011a778f261d730d4f5f8bf24b3f"
+rev = "4dc7f1b"
+hash = "5bb0bfab901d3601c370eafdd66edd31"
 
 [[plugin.deps]]
 use = "imsi32/yatline"
@@ -40,5 +40,5 @@ hash = "d9da921c3bd37ba32ee27a8a7a40461f"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "9511cb0"
-hash = "67f2240fd9c98f21714527a24cd672f8"
+rev = "20b47bf"
+hash = "5b1bf96d1cba26376087c37de993c517"

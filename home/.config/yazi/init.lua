@@ -11,7 +11,25 @@ local rose_pine_theme = require("yatline-rosepine"):setup("moon")
 local tokyo_night_theme = require("yatline-tokyo-night"):setup("night") -- or moon/storm/day
 
 
-require("yatline"):setup({
+local yatline = require("yatline")
+
+-- Yatline still uses the deprecated File:icon() API for this component.
+function Yatline.string.get:hovered_file_extension(show_icon)
+	local hovered = cx.active.current.hovered
+	if not hovered then
+		return ""
+	end
+
+	local name = hovered.cha.is_dir and "dir" or hovered.url.name:match("^.+%.(.+)$") or "null"
+	if not show_icon then
+		return name
+	end
+
+	local icon = th.icon:match(hovered)
+	return icon and icon.text .. " " .. name or name
+end
+
+yatline:setup({
 	theme = tokyo_night_theme,
 	header_line = {
 		left = {
