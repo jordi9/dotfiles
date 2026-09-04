@@ -14,7 +14,7 @@ in sync with bootstrap changes.
 1. `atuin-proxy.zsh`
 2. Public plugins through `antidote.zsh`
 3. `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and `commands.zsh`
-4. Optional private plugins through `private-plugins.zsh`
+4. Machine-specific plugins and configuration through `machine-local.zsh`
 5. `environment.zsh`
 6. Completion, autosuggestions, keybindings, and integrations
 7. `prompt.zsh`
@@ -41,8 +41,9 @@ Public plugins belong in `home/.zsh_plugins.txt`. Optional private plugins belon
 in `~/.zsh_plugins.local.txt`, usually supplied by a private castle.
 
 Antidote generates `~/.zsh_plugins.zsh` and `~/.zsh_plugins.local.zsh`. Treat both
-as runtime output. `private-plugins.zsh` ignores stale local output when the
-private manifest is absent and loads private definitions after personal modules.
+as runtime output. `machine-local.zsh` ignores stale local plugin output when the
+private manifest is absent, loads private plugins after personal modules, and
+then sources optional machine configuration from `~/.zshrc.local`.
 
 ## Bootstrap contracts
 

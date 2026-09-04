@@ -119,7 +119,7 @@ Settings.
 2. Public Antidote plugins from `~/.zsh_plugins.txt`.
 3. Personal modules: `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and
    `commands.zsh`.
-4. Optional private plugins through `private-plugins.zsh`.
+4. Machine-specific plugins and configuration through `machine-local.zsh`.
 5. Environment, completion, autosuggestions, keybindings, and integrations.
 6. The prompt.
 
@@ -146,9 +146,12 @@ $HOMESHICK_REPOS/my-private-dotfiles
 git@github.com:company/zsh-tools
 ```
 
-`private-plugins.zsh` generates `~/.zsh_plugins.local.zsh` and loads it after the
+`machine-local.zsh` generates `~/.zsh_plugins.local.zsh` and loads it after the
 personal modules, so private definitions win. When the manifest is absent, the
 loader ignores any stale generated file.
+
+For arbitrary machine-specific shell configuration, create `~/.zshrc.local`.
+The same loader sources it after the private plugins. This file is not tracked.
 
 Private configuration and licenses belong in separate castles. Keep their names
 and setup instructions in the private runbook:

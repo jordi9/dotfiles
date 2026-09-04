@@ -7,7 +7,7 @@ source ~/.zsh/navigation.zsh
 source ~/.zsh/git.zsh
 source ~/.zsh/commands.zsh
 
-source ~/.zsh/private-plugins.zsh
+source ~/.zsh/machine-local.zsh
 source ~/.zsh/environment.zsh
 
 source ~/.zsh/completion.zsh
