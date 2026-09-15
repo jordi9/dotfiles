@@ -65,7 +65,7 @@ prefix = "ctrl+b"
 # Hyper here means Ctrl+Alt+Super+Shift.
 focus_pane_left = ["prefix+h", "ctrl+alt+left", "ctrl+alt+super+shift+h", "ctrl+alt+super+shift+left"]
 focus_pane_down = ["prefix+j", "ctrl+alt+down", "ctrl+alt+super+shift+j", "ctrl+alt+super+shift+down"]
-focus_pane_up = ["prefix+k", "ctrl+alt+up", "ctrl+alt+super+shift+k", "ctrl+alt+super+shift+up"]
+focus_pane_up = ["prefix+k", "ctrl+alt+up", "ctrl+alt+super+shift+up"]
 focus_pane_right = ["prefix+l", "ctrl+alt+right", "ctrl+alt+super+shift+l", "ctrl+alt+super+shift+right"]
 
 # Pane actions: Ctrl-b x/z match Zellij tmux mode; Ctrl-b f matches Zellij pane
