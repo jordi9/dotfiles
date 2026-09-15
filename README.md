@@ -115,13 +115,14 @@ Settings.
 
 `home/.zshrc` loads configuration in this order:
 
-1. Atuin's PTY proxy.
-2. Public Antidote plugins from `~/.zsh_plugins.txt`.
-3. Personal modules: `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and
+1. Public Antidote plugins from `~/.zsh_plugins.txt`.
+2. Personal modules: `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and
    `commands.zsh`.
-4. Machine-specific plugins and configuration through `machine-local.zsh`.
-5. Environment, completion, autosuggestions, keybindings, and integrations.
-6. The prompt.
+3. Machine-specific plugins and configuration through `machine-local.zsh`.
+4. Environment, completion, autosuggestions, keybindings, and integrations.
+5. The prompt.
+
+Atuin AI and history integration are enabled; its PTY proxy is disabled.
 
 Put personal shell changes in the module that owns the concern:
 

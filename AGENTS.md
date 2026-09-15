@@ -11,13 +11,12 @@ in sync with bootstrap changes.
 
 `home/.zshrc` loads configuration in dependency order:
 
-1. `atuin-proxy.zsh`
-2. Public plugins through `antidote.zsh`
-3. `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and `commands.zsh`
-4. Machine-specific plugins and configuration through `machine-local.zsh`
-5. `environment.zsh`
-6. Completion, autosuggestions, keybindings, and integrations
-7. `prompt.zsh`
+1. Public plugins through `antidote.zsh`
+2. `core.zsh`, `jj.zsh`, `navigation.zsh`, `git.zsh`, and `commands.zsh`
+3. Machine-specific plugins and configuration through `machine-local.zsh`
+4. `environment.zsh`
+5. Completion, autosuggestions, keybindings, and integrations
+6. `prompt.zsh`
 
 Homeshick owns the personal modules. This repository is not an Antidote plugin.
 Put a shell change in the narrowest existing module:

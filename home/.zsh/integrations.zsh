@@ -1,9 +1,3 @@
-# Ghostty only injects shell integration into the initially launched shell.
-# Restore it when Atuin's PTY proxy starts a replacement zsh.
-if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
-  source "$GHOSTTY_RESOURCES_DIR/shell-integration/zsh/ghostty-integration"
-fi
-
 # mise: project-aware runtime and tool versions.
 if command -v mise >/dev/null 2>&1; then
   eval "$(mise activate zsh)"

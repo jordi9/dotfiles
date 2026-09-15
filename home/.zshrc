@@ -1,4 +1,3 @@
-source ~/.zsh/atuin-proxy.zsh
 source ~/.zsh/antidote.zsh
 
 source ~/.zsh/core.zsh

@@ -40,4 +40,4 @@ autostart = true
 socket_path = "~/.local/share/atuin/atuin.sock"
 
 [pty_proxy]
-enabled = true
+enabled = false
