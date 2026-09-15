@@ -1,0 +1,12 @@
+version = 1
+
+[[sources]]
+  kind = "git"
+  identity = "github.com/anomalyco/terminal-control"
+  repo = "anomalyco/terminal-control"
+  commit = "c1d4f95e4f1b7638f6229e9bfc9599a955f95ce2"
+
+  [[sources.skills]]
+    name = "terminal-control"
+    path = "skills/terminal-control"
+    hash = "sha256:7555691a9d9813bf3b1c9e0c22fece1197875b44f8a6ed2ecae490910f1c0773"

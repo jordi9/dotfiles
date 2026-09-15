@@ -24,6 +24,32 @@ function _dotfiles_configure_carapace {
 }
 _dotfiles_configure_carapace
 
+# pnpm accepts `pnpm <script>` as shorthand for `pnpm run <script>`, but
+# Carapace only offers package scripts for the explicit `run` form. Combine
+# both candidate sets for pnpm's first argument and its local `p` alias.
+function _dotfiles_pnpm_completion {
+  local -a original_words=("${words[@]}")
+  local original_current="$CURRENT"
+  local -a words=("${original_words[@]}")
+  local CURRENT="$original_current"
+
+  words[1]=pnpm
+  _carapace_completer
+
+  if (( original_current == 2 )) && [[ "${original_words[2]}" != -* ]]; then
+    words=(pnpm run "${original_words[@]:1}")
+    CURRENT=$(( original_current + 1 ))
+    _carapace_completer
+  fi
+}
+
+function _dotfiles_configure_pnpm_completion {
+  if (( $+functions[_carapace_completer] && $+functions[compdef] )); then
+    compdef _dotfiles_pnpm_completion pnpm p
+  fi
+}
+_dotfiles_configure_pnpm_completion
+
 # Atuin: better shell history search and persistence.
 # Load after Antidote/zsh-history-substring-search and local keybindings so
 # Atuin's Ctrl-R and Up bindings win when installed, while native history stays

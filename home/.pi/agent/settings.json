@@ -40,7 +40,12 @@
       "source": "git:github.com/championswimmer/pi-context-usage",
       "skills": []
     },
-    "~/dev/pi-impeccable",
+    {
+      "source": "~/dev/pi-impeccable",
+      "extensions": [
+        "-extensions/impeccable.ts"
+      ]
+    },
     {
       "source": "npm:@ff-labs/pi-fff",
       "extensions": [
@@ -69,7 +74,8 @@
       ]
     },
     "~/dev/pi-dac/packages/pi-dac-mode",
-    "~/dev/pi-dac/packages/pi-elegia"
+    "~/dev/pi-dac/packages/pi-elegia",
+    "npm:pi-mcp-adapter"
   ],
   "hideThinkingBlock": true,
   "terminal": {

@@ -39,11 +39,14 @@ function refresh-completions {
   autoload -Uz compinit
   compinit -i -d "$zcompdump"
 
-  # Re-apply local completion styles and Carapace's dynamic compdefs after a
-  # manual refresh so the current shell matches a fresh shell.
+  # Re-apply local completion styles and dynamic compdefs after a manual
+  # refresh so the current shell matches a fresh shell.
   [[ -r "${ZDOTDIR:-$HOME}/.zsh/completion.zsh" ]] && source "${ZDOTDIR:-$HOME}/.zsh/completion.zsh"
   if (( $+functions[_dotfiles_configure_carapace] )); then
     _dotfiles_configure_carapace
+  fi
+  if (( $+functions[_dotfiles_configure_pnpm_completion] )); then
+    _dotfiles_configure_pnpm_completion
   fi
 
   rehash
