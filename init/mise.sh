@@ -1,5 +1,5 @@
 #!/bin/sh
-# Install the global runtimes declared in ~/.config/mise/config.toml.
+# Install the global runtimes and CLI tools declared in mise config.
 
 set -eu
 

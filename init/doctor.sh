@@ -29,7 +29,7 @@ repo_root=$(CDPATH='' cd -- "$script_dir/.." && pwd)
 tmp_dir=$(mktemp -d "${TMPDIR:-/tmp}/dotfiles-doctor.XXXXXX") || exit 1
 trap 'rm -rf "$tmp_dir"' EXIT HUP INT TERM
 
-export PATH="$HOME/.local/bin:$HOME/Library/pnpm/bin:$HOME/.local/share/mise/shims:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/share/mise/shims:$HOME/Library/pnpm/bin:$PATH"
 
 printf 'Dotfiles doctor\n\n'
 
@@ -69,27 +69,16 @@ mise_config="$HOME/.config/mise/config.toml"
 if command -v mise >/dev/null 2>&1 && [ -f "$mise_config" ]; then
   ok "mise and its global config are available"
 
-  tools=$(awk '
-    /^\[tools\]$/ { in_tools = 1; next }
-    /^\[/ { in_tools = 0 }
-    in_tools && /^[[:alnum:]_-]+[[:space:]]*=/ {
-      name = $0
-      sub(/[[:space:]]*=.*/, "", name)
-      print name
-    }
-  ' "$mise_config")
-
-  missing_tools=''
-  for tool in $tools; do
-    if ! MISE_AUTO_INSTALL=false mise which "$tool" >/dev/null 2>&1; then
-      missing_tools="$missing_tools $tool"
+  if MISE_AUTO_INSTALL=false mise ls --global --missing --no-header \
+    > "$tmp_dir/missing-mise-tools" 2>/dev/null; then
+    missing_tools=$(awk '{ printf " %s@%s", $1, $2 }' "$tmp_dir/missing-mise-tools")
+    if [ -n "$missing_tools" ]; then
+      fail "Missing mise tools:${missing_tools}"
+    else
+      ok "All configured mise tools resolve"
     fi
-  done
-
-  if [ -n "$missing_tools" ]; then
-    fail "Missing mise tools:${missing_tools}"
   else
-    ok "All configured mise tools resolve"
+    fail "Could not inspect configured mise tools"
   fi
 
   expected_go_env="$HOME/.local/bin
@@ -107,7 +96,7 @@ else
   fail "mise or $mise_config is unavailable"
 fi
 
-required_commands='pi agent-browser hunk hunkdiff slop-scan wrangler termctrl chloe pi-dac wiim-pro'
+required_commands='pi agent-browser hunk hunkdiff slop-scan ticktick wrangler termctrl chloe pi-dac wiim-pro'
 missing_commands=''
 for command_name in $required_commands; do
   if ! command -v "$command_name" >/dev/null 2>&1; then

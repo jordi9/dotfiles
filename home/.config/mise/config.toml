@@ -2,6 +2,9 @@
 [settings.go]
 set_gobin = false
 
+[settings.npm]
+package_manager = "pnpm"
+
 [tools]
 bun = "1"
 go = "1.26"
@@ -10,6 +13,14 @@ java = "corretto-25"
 node = "26"
 pnpm = "12"
 ruby = "3.4"
+"npm:@earendil-works/pi-coding-agent" = "latest"
+# The wrapper package does not expose its platform dependency's executable.
+"npm:@kitlangton/terminal-control-darwin-arm64" = "latest"
+"npm:@ticktick/ticktick-cli" = "latest"
+"npm:agent-browser" = "latest"
+"npm:hunkdiff" = "latest"
+"npm:slop-scan" = "latest"
+"npm:wrangler" = "latest"
 
 [env]
 GOBIN = "{{ env.HOME }}/.local/bin"

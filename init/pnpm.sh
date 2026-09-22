@@ -1,8 +1,8 @@
 #!/bin/sh
-# Install global JavaScript CLIs with mise-managed pnpm.
+# Build and globally link JavaScript CLIs from local source checkouts.
 #
-# Pi packages/extensions are declared in ~/.pi/agent/settings.json so pi can
-# install/manage them itself; this script installs only standalone commands.
+# Registry-published CLIs are declared in ~/.config/mise/config.toml. Pi
+# packages/extensions are declared in ~/.pi/agent/settings.json.
 
 set -eu
 
@@ -32,27 +32,6 @@ require_checkout() {
 }
 
 run_pnpm config set global-bin-dir "$PNPM_HOME/bin"
-
-registry_packages="
-@earendil-works/pi-coding-agent
-@kitlangton/terminal-control
-agent-browser
-hunkdiff
-slop-scan
-wrangler
-"
-
-for package in $registry_packages; do
-  echo ">> $package"
-  case "$package" in
-    @earendil-works/pi-coding-agent)
-      run_pnpm add -g --ignore-scripts "$package"
-      ;;
-    *)
-      run_pnpm add -g "$package"
-      ;;
-  esac
-done
 
 chloe_dir=${CHLOE_DIR:-"$HOME/dev/chloe"}
 pi_dac_dir=${PI_DAC_DIR:-"$HOME/dev/pi-dac"}

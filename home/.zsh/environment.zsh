@@ -32,13 +32,13 @@ ssh() {
   TERM=xterm-256color COLORTERM="${COLORTERM:-truecolor}" command ssh -o SendEnv=COLORTERM "$@"
 }
 
-# mise shims keep managed tools available to login shells and GUI applications.
-# Interactive zsh activation lives in integrations.zsh.
-path=("$HOME/.local/share/mise/shims" $path)
-
-# Global packages installed by mise-managed pnpm.
+# Internal packages linked from local checkouts by mise-managed pnpm.
 export PNPM_HOME="$HOME/Library/pnpm"
 path=("$PNPM_HOME/bin" $path)
+
+# Mise shims take precedence over legacy pnpm globals in login shells and GUI
+# applications. Interactive zsh activation lives in integrations.zsh.
+path=("$HOME/.local/share/mise/shims" $path)
 
 typeset -U path
 export PATH

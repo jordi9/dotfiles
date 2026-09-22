@@ -38,15 +38,16 @@ homeshick link dotfiles
 ### Install packages and runtimes
 
 The Brewfile lists all Homebrew formulae, applications, and fonts. Mise installs
-the fallback runtime versions from `~/.config/mise/config.toml`. A project can
-override them with its own `mise.toml`.
+the fallback runtimes and registry-published CLI tools from
+`~/.config/mise/config.toml`. A project can override them with its own
+`mise.toml`.
 
 ```sh
 ./init/brew.sh
 ./init/mise.sh
 ```
 
-Clone the source packages used by the pnpm globals and Pi settings:
+Clone the internal source packages linked by pnpm and used by Pi settings:
 
 ```sh
 mkdir -p ~/dev
@@ -65,7 +66,7 @@ ya pkg install
 exec zsh
 ```
 
-`init/pnpm.sh` builds the local packages before linking their commands.
+`init/pnpm.sh` builds the internal packages before linking their commands.
 `init/zellij.sh` verifies the pinned zjstatus download before replacing the
 plugin. `init/doctor.sh` reads the resulting setup and returns nonzero only for
 missing requirements.
