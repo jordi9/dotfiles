@@ -5,6 +5,31 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "F3 and F4 trigger Shottr shortcuts",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "f3" },
+                                "to": [
+                                    {
+                                        "key_code": "2",
+                                        "modifiers": ["left_command", "left_control", "left_option", "left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "f4" },
+                                "to": [
+                                    {
+                                        "key_code": "4",
+                                        "modifiers": ["left_command", "left_control", "left_option", "left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "ES Dev Symbols - Meh & Hyper Layers",
                         "manipulators": [
                             {

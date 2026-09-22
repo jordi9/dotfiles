@@ -50,11 +50,11 @@ then sources optional machine configuration from `~/.zshrc.local`.
 - `init/brew.sh` runs `brew bundle install --no-upgrade`.
 - `init/cleanup-legacy.sh` checks for SDKMAN, standalone Bun, and persisted Go values by default; removal requires `--apply` and preserves active caches.
 - `home/.config/mise/config.toml` owns global runtimes, registry-published CLI
-  tools, and Go paths.
+  tools other than Pi, and Go paths.
 - `init/mise.sh` creates Go directories and installs configured tools.
-- `init/pnpm.sh` builds and links JavaScript commands from internal source
-  checkouts. Pi manages packages and extensions declared in
-  `home/.pi/agent/settings.json`.
+- `init/pnpm.sh` installs Pi as a pnpm global so `pi update` can update it, then
+  builds and links JavaScript commands from internal source checkouts. Pi manages
+  packages and extensions declared in `home/.pi/agent/settings.json`.
 - `init/zellij.sh` installs the checksum-pinned zjstatus binary. Its `--check`
   mode is read-only and is used by the doctor.
 - `init/doctor.sh` is read-only. It reports `OK`, `WARN`, and `FAIL`, and returns

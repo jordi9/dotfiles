@@ -32,12 +32,13 @@ ssh() {
   TERM=xterm-256color COLORTERM="${COLORTERM:-truecolor}" command ssh -o SendEnv=COLORTERM "$@"
 }
 
-# Internal packages linked from local checkouts by mise-managed pnpm.
+# Pi and internal packages installed or linked by mise-managed pnpm.
 export PNPM_HOME="$HOME/Library/pnpm"
 path=("$PNPM_HOME/bin" $path)
 
-# Mise shims take precedence over legacy pnpm globals in login shells and GUI
-# applications. Interactive zsh activation lives in integrations.zsh.
+# Mise shims take precedence over pnpm globals in login shells and GUI
+# applications. Keep Pi out of mise so its own updater controls this command.
+# Interactive zsh activation lives in integrations.zsh.
 path=("$HOME/.local/share/mise/shims" $path)
 
 typeset -U path

@@ -439,13 +439,21 @@ function jj-open {
   command "${opener[@]}" "$repo_url"
 }
 
-# Intercept `jj ws` as a zsh function so switching can cd the current shell.
+# Run interactive workspace helpers in the current shell. `jj util exec` cannot
+# reliably give fzf a foreground terminal, and switching must cd this shell.
 # All other jj invocations go to the real jj binary.
 function jj {
-  if [[ "$1" == "ws" ]]; then
-    shift
-    jj-workspace-switch "$@"
-  else
-    command jj "$@"
-  fi
+  case "$1" in
+    wd)
+      shift
+      jj-workspace-delete "$@"
+      ;;
+    ws)
+      shift
+      jj-workspace-switch "$@"
+      ;;
+    *)
+      command jj "$@"
+      ;;
+  esac
 }

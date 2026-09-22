@@ -1,8 +1,9 @@
 #!/bin/sh
-# Build and globally link JavaScript CLIs from local source checkouts.
+# Install Pi and globally link JavaScript CLIs from local source checkouts.
 #
-# Registry-published CLIs are declared in ~/.config/mise/config.toml. Pi
-# packages/extensions are declared in ~/.pi/agent/settings.json.
+# Pi stays in pnpm's global layout so `pi update` can update the executable.
+# Other registry-published CLIs are declared in ~/.config/mise/config.toml;
+# Pi packages/extensions are declared in ~/.pi/agent/settings.json.
 
 set -eu
 
@@ -32,6 +33,10 @@ require_checkout() {
 }
 
 run_pnpm config set global-bin-dir "$PNPM_HOME/bin"
+
+# Pi's updater supports pnpm globals but not mise's npm backend layout.
+echo ">> @earendil-works/pi-coding-agent"
+run_pnpm add -g --ignore-scripts @earendil-works/pi-coding-agent
 
 chloe_dir=${CHLOE_DIR:-"$HOME/dev/chloe"}
 pi_dac_dir=${PI_DAC_DIR:-"$HOME/dev/pi-dac"}
