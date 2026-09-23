@@ -135,10 +135,6 @@ if.app-id = 'org.ferdium.ferdium-app'
 run = 'move-node-to-workspace 8'
 
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.intellij'
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run = 'layout floating'
 
@@ -155,19 +151,7 @@ if.app-id = 'cc.ffitch.shottr'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome.beta'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace 9'
-
-[[on-window-detected]]
 if.app-id = 'com.TickTick.task.mac'
-run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-if.app-id = 'notion.id'
 run = 'move-node-to-workspace 5'
 
 # Extension popups are detected before Vivaldi assigns their final title.
@@ -188,9 +172,6 @@ done'''
 if.app-id = 'com.vivaldi.Vivaldi.app.coenapkplkmdancohemdleoikaafakdm'
 run = 'move-node-to-workspace 6'
 
-[[on-window-detected]]
-if.app-id = 'com.anthropic.claudefordesktop'
-run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'com.roon.Roon'
