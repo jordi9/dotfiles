@@ -196,7 +196,8 @@ function jj-workspace-delete {
   fi
 
   root="$(command jj workspace root --name "$workspace")" || return $?
-  physical_root="$(cd "$root" && pwd -P)" || return $?
+  # Resolve symlinks without changing directories (and triggering direnv's chpwd hook).
+  physical_root="${root:A}"
 
   if [[ -z "$physical_root" || "$physical_root" == "/" || "$physical_root" == "$HOME" || ! -e "$physical_root/.jj" ]]; then
     echo "Refusing to delete suspicious workspace root: $physical_root" >&2
@@ -205,7 +206,7 @@ function jj-workspace-delete {
 
   current_root="$(command jj --ignore-working-copy --no-pager workspace root 2>/dev/null)" || current_root=""
   if [[ -n "$current_root" ]]; then
-    current_physical_root="$(cd "$current_root" && pwd -P)" || current_physical_root=""
+    current_physical_root="${current_root:A}"
     if [[ "$physical_root" == "$current_physical_root" ]]; then
       echo "Refusing to delete the current workspace; switch to another workspace first" >&2
       return 1
