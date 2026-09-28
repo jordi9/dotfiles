@@ -77,7 +77,7 @@ preference() {
 
   changes=$((changes + 1))
   printf '[CHANGE] %s: %s -> %s\n' "$label" "$current" "$expected"
-  [[ $mode == apply ]] || return
+  [[ $mode == apply ]] || return 0
 
   defaults $scope_args write "$domain" "$key" "-$type" "$expected"
   applied=$((applied + 1))
@@ -144,8 +144,11 @@ preference user NSGlobalDomain NSAutomaticSpellingCorrectionEnabled bool 0 \
 preference current-host com.apple.screensaver idleTime int 0 \
   'Screen saver idle time' none
 
-pinned_apps=$(defaults read com.apple.dock persistent-apps 2>/dev/null \
-  | grep -c 'tile-data' || true)
+if ! dock_apps=$(defaults read com.apple.dock persistent-apps 2>/dev/null); then
+  print -u2 '[FAIL] Could not read Dock pinned applications; no Dock icons were removed.'
+  exit 1
+fi
+pinned_apps=$(printf '%s\n' "$dock_apps" | grep -c 'tile-data' || true)
 if (( pinned_apps == 0 )); then
   print '[OK]     Dock pinned applications = 0'
 else
