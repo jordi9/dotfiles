@@ -5,3 +5,13 @@
 on   = [ "g", "l" ]
 run  = 'shell --block -- glow --all -p %h'
 desc = "Glow"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "p" ]
+run  = "tab_switch -1 --relative"
+desc = "Previous tab"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "n" ]
+run  = "tab_switch 1 --relative"
+desc = "Next tab"
