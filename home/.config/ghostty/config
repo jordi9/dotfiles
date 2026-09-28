@@ -1,6 +1,4 @@
-#theme = Poimandres Darker
-#theme = TokyoNight 
-#theme = Rose Pine Moon
+theme = TokyoNight Moon
 config-file = ?auto/theme.ghostty
 
 #font-family = "FiraMono Nerd Font"
