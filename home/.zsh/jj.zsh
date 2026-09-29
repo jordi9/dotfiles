@@ -199,8 +199,20 @@ function jj-workspace-delete {
   # Resolve symlinks without changing directories (and triggering direnv's chpwd hook).
   physical_root="${root:A}"
 
-  if [[ -z "$physical_root" || "$physical_root" == "/" || "$physical_root" == "$HOME" || ! -e "$physical_root/.jj" ]]; then
+  if [[ -z "$physical_root" || "$physical_root" == "/" || "$physical_root" == "$HOME" ]]; then
     echo "Refusing to delete suspicious workspace root: $physical_root" >&2
+    return 1
+  fi
+
+  if [[ ! -e "$physical_root/.jj" ]]; then
+    if [[ -e "$physical_root" ]]; then
+      echo "jj wd: '$workspace' is still registered, but its directory has no .jj metadata: $physical_root" >&2
+      echo "jj wd: refusing to delete the remaining files because this directory cannot be verified as a workspace" >&2
+    else
+      echo "jj wd: '$workspace' is still registered, but its directory is missing: $physical_root" >&2
+    fi
+    echo "jj wd: to remove the stale workspace entry, run: jj workspace forget -- ${(q)workspace}" >&2
+    echo "jj wd: forgetting the workspace does not delete any remaining files" >&2
     return 1
   fi
 

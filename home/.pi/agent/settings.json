@@ -1,17 +1,14 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "0.99.1",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "medium",
   "theme": "mojo-dark",
   "enabledModels": [
-    "openai-codex/gpt-5.6-sol",
-    "openai-codex/gpt-5.6-terra",
-    "openai-codex/gpt-5.6-luna",
-    "openai-codex/gpt-5.5",
-    "openai-codex/gpt-6-astra",
-    "openai-codex/gpt-6-luna",
-    "openai-codex/gpt-6-sol"
+    "openai/gpt-6-astra",
+    "openai/gpt-6-luna",
+    "openai/gpt-6-sol",
+    "openai/gpt-6.1-sol"
   ],
   "packages": [
     {
@@ -20,7 +17,12 @@
         "+extensions/mojo-startup.ts"
       ]
     },
-    "~/dev/pi-dac/packages/pi-mojo",
+    {
+      "source": "~/dev/pi-dac/packages/pi-mojo",
+      "extensions": [
+        "-src/questionnaire/ask-user-question-release-guard.ts"
+      ]
+    },
     "~/dev/pi-dac/packages/pi-mojo-cutest",
     {
       "source": "~/dev/pi-dac/packages/pi-signal",
@@ -31,7 +33,12 @@
     "~/dev/pi-dac/packages/pi-now",
     "~/dev/pi-dac/packages/pi-jj",
     "npm:pi-codex-goal",
-    "npm:@juicesharp/rpiv-ask-user-question",
+    {
+      "source": "npm:@juicesharp/rpiv-ask-user-question",
+      "extensions": [
+        "-index.ts"
+      ]
+    },
     {
       "source": "npm:pi-web-access",
       "skills": [
@@ -77,7 +84,12 @@
     },
     "~/dev/pi-dac/packages/pi-dac-mode",
     "~/dev/pi-dac/packages/pi-elegia",
-    "npm:pi-mcp-adapter"
+    {
+      "source": "npm:pi-mcp-adapter",
+      "extensions": [
+        "-index.ts"
+      ]
+    }
   ],
   "hideThinkingBlock": true,
   "terminal": {
@@ -86,5 +98,6 @@
   "quietStartup": true,
   "tuiMode": "fullscreen",
   "outputPad": 1,
-  "showCacheMissNotices": true
+  "showCacheMissNotices": true,
+  "deviceId": "92f61d8a-6d2d-423a-8a95-ff1576c45c1a"
 }

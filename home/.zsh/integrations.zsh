@@ -50,6 +50,31 @@ function _dotfiles_configure_pnpm_completion {
 }
 _dotfiles_configure_pnpm_completion
 
+# `jj ws` and `jj wd` are shell helpers, not native jj subcommands. Complete
+# their workspace argument here; keep Carapace for every other command/argument.
+function _dotfiles_jj_completion {
+  if (( CURRENT == 3 )) && [[ "${words[2]}" == (ws|wd) ]]; then
+    local current_root workspace_rows name root
+    local -a workspaces
+    current_root="$(command jj --ignore-working-copy --no-pager workspace root 2>/dev/null)" || return 1
+    workspace_rows="$(command jj --ignore-working-copy --no-pager workspace list -T 'name ++ "\t" ++ root ++ "\n"' 2>/dev/null)" || return 1
+    while IFS=$'\t' read -r name root; do
+      [[ -n "$name" ]] || continue
+      [[ "${words[2]}" == wd && "$name" == default ]] && continue
+      [[ -n "$root" && "${root:A}" == "${current_root:A}" ]] && continue
+      workspaces+=("$name")
+    done <<< "$workspace_rows"
+    (( ${#workspaces} )) || return 1
+    _describe -t workspaces 'workspaces' workspaces -Q
+  else
+    _carapace_completer
+  fi
+}
+
+if (( $+functions[_carapace_completer] && $+functions[compdef] )); then
+  compdef _dotfiles_jj_completion jj
+fi
+
 # Atuin: better shell history search and persistence.
 # Load after Antidote/zsh-history-substring-search and local keybindings so
 # Atuin's Ctrl-R and Up bindings win when installed, while native history stays
