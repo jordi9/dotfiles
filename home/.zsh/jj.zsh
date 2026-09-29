@@ -215,11 +215,13 @@ function jj-workspace-delete {
 
   if ! command rm -rf -- "$physical_root"; then
     echo "jj wd: failed to remove $physical_root; workspace '$workspace' was not forgotten" >&2
+    echo "jj wd: check the remaining files and stop any process recreating them before cleaning up" >&2
     return 1
   fi
 
   if [[ -e "$physical_root" ]]; then
-    echo "jj wd: failed to remove $physical_root completely; workspace '$workspace' was not forgotten" >&2
+    echo "jj wd: $physical_root still exists after removal; workspace '$workspace' was not forgotten" >&2
+    echo "jj wd: check the remaining files and stop any process recreating them before cleaning up" >&2
     return 1
   fi
 
