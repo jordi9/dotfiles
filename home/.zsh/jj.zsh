@@ -249,7 +249,8 @@ function jj-workspace-delete {
 function jj-workspace-switch {
   emulate -L zsh
 
-  local selection workspace workspace_root
+  local selection workspace workspace_root workspace_rows name root ranked_roots ranked_root query
+  local -a matches
 
   if (( $# > 1 )); then
     echo "Usage: jj ws [workspace]" >&2
@@ -259,9 +260,52 @@ function jj-workspace-switch {
   if (( $# == 1 )); then
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
       echo "Usage: jj ws [workspace]" >&2
+      echo "Exact names win; otherwise match this repository's workspaces using zoxide ranking." >&2
       return 0
     fi
     workspace="$1"
+
+    workspace_rows="$(command jj --ignore-working-copy --no-pager workspace list -T 'name ++ "\t" ++ root ++ "\n"')" || return $?
+    while IFS=$'\t' read -r name root; do
+      if [[ "$name" == "$workspace" ]]; then
+        workspace_root="$root"
+        break
+      fi
+    done <<< "$workspace_rows"
+
+    if [[ -z "$workspace_root" ]] && command -v zoxide >/dev/null 2>&1; then
+      # zoxide orders matches by frecency. Only accept registered roots from
+      # this repository, never an unrelated directory from its database.
+      ranked_roots="$(command zoxide query --list -- "$workspace" 2>/dev/null)" || ranked_roots=""
+      while IFS= read -r ranked_root; do
+        [[ -n "$ranked_root" ]] || continue
+        while IFS=$'\t' read -r name root; do
+          if [[ "$root" == "$ranked_root" ]]; then
+            workspace_root="$root"
+            break 2
+          fi
+        done <<< "$workspace_rows"
+      done <<< "$ranked_roots"
+    fi
+
+    if [[ -z "$workspace_root" ]]; then
+      # New workspaces may not have been visited yet. Allow a unique substring
+      # match even without zoxide, but don't guess among unranked matches.
+      query="${(L)workspace}"
+      while IFS=$'\t' read -r name root; do
+        if [[ "${(L)name}" == *"$query"* || "${(L)root}" == *"$query"* ]]; then
+          matches+=("$name")
+          workspace_root="$root"
+        fi
+      done <<< "$workspace_rows"
+      if (( ${#matches} == 0 )); then
+        echo "jj ws: no workspace matches: $workspace" >&2
+        return 1
+      elif (( ${#matches} > 1 )); then
+        echo "jj ws: ambiguous workspace: $workspace (${(j:, :)matches}); use an exact name or jj ws" >&2
+        return 1
+      fi
+    fi
   else
     if ! command -v fzf >/dev/null 2>&1; then
       echo "Usage: jj ws <workspace>" >&2
@@ -283,7 +327,9 @@ function jj-workspace-switch {
   fi
 
   [[ -n "$workspace" ]] || return 0
-  workspace_root="$(command jj workspace root --name "$workspace")" || return $?
+  if [[ -z "$workspace_root" ]]; then
+    workspace_root="$(command jj workspace root --name "$workspace")" || return $?
+  fi
   [[ -n "$workspace_root" ]] || return 0
   builtin cd -- "$workspace_root"
 }

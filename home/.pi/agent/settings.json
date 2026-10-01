@@ -1,8 +1,11 @@
 {
-  "lastChangelogVersion": "0.99.1",
+  "lastChangelogVersion": "1.0.4",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "medium",
+  "defaultTools": [
+    "+codemode"
+  ],
   "theme": "mojo-dark",
   "enabledModels": [
     "openai/gpt-6-astra",
@@ -20,7 +23,7 @@
     {
       "source": "~/dev/pi-dac/packages/pi-mojo",
       "extensions": [
-        "-src/questionnaire/ask-user-question-release-guard.ts"
+        "+src/questionnaire/ask-user-question-release-guard.ts"
       ]
     },
     "~/dev/pi-dac/packages/pi-mojo-cutest",
@@ -36,7 +39,7 @@
     {
       "source": "npm:@juicesharp/rpiv-ask-user-question",
       "extensions": [
-        "-index.ts"
+        "+index.ts"
       ]
     },
     {
@@ -83,13 +86,7 @@
       ]
     },
     "~/dev/pi-dac/packages/pi-dac-mode",
-    "~/dev/pi-dac/packages/pi-elegia",
-    {
-      "source": "npm:pi-mcp-adapter",
-      "extensions": [
-        "-index.ts"
-      ]
-    }
+    "~/dev/pi-dac/packages/pi-elegia"
   ],
   "hideThinkingBlock": true,
   "terminal": {
@@ -99,5 +96,8 @@
   "tuiMode": "fullscreen",
   "outputPad": 1,
   "showCacheMissNotices": true,
-  "deviceId": "92f61d8a-6d2d-423a-8a95-ff1576c45c1a"
+  "deviceId": "92f61d8a-6d2d-423a-8a95-ff1576c45c1a",
+  "extensions": [
+    "-builtin:codemode"
+  ]
 }

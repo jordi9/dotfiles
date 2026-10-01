@@ -17,9 +17,10 @@ ruby = "3.4"
 "npm:@kitlangton/terminal-control-darwin-arm64" = "latest"
 "npm:@ticktick/ticktick-cli" = "latest"
 "npm:agent-browser" = "latest"
-"npm:hunkdiff" = "latest"
 "npm:slop-scan" = "latest"
 "npm:wrangler" = "latest"
+hunk = "latest"
+"npm:skills" = "latest"
 
 [env]
 GOBIN = "{{ env.HOME }}/.local/bin"
