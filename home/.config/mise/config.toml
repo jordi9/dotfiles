@@ -21,6 +21,9 @@ ruby = "3.4"
 "npm:wrangler" = "latest"
 hunk = "latest"
 "npm:skills" = "latest"
+"npm:shadcn" = "latest"
+process-compose = "1.122.0"
+codex = "latest"
 
 [env]
 GOBIN = "{{ env.HOME }}/.local/bin"
