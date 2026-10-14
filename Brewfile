@@ -50,6 +50,7 @@ brew "shellcheck"
 brew "typst"
 brew "vim"
 brew "zig"
+cask "android-commandlinetools"
 
 # Kubernetes
 brew "helmfile"

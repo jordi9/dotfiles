@@ -32,6 +32,10 @@ ssh() {
   TERM=xterm-256color COLORTERM="${COLORTERM:-truecolor}" command ssh -o SendEnv=COLORTERM "$@"
 }
 
+# Android CLI uses the standard SDK location; expose its installed tools.
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+path=("$ANDROID_HOME/platform-tools" "$ANDROID_HOME/emulator" $path)
+
 # Pi and internal packages installed or linked by mise-managed pnpm.
 export PNPM_HOME="$HOME/Library/pnpm"
 path=("$PNPM_HOME/bin" $path)
