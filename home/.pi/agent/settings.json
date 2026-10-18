@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.4.0",
+  "lastChangelogVersion": "1.5.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "medium",
@@ -104,5 +104,11 @@
   "deviceId": "92f61d8a-6d2d-423a-8a95-ff1576c45c1a",
   "extensions": [
     "-builtin:codemode"
-  ]
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-codex-goal\",\"scope\":\"user\"}": "0.7.7",
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.46.0",
+    "{\"source\":\"npm:pi-codex-image-gen\",\"scope\":\"user\"}": "0.3.0"
+  },
+  "fullscreenCopyOnSelect": false
 }
