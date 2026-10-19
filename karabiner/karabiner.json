@@ -273,6 +273,23 @@
                         ]
                     },
                     {
+                        "description": "Option + Tab → OmniWM traverse forward with wrap",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": { "mandatory": ["option"] }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "c=/opt/homebrew/bin/omniwmctl; f() { $c query focused-window --json | grep -o -m1 'ow_[A-Za-z0-9_-]*'; }; a=$(f); $c command focus up-or-right >/dev/null; [ -n \"$a\" ] && [ \"$a\" = \"$(f)\" ] && $c command focus-column first >/dev/null && $c command focus-window top >/dev/null"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Fx for IntelliJ IDEA",
                         "manipulators": [
                             {
