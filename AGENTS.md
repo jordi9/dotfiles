@@ -27,7 +27,7 @@ Put a shell change in the narrowest existing module:
 - `git.zsh`: Git aliases and functions
 - `commands.zsh`: general shortcuts and tool commands
 - `environment.zsh`: PATH, terminal behavior, mise shims, and pnpm globals
-- `integrations.zsh`: mise, Carapace, Atuin, direnv, and zoxide hooks
+- `integrations.zsh`: mise, Carapace, Vite+, Atuin, direnv, and zoxide hooks
 - `keybindings.zsh`: widget registration and key bindings
 - `prompt.zsh`: Spaceship configuration and custom prompt segments
 
@@ -50,7 +50,10 @@ then sources optional machine configuration from `~/.zshrc.local`.
 - `init/brew.sh` runs `brew bundle install --no-upgrade`.
 - `home/.config/mise/config.toml` owns global runtimes, registry-published CLI
   tools other than Pi, and Go paths.
-- `init/mise.sh` creates Go directories and installs configured tools.
+- `init/mise.sh` creates Go directories, installs configured tools, and then
+  installs Vite+ with the mise-managed Node.js and pnpm. It sets
+  `VP_SELF_SETUP_NO_MODIFY_PATH=1` because `integrations.zsh` sources the Vite+
+  env file and the installer would otherwise append to linked zsh profiles.
 - `init/pnpm.sh` installs Pi as a pnpm global so `pi update` can update it, then
   builds and links JavaScript commands from internal source checkouts. Pi manages
   packages and extensions declared in `home/.pi/agent/settings.json`.

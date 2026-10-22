@@ -45,7 +45,7 @@ followsMouse = false
 followsWindowToMonitor = true
 lockModifier = "off"
 moveCrossesMonitorAtEdge = true
-moveMouseToFocusedWindow = false
+moveMouseToFocusedWindow = true
 raiseOnMouseFocus = false
 
 [gaps]
@@ -323,6 +323,13 @@ axRole = "AXWindow"
 axSubrole = "AXStandardWindow"
 bundleId = "cc.ffitch.shottr"
 id = "835E2D90-26AA-4B7E-828F-F85684F58FB6"
+layout = "float"
+
+[[appRules]]
+axRole = "AXWindow"
+axSubrole = "AXStandardWindow"
+bundleId = "com.kitlangton.hex2"
+id = "C7A35710-39B0-4BE8-AF95-C465C82CE963"
 layout = "float"
 
 [[hotkeys]]

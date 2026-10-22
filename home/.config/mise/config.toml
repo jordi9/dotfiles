@@ -24,6 +24,7 @@ hunk = "latest"
 "npm:shadcn" = "latest"
 process-compose = "1.122.0"
 codex = "latest"
+portless = "latest"
 
 [env]
 GOBIN = "{{ env.HOME }}/.local/bin"

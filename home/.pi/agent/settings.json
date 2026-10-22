@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.3.0",
+  "lastChangelogVersion": "1.4.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "medium",
@@ -15,7 +15,8 @@
     "claude-sdk/claude-opus-5-5",
     "claude-sdk/claude-sonnet-5-5",
     "claude-sdk/claude-fable-5-1",
-    "claude-sdk/claude-haiku-5-5"
+    "claude-sdk/claude-haiku-5-5",
+    "anthropic/claude-opus-5-5"
   ],
   "packages": [
     {

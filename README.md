@@ -41,6 +41,8 @@ The Brewfile lists all Homebrew formulae, applications, and fonts. Mise installs
 the fallback runtimes and most registry-published CLI tools from
 `~/.config/mise/config.toml`. Pi remains a pnpm global so `pi update` can update
 its executable. A project can override mise tools with its own `mise.toml`.
+`init/mise.sh` also installs the global Vite+ `vp` command, configured to use
+the mise-managed Node.js and pnpm.
 
 ```sh
 ./init/brew.sh
@@ -115,7 +117,7 @@ Put personal shell changes in the module that owns the concern:
 - `git.zsh`: Git aliases and functions
 - `commands.zsh`: general command shortcuts
 - `environment.zsh`: PATH, terminal behavior, mise shims, and pnpm globals
-- `integrations.zsh`: mise, Carapace, Atuin, direnv, and zoxide hooks
+- `integrations.zsh`: mise, Carapace, Vite+, Atuin, direnv, and zoxide hooks
 - `keybindings.zsh`: widget registration and key bindings
 
 Add public plugins to `home/.zsh_plugins.txt`. Antidote regenerates

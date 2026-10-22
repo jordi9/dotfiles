@@ -75,6 +75,11 @@ if (( $+functions[_carapace_completer] && $+functions[compdef] )); then
   compdef _dotfiles_jj_completion jj
 fi
 
+# Vite+ (https://viteplus.dev): its installer writes this file. It adds `vp` to
+# PATH, appends node/pnpm fallback shims after mise, and wraps `vp env use`.
+# Source after completion setup so it can register `vp` and `vpr` completions.
+[[ -r "$HOME/.config/vite-plus/env" ]] && source "$HOME/.config/vite-plus/env"
+
 # Atuin: better shell history search and persistence.
 # Load after Antidote/zsh-history-substring-search and local keybindings so
 # Atuin's Ctrl-R and Up bindings win when installed, while native history stays
