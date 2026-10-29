@@ -45,7 +45,7 @@ followsMouse = false
 followsWindowToMonitor = true
 lockModifier = "off"
 moveCrossesMonitorAtEdge = true
-moveMouseToFocusedWindow = true
+moveMouseToFocusedWindow = false
 raiseOnMouseFocus = false
 
 [gaps]
@@ -103,6 +103,10 @@ name = "LG ULTRAFINE"
 [[monitors.ranking]]
 displayUUID = "37D8832A-2D66-02CA-B9F7-8F30A301B230"
 name = "Built-in Retina Display"
+
+[[monitors.ranking]]
+displayUUID = "3F44F45F-5A31-4104-8AE6-00B9F8C711E1"
+name = "LG HDR 4K"
 
 [mouseWarp]
 constrainToArrangement = false
@@ -181,6 +185,21 @@ gridColumn = 0
 gridRow = 0
 monitorDisplayUUID = "37D8832A-2D66-02CA-B9F7-8F30A301B230"
 monitorName = "Built-in Retina Display"
+
+[[routing.arrangements]]
+id = "3DFB7288-6F20-40CF-BDF5-314F607BC346"
+
+[[routing.arrangements.monitors]]
+gridColumn = 0
+gridRow = 0
+monitorDisplayUUID = "37D8832A-2D66-02CA-B9F7-8F30A301B230"
+monitorName = "Built-in Retina Display"
+
+[[routing.arrangements.monitors]]
+gridColumn = 1
+gridRow = 0
+monitorDisplayUUID = "3F44F45F-5A31-4104-8AE6-00B9F8C711E1"
+monitorName = "LG HDR 4K"
 
 [scratchpads]
 
@@ -1160,7 +1179,7 @@ type = "main"
 [[workspaces]]
 displayName = "7"
 id = "A7D5E104-6985-4516-8ED5-07F144F2A33D"
-layoutType = "niri"
+layoutType = "dwindle"
 name = "7"
 
 [workspaces.monitorAssignment]
