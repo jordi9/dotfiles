@@ -5,6 +5,7 @@ line-number = "relative"   # Absolute line number for current, relative for othe
 mouse = false              # Force yourself to use keyboard!
 bufferline = "always"    # Show open buffers (tabs) at the top
 auto-save.after-delay.enable = true
+clipboard-provider = "termcode" # OSC 52, so copies reach the client over SSH/Rex
 
 [editor.cursor-shape]
 insert = "bar"

@@ -26,6 +26,12 @@ if [[ -n "$SSH_CONNECTION" && -z "$COLORTERM" && "$TERM" == *-256color ]]; then
   export COLORTERM=truecolor
 fi
 
+# Rex attaches from another machine set no SSH variables, so Pi would copy only
+# to the server's clipboard. OSC 52 lets the Rex app copy on the client.
+if [[ "$TERM_PROGRAM" == rex ]]; then
+  export PI_CLIPBOARD_OSC52=1
+fi
+
 # Work around remote echo/input issues when SSHing from Ghostty (e.g. over Tailscale)
 # by avoiding TERM=ghostty on hosts without matching terminfo, while preserving truecolor.
 ssh() {
