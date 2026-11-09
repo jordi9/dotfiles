@@ -351,6 +351,13 @@ bundleId = "com.kitlangton.hex2"
 id = "C7A35710-39B0-4BE8-AF95-C465C82CE963"
 layout = "float"
 
+[[appRules]]
+axRole = "AXWindow"
+axSubrole = "AXStandardWindow"
+bundleId = "anomaly.hex"
+id = "F951D2BB-0DA0-4731-81DF-319B4EE5552F"
+layout = "float"
+
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleScratchpad.1"
