@@ -16,12 +16,13 @@ Install Homebrew and add it to the current shell:
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-Install the tools needed to clone this repository. Ghostty and Bitwarden are
-installed early for convenience. The Brewfile installs them again harmlessly.
+Install the tools needed to clone this repository. Bitwarden is installed early
+for convenience. The Brewfile installs it again harmlessly. Rex Beta, the
+terminal and multiplexer, has no Homebrew cask; download it manually.
 
 ```sh
 brew install gh homeshick
-brew install --cask ghostty bitwarden
+brew install --cask bitwarden
 gh auth login  # choose SSH to create and upload this Mac's key
 ```
 

@@ -96,7 +96,7 @@ else
   fail "mise or $mise_config is unavailable"
 fi
 
-required_commands='pi agent-browser hunk hunkdiff slop-scan ticktick wrangler termctrl chloe pi-dac wiim-pro'
+required_commands='pi agent-browser hunk slop-scan ticktick wrangler termctrl chloe pi-dac wiim-pro'
 missing_commands=''
 for command_name in $required_commands; do
   if ! command -v "$command_name" >/dev/null 2>&1; then
