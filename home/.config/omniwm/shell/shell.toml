@@ -1,0 +1,12 @@
+
+[profiles]
+
+[profiles.default]
+center = ["active-window"]
+leading = ["apple-menu", "app-menu", "omniwm", "workspaces", "scratchpads"]
+trailing = ["media", "notifications", "volume", "wifi", "battery-details", "system-stats", "clock"]
+
+[profiles.default.workspaceBar]
+fullWidth = false
+position = "right"
+windowLevel = "popup"
