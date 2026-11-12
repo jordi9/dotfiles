@@ -1,3 +1,6 @@
+# Third-party taps
+tap "anomalyco/tap"
+
 # Shell and dotfile bootstrap
 brew "antidote"
 brew "atuin"
@@ -90,7 +93,7 @@ cask "font-fira-mono-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
 cask "google-chrome"
-cask "hex"
+cask "anomalyco/tap/hex"
 cask "intellij-idea"
 cask "karabiner-elements"
 cask "keepassxc"
