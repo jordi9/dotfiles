@@ -47,7 +47,7 @@ raiseOnMouseFocus = false
 
 [gaps]
 fullscreenUsesOuterGaps = false
-size = 16.0
+size = 11.0
 
 [gaps.outer]
 bottom = 0.0
@@ -114,12 +114,16 @@ terminal = "terminal"
 [monitors]
 
 [[monitors.ranking]]
-displayUUID = "21475596-57C5-486B-A8BC-766D98F115A9"
+displayUUID = "CE240B1E-1472-49DF-A537-A24CE95621DD"
 name = "LG ULTRAFINE"
 
 [[monitors.ranking]]
 displayUUID = "37D8832A-2D66-02CA-B9F7-8F30A301B230"
 name = "Built-in Retina Display"
+
+[[monitors.ranking]]
+displayUUID = "21475596-57C5-486B-A8BC-766D98F115A9"
+name = "LG ULTRAFINE"
 
 [[monitors.ranking]]
 displayUUID = "3F44F45F-5A31-4104-8AE6-00B9F8C711E1"
@@ -221,6 +225,21 @@ gridColumn = 1
 gridRow = 0
 monitorDisplayUUID = "3F44F45F-5A31-4104-8AE6-00B9F8C711E1"
 monitorName = "LG HDR 4K"
+
+[[routing.arrangements]]
+id = "81895F32-CED0-4B39-A2FA-25CBBFD184EA"
+
+[[routing.arrangements.monitors]]
+gridColumn = 1
+gridRow = 0
+monitorDisplayUUID = "CE240B1E-1472-49DF-A537-A24CE95621DD"
+monitorName = "LG ULTRAFINE"
+
+[[routing.arrangements.monitors]]
+gridColumn = 0
+gridRow = 0
+monitorDisplayUUID = "37D8832A-2D66-02CA-B9F7-8F30A301B230"
+monitorName = "Built-in Retina Display"
 
 [scratchpads]
 
@@ -1208,7 +1227,7 @@ binding = "Option+Shift+R"
 id = "raiseAllFloatingWindows"
 
 [[hotkeys]]
-binding = "Hyper+F"
+binding = "Unassigned"
 id = "toggleFloatingFocus"
 
 [[hotkeys]]
@@ -1216,7 +1235,7 @@ binding = "Unassigned"
 id = "rescueOffscreenWindows"
 
 [[hotkeys]]
-binding = "Hyper+Command+F"
+binding = "Unassigned"
 id = "toggleFocusedWindowFloating"
 
 [[hotkeys]]
@@ -1258,6 +1277,18 @@ id = "toggleOverview"
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleSystemStats"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleShellWidget.hidden-bar"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleShellWidget.system-stats"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleShellWidget.workspaces"
 
 [[workspaces]]
 id = "AD36F001-C57E-41A5-AC1D-DF5249D007F0"

@@ -86,6 +86,59 @@ fi
 # as fallback.
 if command -v atuin >/dev/null 2>&1; then
   eval "$(atuin init zsh)"
+
+  # Inside Rex, open the Ctrl-R and Up searches in a floating pane. Atuin writes
+  # the selection to stderr, which the pane saves for the widget to read, as in
+  # Atuin's tmux popup mode. Set ATUIN_REX_POPUP=0 to search inline.
+  if (( $+functions[__atuin_search_cmd] )); then
+    functions[__atuin_search_cmd_inline]=$functions[__atuin_search_cmd]
+
+    __atuin_search_cmd() {
+      if [[ -z $REX_BLOCK || -z $REX_SESSION || -n $TMUX || $ATUIN_REX_POPUP == 0 ]] ||
+        (( ! $+commands[rex] || ! $+commands[jq] )); then
+        __atuin_search_cmd_inline "$@"
+        return
+      fi
+
+      local dir layer block exit_status=1
+      dir=$(mktemp -d) || return 1
+      {
+        layer=$(jq -nc --arg session "$REX_SESSION" --arg cwd "$PWD" '{
+          session_id: $session,
+          bounds: [0.1, 0.15, 0.8, 0.6],
+          focus: true,
+          layout: {block: {
+            flavor: "com.superlogical.terminal.shell",
+            label: "atuin",
+            options: {shell: "none", cwd: $cwd, command: $ARGS.positional}
+          }}
+        }' --args -- /bin/sh -c 'd=$1; shift; "$@" 2>"$d/result"; echo $? >"$d/status"' sh "$dir" \
+          /usr/bin/env "ATUIN_SESSION=$ATUIN_SESSION" ATUIN_SHELL=zsh "ATUIN_QUERY=$BUFFER" \
+          "$commands[atuin]" search "$@" -i |
+          rex api call -s "$REX_SESSION" session.new_layer - 2>/dev/null) &&
+          block=$(jq -er '.block_ids[0]' <<<"$layer") || {
+          __atuin_search_cmd_inline "$@"
+          return
+        }
+
+        # wait fails if the pane closed before it started watching, so the
+        # status file decides when the search is done.
+        until [[ -e $dir/status ]]; do
+          rex wait -s "$REX_SESSION" "$block" >/dev/null 2>&1 && continue
+          [[ -e $dir/status ]] && break
+          rex block inspect -s "$REX_SESSION" "$block" >/dev/null 2>&1 || break
+          sleep 0.1
+        done
+        rex focus -s "$REX_SESSION" "$REX_BLOCK" >/dev/null 2>&1
+
+        [[ -r $dir/status ]] && exit_status=$(<$dir/status)
+        [[ -r $dir/result ]] && command cat -- "$dir/result"
+        return $exit_status
+      } always {
+        command rm -rf -- "$dir"
+      }
+    }
+  fi
 fi
 
 # Apply .envrc changes before rendering the prompt.
