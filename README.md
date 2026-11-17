@@ -63,6 +63,7 @@ Finish the setup:
 
 ```sh
 ./init/pnpm.sh
+./init/agents.sh
 ./init/zellij.sh
 ya pkg install
 ./init/doctor.sh
@@ -71,6 +72,8 @@ exec zsh
 
 `init/pnpm.sh` installs Pi with pnpm, then builds the internal packages before
 linking their commands.
+`init/agents.sh` installs Claude Code and Amp with their native installers,
+which keep them updated.
 `init/zellij.sh` verifies the pinned zjstatus download before replacing the
 plugin. `init/doctor.sh` reads the resulting setup and returns nonzero only for
 missing requirements.

@@ -57,6 +57,10 @@ then sources optional machine configuration from `~/.zshrc.local`.
 - `init/pnpm.sh` installs Pi as a pnpm global so `pi update` can update it, then
   builds and links JavaScript commands from internal source checkouts. Pi manages
   packages and extensions declared in `home/.pi/agent/settings.json`.
+- `init/agents.sh` installs coding agents, currently Claude Code and Amp, with
+  their vendors' native installers. It skips an agent whose
+  `~/.local/bin/<name>` link already exists, because native installs update
+  themselves. Keep its agent list in sync with the doctor's.
 - `init/zellij.sh` installs the checksum-pinned zjstatus binary. Its `--check`
   mode is read-only and is used by the doctor.
 - `init/doctor.sh` is read-only. It reports `OK`, `WARN`, and `FAIL`, and returns
@@ -74,8 +78,8 @@ Use the checks that match the change:
 
 ```sh
 # POSIX setup scripts
-sh -n init/brew.sh init/doctor.sh init/mise.sh init/pnpm.sh init/zellij.sh
-shellcheck init/brew.sh init/doctor.sh init/mise.sh init/pnpm.sh init/zellij.sh
+sh -n init/agents.sh init/brew.sh init/doctor.sh init/mise.sh init/pnpm.sh init/zellij.sh
+shellcheck init/agents.sh init/brew.sh init/doctor.sh init/mise.sh init/pnpm.sh init/zellij.sh
 
 # Zsh configuration
 for file in home/.zprofile home/.zshrc home/.zsh/*.zsh init/macos.zsh; do

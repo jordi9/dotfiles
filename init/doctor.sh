@@ -109,6 +109,18 @@ else
   ok "All selected global JavaScript commands resolve"
 fi
 
+missing_agents=''
+for agent_name in claude amp; do
+  if [ ! -x "$HOME/.local/bin/$agent_name" ]; then
+    missing_agents="$missing_agents $agent_name"
+  fi
+done
+if [ -n "$missing_agents" ]; then
+  fail "Missing coding agents:${missing_agents}; run init/agents.sh"
+else
+  ok "All coding agents are installed"
+fi
+
 dotfiles_castle="$HOME/.homesick/repos/dotfiles"
 if [ -d "$dotfiles_castle" ]; then
   ok "The dotfiles Homeshick castle is present"
