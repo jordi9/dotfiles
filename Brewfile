@@ -84,6 +84,7 @@ brew "sox"
 # Applications
 #cask "ghostty"
 cask "aerospace"
+cask "amp-app"
 cask "bitwarden"
 cask "codexbar"
 cask "discord"
