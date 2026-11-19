@@ -13,3 +13,7 @@ export VISUAL='hx'
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 [[ -f ~/.config/secrets/env ]] && source ~/.config/secrets/env
+
+# Inherited PATHs (the Timi runner's, under launchd) already hold Homebrew, which
+# path_helper moves back and brew shellenv adds again: keep each entry once.
+typeset -U path PATH
