@@ -9,5 +9,5 @@ trailing = []
 [profiles.default.workspaceBar]
 fullWidth = false
 position = "right"
-transparentBackground = true
+transparentBackground = false
 windowLevel = "popup"

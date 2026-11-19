@@ -404,6 +404,13 @@ bundleId = "anomaly.hex"
 id = "F951D2BB-0DA0-4731-81DF-319B4EE5552F"
 layout = "float"
 
+[[appRules]]
+axRole = "AXWindow"
+axSubrole = "AXStandardWindow"
+bundleId = "com.colliderli.iina"
+id = "1182E764-471A-494A-9093-EEC763645C53"
+layout = "float"
+
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleScratchpad.1"
@@ -837,7 +844,7 @@ binding = "Unassigned"
 id = "moveWindowToMonitor.left"
 
 [[hotkeys]]
-binding = "Unassigned"
+binding = "Hyper+Z"
 id = "moveWindowToMonitor.right"
 
 [[hotkeys]]
@@ -1251,18 +1258,6 @@ id = "toggleOverview"
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleSystemStats"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "toggleShellWidget.hidden-bar"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "toggleShellWidget.system-stats"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "toggleShellWidget.workspaces"
 
 [[workspaces]]
 id = "AD36F001-C57E-41A5-AC1D-DF5249D007F0"
