@@ -46,9 +46,10 @@ path=("$ANDROID_HOME/platform-tools" "$ANDROID_HOME/emulator" $path)
 export PNPM_HOME="$HOME/Library/pnpm"
 path=("$PNPM_HOME/bin" $path)
 
-# Mise shims take precedence over pnpm globals in login shells and GUI
-# applications. Keep Pi out of mise so its own updater controls this command.
-# Interactive zsh activation lives in integrations.zsh.
+# Mise shims take precedence over pnpm globals. .zprofile adds them for every
+# login shell; this covers interactive shells that aren't login shells. Keep Pi
+# out of mise so its own updater controls this command. Interactive zsh
+# activation lives in integrations.zsh.
 path=("$HOME/.local/share/mise/shims" $path)
 
 typeset -U path

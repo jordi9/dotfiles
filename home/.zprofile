@@ -1,6 +1,10 @@
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Mise shims for every login shell, interactive or not, such as the Timi
+# runner's `zsh -lc`, which never reads .zshrc.
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
 export EDITOR='hx'
 export VISUAL='hx'
 
